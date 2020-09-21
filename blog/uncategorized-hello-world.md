@@ -4,7 +4,7 @@ description: console.log('Hello World')
 published: true
 keywords: hello world
 categories: uncategorized
-date: 2020-09-17
+date: 1970-01-01
 image: assets/images/uncategorized-hello-world/hello-world.jpg
 ---
 

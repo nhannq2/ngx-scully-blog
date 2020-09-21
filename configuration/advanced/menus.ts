@@ -23,5 +23,5 @@ export const MENUS: IMenu[] = [
      * Content of this page is the content of `about.md` file in 
      * `ngx-scully-blog/blog/page` folder.
      */
-    // {name: 'About', route: '/blog/page/about'},
+    {name: 'About', route: '/blog/page/about'},
 ]

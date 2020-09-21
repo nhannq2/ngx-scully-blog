@@ -8,7 +8,7 @@ const SitemapPlugin = getSitemapPlugin();
 setPluginConfig(SitemapPlugin, {
   // TODO: Update this urlPrefix to your domain 
   // Normally, this url is: your-firebase-project-name.web.app
-  urlPrefix: 'https://yourdomain.com',
+  urlPrefix: 'https://nhannguyendacoder.com',
   sitemapFilename: 'sitemap.xml',
   changeFreq: 'monthly',
   priority: ['1.0', '0.9', '0.8', '0.7', '0.6', '0.5', '0.4', '0.3', '0.2', '0.1', '0.0'],
