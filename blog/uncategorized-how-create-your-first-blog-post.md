@@ -58,7 +58,7 @@ I created `ngx-scully-blog/src/assets/images/my-first-blog-post` and added `hell
     - An image in the post's content: `![hello-world-img](assets/images/my-first-blog-post/hello-world.jpg)`.
 
 Final result includes the markdown file and images:
-![first-post](./src/assets/docs/first-post.png) 
+![first-post](assets/docs/first-post.png) 
 
 ### Preview and deploy your post
 When you finish your post: 
