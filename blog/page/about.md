@@ -4,13 +4,13 @@ description: Xin chào, mình là Nhân Nguyễn. Mình viết blog hướng d�
 published: true
 keywords: tu hoc lap trinh
 date: 2020-08-21
-image: assets/images/about-img.png
+image: assets/images/page/about/page-image.jpg
 ---
 # Nhan Nguyen Da Coder
 
 Xin chào, mình là Nhân Nguyễn. Mình viết blog hướng dẫn lập trình web dành cho người tự học lập trình.
 
-Nội dung blog chủ yếu chia sẻ về **Cách tự học lập trình từ cơ bản**</strong>** theo kinh nghiệm của chính bản thân mình, cũng như hướng dẫn các công nghệ lập trình web như HTML, CSS, Javascript, Bootstrap, Angular, Nodejs, Mongodb, Postgresql,...
+Nội dung blog chủ yếu chia sẻ về **Cách tự học lập trình từ cơ bản** theo kinh nghiệm của chính bản thân mình, cũng như hướng dẫn các công nghệ lập trình web như HTML, CSS, Javascript, Bootstrap, Angular, Nodejs, Mongodb, Postgresql,...
 
 **Liên hệ**
 - Trang cá nhân: [Nhan Nguyen](https://www.facebook.com/nhaancs)

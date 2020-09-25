@@ -1,13 +1,15 @@
 ---
-title: Giới thiệu dự án Tôi tự học lập trình
-description: Tôi tự học lập trình là dự án hướng dẫn các bạn tự học lập trình để có thể đi làm. Sau khi học xong, các bạn có thể ứng tuyển vào các vị trí Fresher Frontend hay Fresher Angular developer.
-published: true
-keywords: tu hoc lap trinh, lap trinh, tu hoc Angular, lap trinh angular, html, css, javascript, Fresher Frontend, Fresher angular
+title: 'Giới thiệu dự án Tôi tự học lập trình'
+description: 'Tôi tự học lập trình là dự án hướng dẫn các bạn tự học lập trình để có thể đi làm. Sau khi học xong, các bạn có thể ứng tuyển vào các vị trí Fresher Frontend hay Fresher Angular developer.'
+published: false
+keywords: 'tu hoc lap trinh, lap trinh, tu hoc Angular, lap trinh angular, html, css, javascript, Fresher Frontend, Fresher angular'
 categories: self-learning
-date: 2020-06-25
+date: 2020-06-25T00:00:00.000Z
 image: assets/images/self-learning/gioi-thieu-du-an-toi-tu-hoc-lap-trinh/post-image.jpg
----
+slugs:
+    - ___UNPUBLISHED___kficbyq0_BAgkQBRayPKFeUMqogXCDLIRTI5I1M0t
 
+---
 # Giới thiệu dự án Tôi tự học lập trình
 
 ![post-image][post-image]

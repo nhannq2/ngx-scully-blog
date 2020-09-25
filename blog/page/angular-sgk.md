@@ -1,10 +1,18 @@
 ---
-title: About me
-description: Xin chào, mình là Nhân Nguyễn. Mình viết blog hướng dẫn lập trình web dành cho người tự học lập trình.
+title: Học Angular theo "Sách Giáo Khoa"
+description: Đây là loạt bài viết hướng dẫn tự học lập trình Angular từ căn bản đến nâng cao. Các bài viết được dịch lại từ tài liệu hướng dẫn chính thức của Google.
 published: true
-keywords: tu hoc lap trinh
-date: 2020-08-21
-image: 
+keywords: angular, tu hoc angular, lap trinh angular
+date: 2020-09-25
+image: assets/images/page/angular-sgk/page-image.jpg
 ---
 
-# Học Angular theo SGK
+# Học Angular theo "Sách Giáo Khoa"
+
+Đây là loạt bài viết hướng dẫn tự học lập trình Angular từ căn bản đến nâng cao. Các bài viết được dịch lại từ tài liệu hướng dẫn chính thức của Google trên https://angular.io.
+
+## Nội dung
+- [Phần 0: Giới thiệu](https://nhannguyendacoder.com/blog/angular/sgk/marketing/docs)
+- [Phần 1.1: Khởi Động - Tìm hiểu một ứng dụng Angular đơn giản](https://nhannguyendacoder.com/blog/angular/sgk/start/index)
+
+- Nội dung đang được tiếp tục cập nhật
