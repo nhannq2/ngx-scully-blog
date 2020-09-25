@@ -90,7 +90,6 @@ Ok, chúng ta đã hoàn thành setup cho Firebase. Bây giờ hãy quay trở l
 - Mở thư mục source code bạn đã clone ở bước trước (`ngx-scully-blog`), mình dùng [vscode](https://code.visualstudio.com), bạn cũng có thể sử dụng editor riêng.
 - Mở file [`ngx-scully-blog/configuration/site-configs.ts`](./configuration/site-configs.ts). Đây là nơi bạn có thể cập nhật các config và nội dung hiển thị trên blog theo thông tin của cá nhân bạn.
 - Bây giờ hãy cập nhật file [`site-configs.ts`](./configuration/site-configs.ts) theo thông tin của bạn. Hãy đọc phần comment trên từng config nếu bạn cần thêm thông tin.
-- The final configuration your need to setup is for the sitemap plugin, which generate the `sitemap.xml` file for your blog.
 - Thông tin cuối cùng mà bạn cần phải cập nhật là phần config của plugin sitemap, plugin này sẽ tạo ra file `sitemap.xml` cho blog của bạn.
     - Mở file [`ngx-scully-blog/scully.ngx-scully-blog.config.ts`](./scully.ngx-scully-blog.config.ts)
     - Cập nhật giá trị cho key `urlPrefix` thành địa chỉ blog của bạn, có dạng `your-firebase-project-name.web.app`
