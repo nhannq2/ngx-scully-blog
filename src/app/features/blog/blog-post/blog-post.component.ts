@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { take } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { GlobalService, PostService, SEOService } from 'src/app/services';
 
 
@@ -14,6 +14,8 @@ declare var ng: any;
   encapsulation: ViewEncapsulation.Emulated
 })
 export class BlogPostComponent {
+  private sub: Subscription
+
   constructor(
     seoService: SEOService, 
     public postService: PostService,
@@ -21,13 +23,15 @@ export class BlogPostComponent {
     private router: Router, 
     private route: ActivatedRoute, 
   ) {
-    postService.currentPost.pipe(take(1))
-      .subscribe(currentPost => seoService.doSEO(currentPost))
+    this.sub = postService.currentPost.subscribe(
+      currentPost => seoService.doSEO(currentPost)
+    )
     
     globalService.isReadingAPost = true
   }
 
   ngOnDestroy() {
     this.globalService.isReadingAPost = false
+    this.sub.unsubscribe()
   }
 }
