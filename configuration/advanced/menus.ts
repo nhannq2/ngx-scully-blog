@@ -24,4 +24,5 @@ export const MENUS: IMenu[] = [
      * `ngx-scully-blog/blog/page` folder.
      */
     {name: 'About', route: '/blog/page/about'},
+    {name: 'Học Angular theo SGK', route: '/blog/page/angular-sgk'},
 ]

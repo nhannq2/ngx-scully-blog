@@ -67,7 +67,7 @@ export const PORTFOLIO_INFO = {
      * `https://yourdomain.com/assets/images/your-image-name`. For example, 
      * `https://yourdomain.com/assets/images/profile.jpg`
      */
-    PROFILE_IMAGE: 'https://nhannguyendacoder.com/assets/images/profile.jpg',
+    PROFILE_IMAGE: 'assets/images/profile.jpg',
     /**
      * An image that is displayed in the preview section when you post your portfolio url on social networks.
      * 
@@ -76,7 +76,7 @@ export const PORTFOLIO_INFO = {
      * `https://yourdomain.com/assets/images/your-image-name`. For example, 
      * `https://yourdomain.com/assets/images/preview.jpg`
      */
-    SHARE_IMAGE: 'https://nhannguyendacoder.com/assets/images/portfolio-thumb.png',
+    SHARE_IMAGE: 'assets/images/portfolio-thumb.png',
 }
 
 /**
@@ -96,7 +96,7 @@ export const BLOG_INFO = {
      * `https://yourdomain.com/assets/images/your-image-name`. For example, 
      * `https://yourdomain.com/assets/images/preview.jpg`
      */
-    SHARE_IMAGE: 'https://nhannguyendacoder.com/assets/images/nhan-nguyen-da-coder.jpg',
+    SHARE_IMAGE: 'assets/images/nhan-nguyen-da-coder.jpg',
     /**
      * Phrases that discribe what your blog is about, separated by comma.
      * For example: "angular, frontend programming, javascript programming"
