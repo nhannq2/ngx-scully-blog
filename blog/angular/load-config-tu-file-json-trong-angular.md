@@ -3,7 +3,7 @@ title: Angular Trick - Load config từ file json trong Angular
 description: Trong bài này mình sẽ chia sẻ cách load config động từ file json trong Angular.
 published: true
 keywords: angular, configs, json
-categories: angular
+categories: angular, angular load configs form json
 date: 2020-08-19
 image: assets/images/angular/load-config-tu-file-json-trong-angular/post-image.jpg
 ---
