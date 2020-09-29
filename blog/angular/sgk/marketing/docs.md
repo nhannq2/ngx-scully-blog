@@ -2,7 +2,7 @@
 title: 'Học Angular theo SGK - Phần 0: Giới thiệu'
 description: 'Series hướng dẫn cách sử dụng Angular để phát triển các ứng dụng từ đơn giản đến phức tạp'
 published: true
-keywords: 'angular, angular.io, hoc angular'
+keywords: 'angular, angular sgk, hoc angular theo sach giao khoa'
 categories: angular
 date: '2020-09-05'
 image: 'assets/images/angular/sgk/marketing/docs-image.jpg'

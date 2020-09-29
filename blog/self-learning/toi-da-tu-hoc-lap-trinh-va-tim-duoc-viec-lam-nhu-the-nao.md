@@ -43,7 +43,7 @@ Lúc đầu mình mình khá bối rối không biết nên bắt đầu từ đ
 
 Thật ra những ngày đầu học rất khó vì tài liệu tiếng Việt rất ít và thường không chuyên nghiệp lắm nên mình phải tìm các tài liệu, sách hay khóa học tiếng Anh. Có một sự thật là ngày xưa mình xém bị khống chế môn Tiếng Anh nên khi đọc tài liệu Tiếng Anh giống như cực hình vậy. Giai đoạn này cũng là động lực để mình cảm thấy có động lực học Tiếng Anh sau này. Lúc đầu mình đọc sách vì chưa nghe được video. Dịch sách đúng kiểu dịch từng chữ như bỏ vô Google dịch vậy, giờ đọc lại vừa thấy ngây ngô vừa buồn cười. Sau đó Tiếng Anh khá hơn thì coi mấy video có phụ đề, rồi dần dần coi không cần phụ đề luôn.
 
-Trong quá trình học mình có làm một số project nhỏ như một blog đơn giản bằng PHP, một cái framework mini bằng PHP (thật ra là gõ lại theo một cuốn sách mình đọc được) và làm 1 cái CV bằng HTML deploy để lên Github page. Thế là bắt đầu đi rải CV xin việc thôi.
+Trong quá trình học mình có làm một số project nhỏ như một blog đơn giản bằng PHP, một cái framework mini bằng PHP (thật ra là gõ lại theo một cuốn sách mình đọc được) và làm 1 cái CV bằng HTML để deploy lên Github page. Thế là bắt đầu đi rải CV xin việc thôi.
 
 ## Nộp CV và phỏng vấn
 

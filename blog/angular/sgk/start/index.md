@@ -2,15 +2,15 @@
 title: 'Học Angular theo SGK - Phần 1.1: Khởi Động - Tìm hiểu một ứng dụng Angular đơn giản'
 description: 'Tìm hiểu các thành phần cơ bản của Angular thông qua một ứng dụng Angular đơn giản.'
 published: true
-keywords: 'angular, angular.io, hoc angular'
+keywords: 'angular, angular sgk, hoc angular theo sach giao khoa'
 categories: angular
 date: '2020-09-07'
-image: 'assets/images/angular/sgk/guide/start/index-image.png'
+image: 'assets/images/angular/sgk/guide/start/index-image.jpg'
 
 ---
 # Học Angular theo SGK - Phần 1.1: Khởi Động - Tìm hiểu một ứng dụng Angular đơn giản
 
-![post-image](assets/images/angular/sgk/guide/start/index-image.png)
+![post-image](assets/images/angular/sgk/guide/start/index-image.jpg)
 
 Bài viết gốc: https://angular.io/start
 
@@ -75,7 +75,7 @@ Phần template của Angular chính là phần code HTML. Ngoài các cú pháp
 
 2. Thay đổi template để hiển thị danh sách tên sản phẩm.
 
-  a. Mỗi sản phẩm trong danh sách sẽ có cách hiển thị giống nhau. Để lặp qua danh sách các sản phẩm, chúng ta sẽ dùng directive `*ngFor` cho thẻ `<div>` như sau: 
+  a. Danh sách sản phẩm được khai báo sẵn trong mảng `products` của component `ProductListComponent`. Mỗi sản phẩm trong danh sách sẽ có cách hiển thị giống nhau. Để lặp qua mảng danh sách các sản phẩm ngoài template, chúng ta sẽ dùng directive `*ngFor` cho thẻ `<div>` như sau: 
 
   ```html
   <!--src/app/product-list/product-list.component.html-->
@@ -465,5 +465,5 @@ Bước tiếp theo là tạo ra một component để hiển thị thông báo,
 Bạn đã có một ứng dụng đơn giản với danh sách sản phẩm, nút Share và nút "Notify Me". Bạn đã học được một số kiến thức cơ bản của Angular về component và cú pháp template. Bạn cũng học được làm thế nào để component class và component template tương tác với nhau, và làm thế nào để các component giao tiếp với nhau.
 
 Để tiếp tục khám phá Angular, bạn có thể:
-* [Tiếp tục tìm hiểu về phần routing trong Angular](https://angular.io/start/start-routing "Try it: In-app navigation") và tạo ra một trang hiển thị chi tiết của sản phẩm, khi user click vào tên sản phẩm thì ứng dụng sẽ điều hướng tới trang chi tiết sản phẩm này.
-* [Đi đến phần deploy ứng dụng](https://angular.io/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.
+* [Tiếp tục tìm hiểu về phần điều hướng trong Angular](https://nhannguyendacoder.com/blog/angular/sgk/start/start-routing "Try it: In-app navigation") và tạo ra một màn hình hiển thị chi tiết của sản phẩm, khi user click vào tên sản phẩm thì ứng dụng sẽ điều hướng tới màn hình chi tiết sản phẩm này.
+* [Đi đến phần triển khai ứng dụng](https://angular.io/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.

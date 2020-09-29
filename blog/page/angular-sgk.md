@@ -15,5 +15,6 @@ image: assets/images/page/angular-sgk/page-image.jpg
 - [Phần 0: Giới thiệu](https://nhannguyendacoder.com/blog/angular/sgk/marketing/docs)
 - [Phần 1.1: Khởi Động - Tìm hiểu một ứng dụng Angular đơn giản](https://nhannguyendacoder.com/blog/angular/sgk/start/index)
 - [Phần 1.2: Khởi Động - Điều hướng trong ứng dụng Angular](https://nhannguyendacoder.com/blog/angular/sgk/start/start-routing)
+- [Phần 1.3: Khởi Động - Quản lý dữ liệu](https://nhannguyendacoder.com/blog/angular/sgk/start/start-data)
 
 - Nội dung đang được tiếp tục cập nhật

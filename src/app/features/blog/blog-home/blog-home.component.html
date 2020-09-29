@@ -1,6 +1,5 @@
-<app-blog-post-item
-    *ngFor="let p of postService.posts"
-    [post]="p"
-    ></app-blog-post-item>
-
+<ng-container *ngFor="let p of postService.posts; let i = index;">
+    <ng-adsense *ngIf="(i+1)%5==0"></ng-adsense>
+    <app-blog-post-item [post]="p"></app-blog-post-item>
+</ng-container>
 

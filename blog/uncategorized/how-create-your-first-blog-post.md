@@ -1,13 +1,15 @@
 ---
-title: How to create your first blog post
-description: How to create your first blog post tutorial.
-published: true
-keywords: blog, blog post, how to create blog post
+title: 'How to create your first blog post'
+description: 'How to create your first blog post tutorial.'
+published: false
+keywords: 'blog, blog post, how to create blog post'
 categories: uncategorized
-date: 1970-01-02
+date: 1970-01-02T00:00:00.000Z
 image: assets/images/uncategorized/how-create-your-first-blog-post/post-image.jpg
----
+slugs:
+    - ___UNPUBLISHED___kfl0p1q5_VFrx3YQUq8vXpzebXWrDxdp5OSEb3OgM
 
+---
 # How to create your first blog post
 
 ![post-image](assets/images/uncategorized/how-create-your-first-blog-post/post-image.jpg)

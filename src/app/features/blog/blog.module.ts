@@ -17,6 +17,7 @@ import { BlogRelatedPostsComponent } from './components/blog-related-posts/blog-
 import { BlogFooterComponent } from './components/blog-footer/blog-footer.component';
 import { BlogCategoriesComponent } from './components/blog-categories/blog-categories.component';
 import { BlogFiltersInfoComponent } from './components/blog-filters-info/blog-filters-info.component';
+import { AdsenseModule } from 'ng2-adsense';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { BlogFiltersInfoComponent } from './components/blog-filters-info/blog-fi
     NgbCollapseModule,
     FormsModule,
     FontAwesomeModule,
-    ScullyLibModule
+    ScullyLibModule,
+    AdsenseModule
   ]
 })
 export class BlogModule { 
