@@ -32,36 +32,36 @@ Reactive form bao gồm 2 phần: các object trong component để quản lý v
 
     a. Import service `FormBuilder` từ package `@angular/forms`.
 
-        ```typescript
-        // src/app/cart/cart.component.ts
+    ```typescript
+    // src/app/cart/cart.component.ts
 
-        import { Component, OnInit } from '@angular/core';
-        import { FormBuilder } from '@angular/forms';
+    import { Component, OnInit } from '@angular/core';
+    import { FormBuilder } from '@angular/forms';
 
-        import { CartService } from '../cart.service';
-        ```
+    import { CartService } from '../cart.service';
+    ```
 
     Module `ReactiveFormsModule` đã được import sẵn trong `AppModule` (file `app.module.ts`) chính là nới khai báo service `FormBuilder`.
 
     b. Inject service `FormBuilder` vào component `CartComponent`.
 
-        ```typescript
-        // src/app/cart/cart.component.ts
+    ```typescript
+    // src/app/cart/cart.component.ts
 
-        export class CartComponent implements OnInit {
-            items;
+    export class CartComponent implements OnInit {
+        items;
 
-            constructor(
-                private cartService: CartService,
-                private formBuilder: FormBuilder,
-            ) {
-            }
-
-            ngOnInit() {
-                this.items = this.cartService.getItems();
-            }
+        constructor(
+            private cartService: CartService,
+            private formBuilder: FormBuilder,
+        ) {
         }
-        ```
+
+        ngOnInit() {
+            this.items = this.cartService.getItems();
+        }
+    }
+    ```
 
 3. Trong component `CartComponent`, khai báo thuộc tính `checkoutForm` để lưu trữ phần form được khai báo ở trong component.
 
@@ -215,4 +215,4 @@ Sau khi thêm một vài sản phẩm vào giỏ hàng, người dùng có thể
 
 ## Tiếp theo
 
-* [Đi đến phần triển khai ứng dụng](https://angular.io/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.
+* [Đi đến phần triển khai ứng dụng](https://nhannguyendacoder.com/blog/angular/sgk/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.

@@ -183,4 +183,4 @@ Trong phần này bạn đã sử dụng phần điều hướng của Angular t
 
 Để tiếp tục khám phá Angular, bạn có thể chọn một trong các lựa chọn sau:
 * [Tiếp tục đến phần quản lý dữ liệu](https://angular.io/start/start-data "Try it: Managing Data") để thêm chức năng giỏ hàng, dùng một service để quản lý thông tin của giỏ hàng và dùng HTTP để truy xuất thông tin phí giao hàng từ bên ngoài.
-* [Đi đến phần triển khai ứng dụng](https://angular.io/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.
+* [Đi đến phần triển khai ứng dụng](https://nhannguyendacoder.com/blog/angular/sgk/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.

@@ -14,7 +14,7 @@ image: 'assets/images/angular/sgk/guide/start/index-image.jpg'
 
 Bài viết gốc: https://angular.io/start
 
-Bài viết này sẽ giới thiệu cho các bạn các thành phần cơ bản của Angular thông qua ví dụ về trang web bán hàng đơn giản, gồm có danh mục sản phẩm, giỏ hàng, và form thanh toán. Bạn có thể bắt đầu theo dõi hướng dẫn này ngay bây giờ mà không cần phải [cài đặt môi trường trên máy cá nhân](https://angular.io/guide/setup-local "Setup guide").
+Bài viết này sẽ giới thiệu cho các bạn các thành phần cơ bản của Angular thông qua ví dụ về trang web bán hàng đơn giản, gồm có danh mục sản phẩm, giỏ hàng, và form thanh toán. Bạn có thể bắt đầu theo dõi hướng dẫn này ngay bây giờ mà không cần phải [cài đặt môi trường trên máy cá nhân](https://nhannguyendacoder.com/blog/angular/sgk/guide/setup-local "Setup guide").
 
 
 <div class="callout is-helpful">
@@ -466,4 +466,4 @@ Bạn đã có một ứng dụng đơn giản với danh sách sản phẩm, n�
 
 Để tiếp tục khám phá Angular, bạn có thể:
 * [Tiếp tục tìm hiểu về phần điều hướng trong Angular](https://nhannguyendacoder.com/blog/angular/sgk/start/start-routing "Try it: In-app navigation") và tạo ra một màn hình hiển thị chi tiết của sản phẩm, khi user click vào tên sản phẩm thì ứng dụng sẽ điều hướng tới màn hình chi tiết sản phẩm này.
-* [Đi đến phần triển khai ứng dụng](https://angular.io/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.
+* [Đi đến phần triển khai ứng dụng](https://nhannguyendacoder.com/blog/angular/sgk/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.

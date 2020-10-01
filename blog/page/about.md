@@ -8,6 +8,8 @@ image: assets/images/page/about/page-image.jpg
 ---
 # Nhan Nguyen Da Coder
 
+![page-image](assets/images/page/about/page-image.jpg)
+
 Xin chào, mình là Nhân Nguyễn. Mình viết blog hướng dẫn lập trình web dành cho người tự học lập trình.
 
 Nội dung blog chủ yếu chia sẻ về **Cách tự học lập trình từ cơ bản** theo kinh nghiệm của chính bản thân mình, cũng như hướng dẫn các công nghệ lập trình web như HTML, CSS, Javascript, Bootstrap, Angular, Nodejs, Mongodb, Postgresql,...

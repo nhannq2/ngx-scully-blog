@@ -1,5 +1,5 @@
 ---
-title: 'Học Angular theo SGK - Phần 1.3: Khởi Động - Quản lý dữ liệu'
+title: 'Học Angular theo SGK - Phần 1.3: Khởi Động - Quản lý dữ liệu trong ứng dụng Angular'
 description: 'Hướng dẫn tạo tính năng giỏ hàng và sử dụng service.'
 published: true
 keywords: 'angular, angular sgk, hoc angular theo sach giao khoa'
@@ -7,7 +7,7 @@ categories: angular
 date: 2020-09-30
 image: assets/images/angular/sgk/guide/start/start-data-image.jpg
 ---
-# Học Angular theo SGK - Phần 1.3: Khởi Động - Quản lý dữ liệu
+# Học Angular theo SGK - Phần 1.3: Khởi Động - Quản lý dữ liệu trong ứng dụng Angular
 
 ![post-image](assets/images/angular/sgk/guide/start/start-data-image.jpg)
 
@@ -727,4 +727,4 @@ Bây giờ bạn đã có thể truy suất phí giao hàng, hãy tạo một co
 
 Để tiếp tục khám phá Angular, bạn có thể chọn một trong các lựa chọn sau:
 * [Tiến tục đi đến phần "Forms"](start/start-forms "Try it: Forms for User Input") để thêm tính năng form thanh toán cho ứng dụng.
-* [Đi đến phần triển khai ứng dụng](https://angular.io/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.
+* [Đi đến phần triển khai ứng dụng](https://nhannguyendacoder.com/blog/angular/sgk/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.

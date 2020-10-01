@@ -21,7 +21,7 @@ Angular là một framework để thiết kế và phát triển các **ứng d�
 Mục tiêu của tài liệu này là hướng dẫn các bạn cách sử dụng Angular để phát triển các ứng dụng từ đơn giản đến phức tạp. Các bài hướng dẫn sẽ có kèm theo code mẫu, có thể tải xuống và xem trên máy cá nhân.
 
 <div class="card-container">
-  <a href="https://angular.io/guide/setup-local" class="docs-card"
+  <a href="https://nhannguyendacoder.com/blog/angular/sgk/guide/setup-local" class="docs-card"
     title="Angular Local Environment Setup">
     <section>Bắt đầu</section>
     <p>Cài đặt môi trường trên máy cá nhân với Angular CLI.</p>
