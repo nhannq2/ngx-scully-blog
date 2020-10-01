@@ -1,6 +1,6 @@
 ---
 title: 'Học Angular theo SGK - Phần 1.6: Khởi Động - Cài đặt môi trường cho Angular trên máy cá nhân'
-description: 'Học Angular theo SGK - Phần 1.6: Khởi Động - Cài đặt môi trường cho Angular trên máy cá nhân'
+description: 'Phần này sẽ hướng dẫn bạn cài đặt môi trường cần thiết để có thể lập trình Angular trên máy cá nhân với Angular CLI.'
 published: true
 keywords: angular, angular sgk, hoc angular theo sach giao khoa, angular setup
 categories: angular
@@ -14,119 +14,110 @@ image: assets/images/angular/sgk/guide/setup-local/setup-local-image.jpg
 
 Bài viết gốc: https://angular.io/guide/setup-local
 
-This guide explains how to set up your environment for Angular development using the [Angular CLI tool](cli "CLI command reference").
-It includes information about prerequisites, installing the CLI, creating an initial workspace and starter app, and running that app locally to verify your setup.
+Phần này sẽ hướng dẫn bạn cài đặt môi trường cần thiết để có thể lập trình Angular trên máy cá nhân với [Angular CLI](https://angular.io/cli "CLI command reference"). Nội dung phần này bao gồm các điều kiện yêu cầu, cài đặt Angular CLI, tạo workspace, tạo ứng dụng và chạy thử ứng dụng trên máy cá nhân.
 
 
 <div class="callout is-helpful">
-<header>Try Angular without local setup</header>
 
-If you are new to Angular, you might want to start with [Try it now!](start), which introduces the essentials of Angular in the context of a ready-made basic online store app that you can examine and modify. This standalone tutorial takes advantage of the interactive [StackBlitz](https://stackblitz.com/) environment for online development. You don't need to set up your local environment until you're ready.
+Nếu bạn mới tìm hiểu Angular, bạn có thể tìm hiểu các khái niệm căn bản trong Angular một cách nhanh chóng mà không phải cài đặt bất cứ phần mềm nào ở [đây](https://nhannguyendacoder.com/blog/angular/sgk/start/index)
 
 </div>
 
+## Yêu cầu
 
-{@a devenv}
-{@a prerequisites}
-## Prerequisites
-
-To use the Angular framework, you should be familiar with the following:
+Để sử dụng framework Angular, bạn cần phải biết các công nghệ sau:
 
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
 * [HTML](https://developer.mozilla.org/docs/Learn/HTML/Introduction_to_HTML)
 * [CSS](https://developer.mozilla.org/docs/Learn/CSS/First_steps)
 
-Knowledge of [TypeScript](https://www.typescriptlang.org/) is helpful, but not required.
+Kiến thức về [TypeScript](https://www.typescriptlang.org/) có thể hữu ích, nhưng không bắt buộc.
 
-To install Angular on your local system, you need the following:
+Để cài đặt Angular trên máy cá nhân bạn cần:
 
-{@a nodejs}
 
 * **Node.js**
   
-  Angular requires a [current, active LTS, or maintenance LTS](https://nodejs.org/about/releases) version of Node.js.
+  Angular yêu cầu các phiên bản Node.js được đánh dấu là [current, active LTS, or maintenance LTS](https://nodejs.org/about/releases).
 
   <div class="alert is-helpful">
 
-  For information about specific version requirements, see the `engines` key in the [package.json](https://unpkg.com/@angular/cli/package.json) file.
+  Để biết yêu cần chi tiết về phiên bản của Node.js, bạn có thể xem giá trị của field `engines` trong file [package.json](https://unpkg.com/@angular/cli/package.json).
 
   </div>
 
-  For more information on installing Node.js, see [nodejs.org](http://nodejs.org "Nodejs.org").
-  If you are unsure what version of Node.js runs on your system, run `node -v` in a terminal window.
+  Xem thêm về việc cài đặt Node.js tại [nodejs.org](http://nodejs.org "Nodejs.org").
 
-{@a npm}
+  Dùng lệnh `node -v` trên terminal để biết được bạn đang sử dụng Node.js phiên bản nào.
 
 * **npm package manager**
 
-  Angular, the Angular CLI, and Angular applications depend on [npm packages](https://docs.npmjs.com/getting-started/what-is-npm) for many features and functions.
-  To download and install npm packages, you need an npm package manager.
-  This guide uses the [npm client](https://docs.npmjs.com/cli/install) command line interface, which is installed with `Node.js` by default.
-  To check that you have the npm client installed, run `npm -v` in a terminal window.
+  Angular, Angular CLI, và các ứng dụng Angular phụ thuộc vào [các package trên npm](https://docs.npmjs.com/getting-started/what-is-npm).
+
+  Để tải và cài đặt các package trên npm, bạn cần một phần mềm quản lý package (gọi là npm package manager).
+
+  Phần này sẽ sử dụng [npm client](https://docs.npmjs.com/cli/install) với giao diện dòng lệnh, được cài đặt mặc định cùng với Node.js.
+
+  Để kiểm tra phiên bản npm client bạn đang sử dụng, dùng lệnh `npm -v` trên termial.
 
 
-{@a install-cli}
+## Cài đặt Angular CLI
 
-## Install the Angular CLI
+Angular CLI được dùng để tạo các project, tạo ra code cho các ứng dụng, thư viện, và thực thi nhiều tác vụ khác nhau như test, build hay deploy.
 
-You use the Angular CLI to create projects, generate application and library code, and perform a variety of ongoing development tasks such as testing, bundling, and deployment.
+Để cài đặt Angular CLI, mở cửa sổ terminal và chạy lệnh sau:
 
-To install the Angular CLI, open a terminal window and run the following command:
+```sh
+npm install -g @angular/cli
+```
 
-<code-example language="sh" class="code-shell">
-  npm install -g @angular/cli
-</code-example>
+## Tạo workspace và ứng dụng đầu tiên
 
-{@a create-proj}
+Một hay nhiều ứng dụng có thể được phát triển trong cùng một Angular [**workspace**](https://angular.io/guide/glossary#workspace).
 
-## Create a workspace and initial application
+Để tạo một một workspace mới có sẵn một ứng dụng trong đó:
 
-You develop apps in the context of an Angular [**workspace**](guide/glossary#workspace).
+1. Chạy lệnh `ng new` với tên là `my-app`:
 
-To create a new workspace and initial starter app:
+  ```sh
+    ng new my-app
+  ```
 
-1. Run the CLI command `ng new` and provide the name `my-app`, as shown here:
+2. Lệnh `ng new` trên sẽ tạo sẵn cho bạn một ứng dụng và hỏi một số câu hỏi. Bạn chỉ cần ấn Enter để chọn các giá trị mặc định.
 
-    <code-example language="sh" class="code-shell">
-      ng new my-app
+Tiếp theo Angular CLI sẽ cài đặt các npm package và các dependency cần thiết. Quá trình này có thể mất một vài phút.
 
-    </code-example>
-
-2. The `ng new` command prompts you for information about features to include in the initial app. Accept the defaults by pressing the Enter or Return key.
-
-The Angular CLI installs the necessary Angular npm packages and other dependencies. This can take a few minutes.
-
-The CLI creates a new workspace and a simple Welcome app, ready to run.
+Sau khi hoàn thành thì chúng ta có một workspace với một ứng dụng được tạo sẵn và có thể chạy được.
 
 <div class="alert is-helpful">
 
-You also have the option to use Angular's strict mode, which can help you write better, more maintainable code.
-For more information, see [Strict mode](/guide/strict-mode).
+Bạn có thể lựa chọn để sử dụng strict mode Angular để có thể viết những đoạn code có chất lượng tốt hơn, dễ bảo trì hơn.
+Tìm hiểu thêm về strict mode của Angular ở [đây](https://angular.io/guide/strict-mode).
 
 </div>
 
-{@a serve}
 
-## Run the application
+## Chạy ứng dụng
 
-The Angular CLI includes a server, so that you can build and serve your app locally.
+Angular CLI có đi kèm một server để có thể build và chạy ứng dụng của bạn trên máy cá nhân (local).
 
-1. Navigate to the workspace folder, such as `my-app`.
-
-1. Run the following command:
-
-<code-example language="sh" class="code-shell">
+1. Trên terminal, di chuyển vào thư mục của workspace là `my-app`:
+  ```sh
   cd my-app
+  ```
+
+2. Chạy lệnh sau:
+
+  ```sh
   ng serve --open
-</code-example>
+  ```
 
-The `ng serve` command launches the server, watches your files,
-and rebuilds the app as you make changes to those files.
+Lệnh `ng serve` sẽ build ứng dụng của bạn ra các file khác nhau, khởi tạo một server để host các file đó, sau đó nó tiếp tục giám sát source code, nếu có thay đổi nào về phía source code thì ứng dụng của bạn sẽ được build lại, cập nhật các thay đổi mới nhất.
 
-The `--open` (or just `-o`) option automatically opens your browser
-to `http://localhost:4200/`.
+Tham số `--open` (viết tắt `-o`) sẽ tự động mở trình duyệt của bạn tại địa chỉ `http://localhost:4200/`.
 
-If your installation and setup was successful, you should see a page similar to the following.
+
+Nếu quá trình cài đặt và thiết lập thành công, bạn sẽ thấy một trang tương tự như sau:
 
 
 <div class="lightbox">
@@ -134,12 +125,12 @@ If your installation and setup was successful, you should see a page similar to 
 </div>
 
 
-## Next steps
+## Tiếp theo
 
-* For a more thorough introduction to the fundamental concepts and terminology of Angular single-page app architecture and design principles, read the [Angular Concepts](guide/architecture) section.
+* Tìm hiểu thêm về các khái niệm căn bản, thuật ngữ, kiến trúc và cách thiết kế của các ứng dụng Angular ở [đây](https://angular.io/guide/architecture).
 
-* Work through the [Tour of Heroes Tutorial](tutorial), a complete hands-on exercise that introduces you to the app development process using the Angular CLI and walks through important subsystems.
+* Xem loạt bài hướng dẫn có tên là [Tour of Heroes](https://angular.io/tutorial), đây là một loạt bài hướng dẫn hoàn chỉnh, chi tiết, hướng dẫn quy trình phát triển một ứng dụng với Angular CLI, cũng như giới thiệu các khái niệm quan trọng của Angular.
 
-* To learn more about using the Angular CLI, see the [CLI Overview](cli "CLI Overview"). In addition to creating the initial workspace and app scaffolding, you can use the CLI to generate Angular code such as components and services. The CLI supports the full development cycle, including building, testing, bundling, and deployment.
+* Tìm hiểu thêm về Angular CLI ở [đây](https://angular.io/cli "CLI Overview"). Ngoài việc tạo ra workspace và ứng dụng, bạn có thể dùng Angular CLI để tạo ra các module, component, servcie, directive, pipe,... và thực hiện các tác vụ như build, test, bundling, và deploy.
 
-* For more information about the Angular files generated by `ng new`, see [Workspace and Project File Structure](guide/file-structure).
+* Tìm hiểu thêm về các file được tạo ra bởi lệnh `ng new` ở [đây](https://angular.io/guide/file-structure).

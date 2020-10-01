@@ -16,6 +16,8 @@ image: assets/images/page/angular-sgk/page-image.jpg
 ## Nội dung
 
 ### Khởi động
+Giới thiệu các khái niệm cơ bản nhất trong Angular bằng cách xây dựng một ứng dụng bán hàng online đơn giản. Giúp cho các bạn mới có thể tìm hiểu Angular một cách nhanh chóng mà không phải cài đặt bất cứ phần mềm nào.
+
 - [Phần 0: Giới thiệu](https://nhannguyendacoder.com/blog/angular/sgk/marketing/docs)
 - [Phần 1.1: Khởi Động - Tìm hiểu một ứng dụng Angular đơn giản](https://nhannguyendacoder.com/blog/angular/sgk/start/index)
 - [Phần 1.2: Khởi Động - Điều hướng trong ứng dụng Angular](https://nhannguyendacoder.com/blog/angular/sgk/start/start-routing)
