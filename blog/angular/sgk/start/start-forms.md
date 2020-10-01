@@ -22,7 +22,7 @@ Phần này sẽ chúng ta sẽ cùng nhau thêm tính năng thanh toán và lư
 
 Form trong Angular được xây dựng dựa trên form của HTML với mục đích giúp cho quá trình tạo và kiểm tra tính hợp lệ (validate) của form được dễ dàng hơn. Trong Angular có hai cách để tạo form là dùng Template driven form và Reactive form. Trong phần này chúng ta sẽ dùng Reactive form.
 
-Reactive form bao gồm 2 phần: các object trong component để quản lý và lưu trữ dữ liệu từ form, và phần template của form nằm ngoài template của component.
+Reactive form bao gồm 2 phần: các object trong component để quản lý và lưu trữ dữ liệu của form, và phần template của form nằm ngoài template của component.
 
 ## Tạo form thanh toán trong component
 
@@ -101,7 +101,7 @@ Reactive form bao gồm 2 phần: các object trong component để quản lý v
 
 5. Khi thanh toán, người dùng cần điền tên và địa chỉ của mình, sau khi người dùng submit đơn hàng thì các trường của form và giỏ hàng sẽ được làm rỗng.
 
-    a. Trong file `cart.component.ts`, khai báo method `onSubmit()` để xử lý quá trình submit đơn hàng. Dùng method `clearCart()` của `CartService` để làm rỗng giỏ hàng và form sau khi đơn hàng được gửi đi. Trong thực tế thì dữ liệu đơn hàng sau khi submit sẽ được gửi tới serve để xử lý. Toàn bộ code của component `CartComponent` sẽ như sau:
+    a. Trong file `cart.component.ts`, khai báo method `onSubmit()` để xử lý quá trình submit đơn hàng. Dùng method `clearCart()` của `CartService` để làm rỗng giỏ hàng và form sau khi đơn hàng được gửi đi. Trong thực tế thì dữ liệu đơn hàng sau khi submit sẽ được gửi tới server để xử lý. Toàn bộ code của component `CartComponent` sẽ như sau:
 
     ```typescript
     // src/app/cart/cart.component.ts
@@ -143,7 +143,7 @@ Reactive form bao gồm 2 phần: các object trong component để quản lý v
     }
     ```
 
-Bây giờ bạn đã hoàn thành khai báo form trong component class, tiếp theo hãy đưa phần form này ra ngoài giao diện.
+Bây giờ bạn đã hoàn thành khai báo form trong component class, tiếp theo hãy áp dụng phần form này ra ngoài giao diện.
 
 ## Tạo form thanh toán
 
@@ -211,8 +211,8 @@ Sau khi thêm một vài sản phẩm vào giỏ hàng, người dùng có thể
   <img src='assets/images/angular/sgk/guide/start/cart-with-items-and-form.png' alt="Cart view with checkout form">
 </div>
 
-Để xem đơn hàng được gửi đi, mở của sổ console để thấy một object có chứa tên và địa chỉ mà bạn đã submit.
+Để xem đơn hàng được gửi đi, mở của sổ console bạn sẽ thấy một object có chứa tên và địa chỉ mà bạn đã submit.
 
 ## Tiếp theo
 
-* [Đi đến phần triển khai ứng dụng](https://nhannguyendacoder.com/blog/angular/sgk/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.
+* [Đi đến phần triển khai ứng dụng](https://nhannguyendacoder.com/blog/angular/sgk/start/start-deployment "Try it: Deployment") để tìm hiểu cách phát triển ứng dụng Angular ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.

@@ -25,7 +25,7 @@ Phần này sẽ hướng dẫn bạn tạo tính năng giỏ hàng với 3 giai
 
 ## Service
 
-Service là một phần không thể thiếu của các ứng dụng Angular. Trong Angular, service là một object của một class có thể cùng được sử dụng ở nhiều phần khác nhau của ứng dụng với sự trợ giúp của [hệ thống dependency injection trong Angular](https://angular.io/guide/glossary#dependency-injection-di "Dependency injection definition").
+Service là một phần không thể thiếu của các ứng dụng Angular. Trong Angular, service là một object có thể cùng được sử dụng ở nhiều phần khác nhau của ứng dụng với sự trợ giúp của [hệ thống dependency injection trong Angular](https://angular.io/guide/glossary#dependency-injection-di "Dependency injection definition").
 
 Trong Angular, service được dùng để chia sẻ dữ liệu giữa các phần khác nhau của ứng dụng. Trong bài này, `CartService` được dùng để lưu thông tin và các method cần thiết cho giỏ hàng.
 
@@ -62,7 +62,7 @@ Trong [phần sau](https://nhannguyendacoder.com/blog/angular/sgk/start/start-fo
 
     <div class="alert is-helpful">
 
-    StackBlitz có thể sẽ tự động khai báo service của bạn trong `app.module.ts` mà không dùng `{ providedIn: 'root' }` trong `@Injectable()`. Bạn có thể tìm hiểu rõ hơn về service ở [đây](https://angular.io/guide/architecture-services "Concepts > Intro to Services and DI").
+    StackBlitz có thể sẽ tự động khai báo service của bạn trong `app.module.ts` mà không dùng `{ providedIn: 'root' }` trong `@Injectable()` như trong đoạn code ở trên (nếu điều đó xảy ra thì bạn cũng không cần phải làm gì thêm cả). Bạn có thể tìm hiểu rõ hơn về service ở [đây](https://angular.io/guide/architecture-services "Concepts > Intro to Services and DI").
 
     </div>
 
@@ -70,16 +70,23 @@ Trong [phần sau](https://nhannguyendacoder.com/blog/angular/sgk/start/start-fo
 
     ```typescript
     // src/app/cart.service.ts
+
+    @Injectable({
+        providedIn: 'root'
+    })
     export class CartService {
         items = [];
     }
     ```
 
-3. Khai báo các method để thêm sản phẩm vào giỏ hàng, tra về danh sách sản phẩm có trong giỏ hàng, và xóa tất cả sản phẩm trong giỏ hàng:
+3. Khai báo các method để: thêm sản phẩm vào giỏ hàng, trả về danh sách sản phẩm có trong giỏ hàng, và xóa tất cả sản phẩm trong giỏ hàng:
 
     ```typescript
     // src/app/cart.service.ts
 
+    @Injectable({
+        providedIn: 'root'
+    })
     export class CartService {
         items = [];
 
@@ -137,7 +144,7 @@ Bây giờ chúng ta sẽ sử dụng `CartService` để thêm sản phẩm và
     }
     ```
 
-    Trong Typescript thì `constructor(private route: ActivatedRoute,...` là một dạng viết tắt của khởi tạo giá trị cho các thuộc tính của class. Phần code ở trên tương tự như đoạn code sau:
+    Trong Typescript thì đoạn code `constructor(private route: ActivatedRoute,...` là dạng viết tắt để khởi tạo thuộc tính của class. Phần code ở trên tương tự như đoạn code sau:
 
     ```typescript
     // src/app/product-details/product-details.component.ts
@@ -156,7 +163,7 @@ Bây giờ chúng ta sẽ sử dụng `CartService` để thêm sản phẩm và
     }
     ```
     
-    Nếu như bạn theo dõi từ những phần đầu tiên thì bạn có thể để ý được là chúng ta không hề khởi tạo component nào bằng lệnh `new` cả, ví dụ như `new ProductDetailsComponent()`. Angular sẽ đảm nhiệm việc khởi tạo component cho chúng ta, khi khởi tạo component thì Angular sẽ tự động tìm và truyền giá trị cho các tham số có trong `constructor`, ví dụ như ở đây là `route: ActivatedRoute và cartService: CartService`.
+    Nếu như bạn theo dõi từ những phần đầu tiên thì bạn có thể để ý được là chúng ta không hề khởi tạo component nào bằng lệnh `new` cả, ví dụ như `new ProductDetailsComponent()`. Angular sẽ đảm nhiệm việc khởi tạo component cho chúng ta, khi khởi tạo component thì Angular sẽ tự động tìm và truyền giá trị cho các tham số có trong `constructor` của component đó, ví dụ như ở đây là `route: ActivatedRoute và cartService: CartService`.
 
     Việc khai báo ở `constructor` như trên để khi khởi tạo Angular truyền giá trị vào gọi là **inject**, các giá trị được **inject** vào được gọi là các **dependency**. Trong ví dụ trên, chúng ta đã **inject** hai **dependency** vào `ProductDetailsComponent`, đó là `ActivatedRoute` và `CartService`.
 
@@ -173,7 +180,7 @@ Bây giờ chúng ta sẽ sử dụng `CartService` để thêm sản phẩm và
     ...
     ```
 
-    Còn `ActivatedRoute` là một class được khai báo sẵn của Angular.
+    Còn `ActivatedRoute` là một service được khai báo sẵn của Angular.
 
 
 3. Khai báo method `addToCart()`, nhiệm vụ của method này là thêm sản phẩm đang xem vào giỏ hàng.
@@ -308,7 +315,7 @@ Hãy tạo màn hình hiển thị thông tin giỏ hàng qua 2 bước sau:
 Bạn có thể dùng service để chia sẻ dữ liệu giữa các component khác nhau:
 
 * Component `ProductDetailsComponent` đã sử dụng `CartService` để thêm sản phẩm vào giỏ hàng (sản phẩm trong giỏ hàng được lưu trong mảng `items`).
-* Phần này sẽ hướng dẫn bạn cách sử dụng `CartService` như thế nào để hiển thị các sản phẩm trong giỏ hàng.
+* Phần này sẽ hướng dẫn bạn cách sử dụng `CartService` như thế nào để hiển thị các sản phẩm trong giỏ hàng trong component `CartComponent`.
 
 
 1. Mở file `cart.component.ts`.
@@ -384,10 +391,14 @@ Bạn có thể dùng service để chia sẻ dữ liệu giữa các component 
 
 6. Kiểm tra lại component `CartComponent`.
 
-    a. Click vào "My Store" trên thanh menu trên cùng để đi đến màn hình danh sách sản phẩm.
+    a. Click vào "My Store" ở thanh menu trên cùng để đi đến màn hình danh sách sản phẩm.
+
     b. Click vào tên sản phẩm để hiển thị chi tiết sản phẩm.
+
     c. Click "Buy" để thêm sản phẩm vào giỏ hàng.
-    d. Click nút "Checkout" trên thanh menu trên cùng để xem chi tiết giỏ hàng.
+
+    d. Click nút "Checkout" ở thanh menu trên cùng để xem chi tiết giỏ hàng.
+
     e. Để thêm một sản phẩm khác, click vào "My Store" để quay lại màn hình danh sách sản phẩm và thêm sản phẩm mới.
 
     <div class="lightbox">
@@ -397,7 +408,7 @@ Bạn có thể dùng service để chia sẻ dữ liệu giữa các component 
 
 <div class="alert is-helpful">
 
-StackBlitz tip: Mỗi lần cửa sổ xem trước refresh (khi thay đổi code hay nhấn nut refresh) thì giỏ hàng của bạn sẽ trở nên rỗng, bạn cần thêm sản phẩm lại vào giỏ hàng.
+StackBlitz tip: Mỗi lần cửa sổ xem trước refresh (khi thay đổi code hay nhấn nút refresh) thì giỏ hàng của bạn sẽ trở nên rỗng, bạn cần thêm sản phẩm lại vào giỏ hàng.
 
 </div>
 
@@ -411,7 +422,7 @@ Bạn có thể tìm hiểu thêm về service ở  [đây](https://angular.io/g
 ## Truy xuất phí giao hàng
 <!-- Accessing data with the HTTP client -->
 
-Angular cung cấp sẵn `HttpClient`, một cách để lấy dữ liệu từ bên ngoài (như lấy dữ liệu từ server, json file,...) và cung cấp cho ứng dụng của chúng ta dưới dạng **stream**.
+Angular cung cấp sẵn `HttpClient` để lấy dữ liệu từ bên ngoài (như lấy dữ liệu từ server, json file,...) và cung cấp dữ liệu lấy được cho ứng dụng của chúng ta dưới dạng **stream**.
 
 *Stream là là một 'dòng chảy' của dữ liệu, dữ liệu có thể được đưa vào 'dòng chảy' này bất cứ lúc nào. Chúng ta có thể lắng nghe từ stream để được thông báo mỗi khi có dữ liệu mới.*
 
@@ -419,7 +430,7 @@ Phần này sẽ hướng dẫn bạn sử dụng `HttpClient` để truy xuất
 
 ### Khai báo dữ liệu phí giao hàng
 
-Khi tạo ứng dụng này thì StackBlitz đã khai báo sẵn dữ liệu phí giao hàng trong file `assets/shipping.json`. Chúng ta chỉ cần sử dụng dữ liệu trong file này cho ứng dụng này.
+Khi tạo ứng dụng này thì StackBlitz đã khai báo sẵn dữ liệu phí giao hàng trong file `assets/shipping.json`. Chúng ta chỉ cần sử dụng dữ liệu trong file này cho ứng dụng.
 
 ```json
 // src/assets/shipping.json
@@ -455,7 +466,7 @@ Khi tạo ứng dụng này thì StackBlitz đã khai báo sẵn dữ liệu ph�
     import { HttpClientModule } from '@angular/common/http';
     ```
 
-3. Thêm `HttpClientModule` vào array `imports` trong decorator `@NgModule()` của `AppModule` để có thể sử dụng `HttpClient` trên toàn ứng dụng.
+3. Thêm `HttpClientModule` vào array `imports` trong decorator `@NgModule()` của `AppModule` để có thể sử dụng `HttpClient` trong toàn ứng dụng.
 
     ```typescript
     // src/app/app.module.ts
@@ -466,9 +477,9 @@ Khi tạo ứng dụng này thì StackBlitz đã khai báo sẵn dữ liệu ph�
             HttpClientModule, // <<< HERE
             ReactiveFormsModule,
             RouterModule.forRoot([
-            { path: '', component: ProductListComponent },
-            { path: 'products/:productId', component: ProductDetailsComponent },
-            { path: 'cart', component: CartComponent },
+                { path: '', component: ProductListComponent },
+                { path: 'products/:productId', component: ProductDetailsComponent },
+                { path: 'cart', component: CartComponent },
             ])
         ],
         declarations: [
@@ -508,6 +519,9 @@ Tiếp theo hãy inject `HttpClient` (đây cũng là một service) vào servic
     ```typescript
     // src/app/cart.service.ts
 
+    @Injectable({
+        providedIn: 'root'
+    })
     export class CartService {
         items = [];
 
@@ -527,6 +541,9 @@ Tiếp theo hãy inject `HttpClient` (đây cũng là một service) vào servic
     ```typescript
     // src/app/cart.service.ts
 
+    @Injectable({
+        providedIn: 'root'
+    })
     export class CartService {
         items = [];
 
@@ -599,10 +616,10 @@ Bây giờ bạn đã có thể truy suất phí giao hàng, hãy tạo một co
             HttpClientModule,
             ReactiveFormsModule,
             RouterModule.forRoot([
-            { path: '', component: ProductListComponent },
-            { path: 'products/:productId', component: ProductDetailsComponent },
-            { path: 'cart', component: CartComponent },
-            { path: 'shipping', component: ShippingComponent },
+                { path: '', component: ProductListComponent },
+                { path: 'products/:productId', component: ProductDetailsComponent },
+                { path: 'cart', component: CartComponent },
+                { path: 'shipping', component: ShippingComponent },
             ])
         ],
         declarations: [
@@ -621,7 +638,15 @@ Bây giờ bạn đã có thể truy suất phí giao hàng, hãy tạo một co
     export class AppModule { }
     ```
 
-    Hiện tại chưa có liên kết nào trên giao diện để đi đến màn hình thông tin giao hàng. Bạn có thể đi đến màn hình này bằng cách gõ vào trình duyệt url đã khai báo trước đó. URL sẽ có dạng như sau: `https://getting-started.stackblitz.io/shipping`, trong đó phần `getting-started.stackblitz.io` có thể khác nhau tùy vào project trên Stackblitz của bạn.
+    Hiện tại chưa có liên kết nào trên giao diện để đi đến màn hình thông tin giao hàng. Bạn có thể đi đến màn hình này bằng cách gõ vào trình duyệt url đã khai báo trước đó. URL sẽ có dạng như sau: 
+    
+    `https://getting-started.stackblitz.io/shipping`, 
+    
+    trong đó phần 
+    
+    `getting-started.stackblitz.io` 
+    
+    có thể khác nhau tùy vào project trên Stackblitz của bạn.
 
 3. Sử dụng service `CartService` trong component `ShippingComponent` để truy xuất thông tin phí giao hàng trong file `shipping.json`.
 
@@ -689,7 +714,7 @@ Bây giờ bạn đã có thể truy suất phí giao hàng, hãy tạo một co
     </div>
     ```
 
-    Pipe `async` trả về giá trị sau cùng xuất hiện trong stream, và tiếp tục cập nhật giá trị mới khi có dữ liệu mới được đưa vào stream cho đến khi nào component còn tồn tại. Pipe `async` sẽ tự hủy cùng với component. Bạn có thể tìm hiểu chi tiết về pipe `async` ở [đây](https://angular.io/api/common/AsyncPipe).
+    Pipe `async` trả về giá trị vừa xuất hiện trong stream, và tiếp tục cập nhật giá trị mới khi có dữ liệu mới được đưa vào stream cho đến khi nào component còn tồn tại. Pipe `async` sẽ tự hủy cùng với component. Bạn có thể tìm hiểu chi tiết về pipe `async` ở [đây](https://angular.io/api/common/AsyncPipe).
 
 5. Thêm liên kết tới màn hình thông tin giao hàng từ màn hình chi tiết giỏ hàng:
 
@@ -710,7 +735,7 @@ Bây giờ bạn đã có thể truy suất phí giao hàng, hãy tạo một co
 
 6. Kiểm tra tính năng hiển thị thông tin giao hàng:
 
-    Click vào nút "Checkout" để xem thông tin giỏ hàng. Lưu ý là khi bạn cập nhật code thì phần xem trước sẽ bị refresh lại làm rỗng giỏ hàng, khi đó bạn phải thêm sản phẩm vào lại giỏ hàng.
+    Click vào nút "Checkout" để xem thông tin giỏ hàng. Lưu ý là khi bạn cập nhật code thì phần xem trước sẽ bị refresh lại làm rỗng giỏ hàng, khi đó bạn phải thêm lại sản phẩm vào giỏ hàng.
 
     <div class="lightbox">
       <img src='assets/images/angular/sgk/guide/start/cart-empty-with-shipping-prices.png' alt="Cart with link to shipping prices">
@@ -727,4 +752,4 @@ Bây giờ bạn đã có thể truy suất phí giao hàng, hãy tạo một co
 
 Để tiếp tục khám phá Angular, bạn có thể chọn một trong các lựa chọn sau:
 * [Tiến tục đi đến phần "Forms"](start/start-forms "Try it: Forms for User Input") để thêm tính năng form thanh toán cho ứng dụng.
-* [Đi đến phần triển khai ứng dụng](https://nhannguyendacoder.com/blog/angular/sgk/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.
+* [Đi đến phần triển khai ứng dụng](https://nhannguyendacoder.com/blog/angular/sgk/start/start-deployment "Try it: Deployment") để tìm hiểu cách phát triển ứng dụng Angular ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.
