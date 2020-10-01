@@ -1,14 +1,11 @@
 ---
 title: 'Học Angular theo SGK - Phần 1.3: Khởi Động - Quản lý dữ liệu'
-description: 'Hướng dẫn bạn tạo tính năng giỏ hàng và sử dụng service.'
-published: false
+description: 'Hướng dẫn tạo tính năng giỏ hàng và sử dụng service.'
+published: true
 keywords: 'angular, angular sgk, hoc angular theo sach giao khoa'
 categories: angular
-date: 2020-09-29T00:00:00.000Z
+date: 2020-09-30
 image: assets/images/angular/sgk/guide/start/start-data-image.jpg
-slugs:
-    - ___UNPUBLISHED___kfnfbohx_hEokGSOs6JtEzoY2pY9i1PDopQXLYkN0
-
 ---
 # Học Angular theo SGK - Phần 1.3: Khởi Động - Quản lý dữ liệu
 
@@ -40,7 +37,7 @@ Trong phần này chúng ta sẽ thêm nút "Buy" và màn hình chi tiết sả
 
 <div class="alert is-helpful">
 
-Trong [phần sau](https://angular.io/start/start-forms "Try it: Forms for user input"), bạn sẽ được hướng dẫn để sử dụng `CartService` ở màn hình thanh toán.
+Trong [phần sau](https://nhannguyendacoder.com/blog/angular/sgk/start/start-forms "Try it: Forms for user input"), bạn sẽ được hướng dẫn để sử dụng `CartService` ở màn hình thanh toán.
 
 </div>
 
@@ -109,155 +106,289 @@ Trong [phần sau](https://angular.io/start/start-forms "Try it: Forms for user 
 
 ### Sử dụng `CartService`
 
-This section walks you through using the cart service to add a product to the cart with a "Buy" button.
+Bây giờ chúng ta sẽ sử dụng `CartService` để thêm sản phẩm vào giỏ hàng:
 
-1. Open `product-details.component.ts`.
+1. Mở file `product-details.component.ts`.
 
-2. Configure the component to use the cart service.
+2. Thiết lập component để sử dụng `CartService`.
 
-    a. Import the cart service.
+    a. Import `CartService`.
 
-        <code-example header="src/app/product-details/product-details.component.ts" path="getting-started/src/app/product-details/product-details.component.ts" region="cart-service">
-        </code-example>
+    ```typescript
+    // src/app/product-details/product-details.component.ts
 
-    b. Inject the cart service by adding it to the `constructor()`.
+    import { Component, OnInit } from '@angular/core';
+    import { ActivatedRoute } from '@angular/router';
 
-        <code-example path="getting-started/src/app/product-details/product-details.component.ts" header="src/app/product-details/product-details.component.ts" region="inject-cart-service">
-        </code-example>
+    import { products } from '../products';
+    import { CartService } from '../cart.service';
+    ```
 
-        <!--
-        To do: Consider defining "inject" and describing the concept of "dependency injection"
-        -->
+    b. Inject `CartService` bằng cách thêm vào `constructor()` như sau:
 
-3. Define the `addToCart()` method, which adds the current product to the cart.
+    ```typescript
+    // src/app/product-details/product-details.component.ts
 
-    The `addToCart()` method does the following three things:
-    * Receives the current `product`.
-    * Uses the cart service's `addToCart()` method to add the product the cart.
-    * Displays a message that you've added a product to the cart.
+    export class ProductDetailsComponent implements OnInit {
+        constructor(
+            private route: ActivatedRoute,
+            private cartService: CartService
+        ) { }
+    }
+    ```
 
-    <code-example path="getting-started/src/app/product-details/product-details.component.ts" header="src/app/product-details/product-details.component.ts" region="add-to-cart"></code-example>
+    Trong Typescript thì `constructor(private route: ActivatedRoute,...` là một dạng viết tắt của khởi tạo giá trị cho các thuộc tính của class. Phần code ở trên tương tự như đoạn code sau:
 
-4. Update the product details template with a "Buy" button that adds the current product to the cart.
+    ```typescript
+    // src/app/product-details/product-details.component.ts
 
-    a. Open `product-details.component.html`.
+    export class ProductDetailsComponent implements OnInit {
+        private route: ActivatedRoute;
+        private cartService: CartService;
 
-    b. Add a button with the label "Buy", and bind the `click()` event to the `addToCart()` method:
+        constructor(
+            route: ActivatedRoute,
+            cartService: CartService
+        ) { 
+            this.route = route;
+            this.cartService =  cartService;
+        }
+    }
+    ```
+    
+    Nếu như bạn theo dõi từ những phần đầu tiên thì bạn có thể để ý được là chúng ta không hề khởi tạo component nào bằng lệnh `new` cả, ví dụ như `new ProductDetailsComponent()`. Angular sẽ đảm nhiệm việc khởi tạo component cho chúng ta, khi khởi tạo component thì Angular sẽ tự động tìm và truyền giá trị cho các tham số có trong `constructor`, ví dụ như ở đây là `route: ActivatedRoute và cartService: CartService`.
 
-        <code-example header="src/app/product-details/product-details.component.html" path="getting-started/src/app/product-details/product-details.component.html">
-        </code-example>
+    Việc khai báo ở `constructor` như trên để khi khởi tạo Angular truyền giá trị vào gọi là **inject**, các giá trị được **inject** vào được gọi là các **dependency**. Trong ví dụ trên, chúng ta đã **inject** hai **dependency** vào `ProductDetailsComponent`, đó là `ActivatedRoute` và `CartService`.
+
+    Trong Angular có một hệ thống gọi là **Dependency Injection**, nhiệm vụ của hệ thống này là đăng ký các **dependency** với Angular và cung cấp (**inject**) các **dependency** này đến những nơi cần sử dụng (như trong `ProductDetailsComponent`)
+
+    Trong khi khai báo `CartService` thì đoạn code sau đăng ký service này với hệ thống **Dependency Injection**:
+
+    ```typescript
+    // src/app/cart.service.ts
+
+    @Injectable({
+        providedIn: 'root'
+    })
+    ...
+    ```
+
+    Còn `ActivatedRoute` là một class được khai báo sẵn của Angular.
+
+
+3. Khai báo method `addToCart()`, nhiệm vụ của method này là thêm sản phẩm đang xem vào giỏ hàng.
+
+    Method `addToCart()` thực hiện 3 việc sau:
+    * Nhận vào một tham số là sản phẩm đang xem.
+    * Sử dụng method `addToCart()` trong `CartService` để thêm sản phẩm vào giỏ hàng.
+    * Hiển thị một tin nhắn thông báo rằng bạn đã thêm sản phẩm vào giỏ hàng.
+
+    ```typescript
+    // src/app/product-details/product-details.component.ts
+
+    export class ProductDetailsComponent implements OnInit {
+        addToCart(product) {
+            this.cartService.addToCart(product);
+            window.alert('Your product has been added to the cart!');
+        }
+    }
+    ```
+
+4. Thêm nút "Buy" vào màn hình chi tiết sản phẩm để thêm sản phẩm vào giỏ hàng.
+
+    a. Mở file `product-details.component.html`.
+
+    b. Thêm nút "Buy", sử dụng event binding để khi sự kiện `click()` xảy ra thì method `addToCart()` sẽ được gọi:
+
+    ```html
+    <!--src/app/product-details/product-details.component.html-->
+
+    <h2>Product Details</h2>
+
+    <div *ngIf="product">
+        <h3>{{ product.name }}</h3>
+        <h4>{{ product.price | currency }}</h4>
+        <p>{{ product.description }}</p>
+
+        <button (click)="addToCart(product)">Buy</button>
+    </div>
+    ```
     
     <div class="alert is-helpful">
 
-    The line, `<h4>{{ product.price | currency }}</h4>` uses the `currency` pipe to transform `product.price` from a number to a currency string. A pipe is a way you can transform data in your HTML template. For more information about Angular pipes, see [Pipes](guide/pipes "Pipes").
+    Dòng code `<h4>{{ product.price | currency }}</h4>` sử dụng **pipe** tên là `currency` để chuyển đổi `product.price` từ kiểu số sang kiểu string, thể hiện giá tiền của sản phẩm theo định dạng của tiền tệ. Bạn có thể tìm hiểu chi tiết hơn về **pipe** ở [đây](https://angular.io/guide/pipes "Pipes").
 
     </div>
 
-5. To see the new "Buy" button, refresh the application and click on a product's name to display its details.
+5. Để thấy được nút "Buy" mới thêm vào, bạn tải lại ứng dụng và click vào tên sản phẩm để xem chi tiết.
 
     <div class="lightbox">
       <img src='assets/images/angular/sgk/guide/start/product-details-buy.png' alt="Display details for selected product with a Buy button">
     </div>
 
-    a. Click the "Buy" button to add the product to the stored list of items in the cart and display a confirmation message.
+    a. Click vào nút "Buy" để thêm sản phẩm vào giỏ hàng và hiển thị thông báo xác nhận.
 
     <div class="lightbox">
       <img src='assets/images/angular/sgk/guide/start/buy-alert.png' alt="Display details for selected product with a Buy button">
     </div>
 
 
-## Create the cart view
+## Tạo màn hình hiển thị giỏ hàng
 
-At this point, users can put items in the cart by clicking "Buy", but they can't yet see their cart.
+Cho đến bây giờ thì người dùng đã có thể thêm sản phẩm vào giỏ hàng với nút "Buy", nhưng họ vẫn chưa thấy được thông tin giỏ hàng của mình.
 
-Create the cart view in two steps:
+Hãy tạo màn hình hiển thị thông tin giỏ hàng qua 2 bước sau:
 
-1. Create a cart component and configure routing to the new component. At this point, the cart view has only default text.
-2. Display the cart items.
+1. Tạo component `CartComponent` và thiết lập điều hướng (route) tới component này.
+2. Hiển thị thông tin chi tiết giỏ hàng.
 
-### Set up the component
+### Tạo component `CartComponent`
 
- To create the cart view, begin by following the same steps you did to create the product details component and configure routing for the new component.
+1. Tạo một component tên là `cart`.
 
-1. Generate a cart component, named `cart`.
+    Reminder: click chuột phải vào thư mục `app`, chọn `Angular Generator`, và chọn `Component`.
 
-    Reminder: In the file list, right-click the `app` folder, choose `Angular Generator` and `Component`.
+    ```typescript
+    // src/app/cart/cart.component.ts
+    import { Component, OnInit } from '@angular/core';
 
-    <code-example header="src/app/cart/cart.component.ts" path="getting-started/src/app/cart/cart.component.1.ts"></code-example>
+    @Component({
+        selector: 'app-cart',
+        templateUrl: './cart.component.html',
+        styleUrls: ['./cart.component.css']
+    })
+    export class CartComponent implements OnInit {
 
-2. Add routing (a URL pattern) for the cart component.
+        constructor() { }
 
-    Open `app.module.ts` and add a route for the component `CartComponent`, with a `path` of `cart`:
+        ngOnInit() {
+        }
 
-    <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="cart-route">
-    </code-example>
+    }
+    ```
 
-3. Update the "Checkout" button so that it routes to the `/cart` url.
+2. Thiết lập route cho component `CartComponent`.
 
-    Open `top-bar.component.html` and add a `routerLink` directive pointing to `/cart`.
+    Mở file `app.module.ts` và thiết lập route cho component `CartComponent` có đường dẫn là `cart`:
 
-    <code-example
-        header="src/app/top-bar/top-bar.component.html"
-        path="getting-started/src/app/top-bar/top-bar.component.html"
-        region="cart-route">
-    </code-example>
+    ```typescript 
+    // src/app/app.module.ts
+    @NgModule({
+        imports: [
+            BrowserModule,
+            ReactiveFormsModule,
+            RouterModule.forRoot([
+                { path: '', component: ProductListComponent },
+                { path: 'products/:productId', component: ProductDetailsComponent },
+                { path: 'cart', component: CartComponent }, // <<< HERE
+            ])
+        ],
+    ```
 
-4. To see the new cart component, click the "Checkout" button. You can see the "cart works!" default text, and the URL has the pattern `https://getting-started.stackblitz.io/cart`,  where `getting-started.stackblitz.io` may be different for your StackBlitz project.
+3. Cập nhật nút "Checkout" ở thanh menu trên cùng để nó điều hướng tới url `/cart`.
+
+    Mở file `top-bar.component.html` và thêm `routerLink` với route là `/cart`.
+
+    ```html
+    <!--src/app/top-bar/top-bar.component.html-->
+
+    <a routerLink="/cart" class="button fancy-button">
+        <i class="material-icons">shopping_cart</i>Checkout
+    </a>
+    ```
+
+4. Để xem thông tin giỏ hàng, click vào nút "Checkout". Bạn sẽ thấy giao diện mặc định có dòng chữ "cart works!" và url có dạng như sau `https://getting-started.stackblitz.io/cart`, trong đó phần `getting-started.stackblitz.io` có thể khác nhau tùy vào project trên Stackblitz của bạn.
 
     <div class="lightbox">
       <img src='assets/images/angular/sgk/guide/start/cart-works.png' alt="Display cart view before customizing">
     </div>
 
-### Display the cart items
+### Hiển thị thông tin giỏ hàng
 
-You can use services to share data across components:
+Bạn có thể dùng service để chia sẻ dữ liệu giữa các component khác nhau:
 
-* The product details component already uses the cart service to add products to the cart.
-* This section shows you how to use the cart service to display the products in the cart.
+* Component `ProductDetailsComponent` đã sử dụng `CartService` để thêm sản phẩm vào giỏ hàng (sản phẩm trong giỏ hàng được lưu trong mảng `items`).
+* Phần này sẽ hướng dẫn bạn cách sử dụng `CartService` như thế nào để hiển thị các sản phẩm trong giỏ hàng.
 
 
-1. Open `cart.component.ts`.
+1. Mở file `cart.component.ts`.
 
-2. Configure the component to use the cart service.
+2. Sử dụng `CartService` trong component `CartComponent`.
 
-    a. Import the `CartService` from the `cart.service.ts` file.
+    a. Import `CartService` từ file `cart.service.ts`.
 
-        <code-example header="src/app/cart/cart.component.ts" path="getting-started/src/app/cart/cart.component.2.ts" region="imports">
-        </code-example>
+    ```typescript
+    // src/app/cart/cart.component.ts
 
-    b. Inject the `CartService` so that the cart component can use it.
+    import { Component } from '@angular/core';
+    import { CartService } from '../cart.service';
+    ```
 
-        <code-example path="getting-started/src/app/cart/cart.component.2.ts" header="src/app/cart/cart.component.ts" region="inject-cart">
-        </code-example>
+    b. Inject `CartService` vào component `CartComponent`.
 
-3. Define the `items` property to store the products in the cart.
+    ```typescript
+    // src/app/cart/cart.component.ts
 
-    <code-example path="getting-started/src/app/cart/cart.component.2.ts" header="src/app/cart/cart.component.ts" region="items">
-    </code-example>
+    export class CartComponent {
 
-4. Set the items using the cart service's `getItems()` method. Recall that you defined this method [when you generated `cart.service.ts`](#generate-cart-service).
+        constructor(
+            private cartService: CartService
+        ) { }
+    }
 
-    The resulting `CartComponent` class is as follows:
+    ```
 
-    <code-example path="getting-started/src/app/cart/cart.component.3.ts" header="src/app/cart/cart.component.ts" region="props-services">
-    </code-example>
+3. Khai báo thuộc tính `items` để lưu danh sách sản phẩm trong giỏ.
 
-5. Update the template with a header, and use a `<div>` with an `*ngFor` to display each of the cart items with its name and price.
+    ```typescript
+    // src/app/cart/cart.component.ts
+    export class CartComponent {
+        items;
 
-    The resulting `CartComponent` template is as follows:
+        constructor(
+            private cartService: CartService
+        ) { }
+    }
+    ```
 
-    <code-example header="src/app/cart/cart.component.html" path="getting-started/src/app/cart/cart.component.2.html" region="prices">
-    </code-example>
+4. Gán `items` bằng kết quả trả về của method `getItems()` trong `CartService`.
 
-6. Test your cart component.
+    ```typescript
+    // src/app/cart/cart.component.ts
+    
+    export class CartComponent implements OnInit {
+        items;
 
-    a. Click on "My Store" to go to the product list view.
-    b. Click on a product name to display its details.
-    c. Click "Buy" to add the product to the cart.
-    d. Click "Checkout" to see the cart.
-    e. To add another product, click "My Store" to return to the product list.
+        constructor(
+            private cartService: CartService
+        ) { }
 
-  Repeat to add more items to the cart.
+        ngOnInit() {
+            this.items = this.cartService.getItems();
+        }
+    }
+    ```
+
+5. Thêm tiêu đề cho trang giỏ hàng, và dùng `*ngFor` với thẻ `<div>` để hiển thị tên và giá của từng sản phẩm trong giỏ hàng.
+
+    ```html
+    <!--src/app/cart/cart.component.html-->
+
+    <h3>Cart</h3>
+
+    <div class="cart-item" *ngFor="let item of items">
+        <span>{{ item.name }}</span>
+        <span>{{ item.price | currency }}</span>
+    </div>
+    ```
+
+6. Kiểm tra lại component `CartComponent`.
+
+    a. Click vào "My Store" trên thanh menu trên cùng để đi đến màn hình danh sách sản phẩm.
+    b. Click vào tên sản phẩm để hiển thị chi tiết sản phẩm.
+    c. Click "Buy" để thêm sản phẩm vào giỏ hàng.
+    d. Click nút "Checkout" trên thanh menu trên cùng để xem chi tiết giỏ hàng.
+    e. Để thêm một sản phẩm khác, click vào "My Store" để quay lại màn hình danh sách sản phẩm và thêm sản phẩm mới.
 
     <div class="lightbox">
       <img src='assets/images/angular/sgk/guide/start/cart-page-full.png' alt="Cart view with products added">
@@ -266,155 +397,334 @@ You can use services to share data across components:
 
 <div class="alert is-helpful">
 
-StackBlitz tip: Any time the preview refreshes, the cart is cleared. If you make changes to the app, the page refreshes, so you'll need to buy products again to populate the cart.
+StackBlitz tip: Mỗi lần cửa sổ xem trước refresh (khi thay đổi code hay nhấn nut refresh) thì giỏ hàng của bạn sẽ trở nên rỗng, bạn cần thêm sản phẩm lại vào giỏ hàng.
 
 </div>
 
 <div class="alert is-helpful">
 
-For more information about services, see [Introduction to Services and Dependency Injection](guide/architecture-services "Concepts > Intro to Services and DI").
+Bạn có thể tìm hiểu thêm về service ở  [đây](https://angular.io/guide/architecture-services "Concepts > Intro to Services and DI").
 
 </div>
 
 
-## Retrieve shipping prices
+## Truy xuất phí giao hàng
 <!-- Accessing data with the HTTP client -->
 
-Servers often return data in the form of a stream.
-Streams are useful because they make it easy to transform the returned data and make modifications to the way you request that data.
-The Angular HTTP client, `HttpClient`, is a built-in way to fetch data from external APIs and provide them to your app as a stream.
+Angular cung cấp sẵn `HttpClient`, một cách để lấy dữ liệu từ bên ngoài (như lấy dữ liệu từ server, json file,...) và cung cấp cho ứng dụng của chúng ta dưới dạng **stream**.
 
-This section shows you how to use the HTTP client to retrieve shipping prices from an external file.
+*Stream là là một 'dòng chảy' của dữ liệu, dữ liệu có thể được đưa vào 'dòng chảy' này bất cứ lúc nào. Chúng ta có thể lắng nghe từ stream để được thông báo mỗi khi có dữ liệu mới.*
 
-### Predefined shipping data
+Phần này sẽ hướng dẫn bạn sử dụng `HttpClient` để truy xuất phí giao hàng tử file json.
 
-The application that StackBlitz generates for this guide comes with predefined shipping data in `assets/shipping.json`.
-Use this data to add shipping prices for items in the cart.
+### Khai báo dữ liệu phí giao hàng
 
-<code-example header="src/assets/shipping.json" path="getting-started/src/assets/shipping.json">
-</code-example>
+Khi tạo ứng dụng này thì StackBlitz đã khai báo sẵn dữ liệu phí giao hàng trong file `assets/shipping.json`. Chúng ta chỉ cần sử dụng dữ liệu trong file này cho ứng dụng này.
 
+```json
+// src/assets/shipping.json
 
-### Use `HttpClient` in the `AppModule`
-
-Before you can use Angular's HTTP client, you must configure your app to use `HttpClientModule`.
-
-Angular's `HttpClientModule` registers the providers your app needs to use a single instance of the `HttpClient` service throughout your app.
-
-1. Open `app.module.ts`.
-
-  This file contains imports and functionality that is available to the entire app.
-
-2. Import `HttpClientModule` from the `@angular/common/http` package at the top of the file with the other imports. As there are a number of other imports, this code snippet omits them for brevity. Be sure to leave the existing imports in place.
-
-    <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="http-client-module-import">
-    </code-example>
-
-3. Add `HttpClientModule` to the `AppModule` `@NgModule()` `imports` array to register Angular's `HttpClient` providers globally.
-
-    <code-example path="getting-started/src/app/app.module.ts" header="src/app/app.module.ts" region="http-client-module">
-    </code-example>
-
-### Use `HttpClient` in the cart service
-
-Now that the `AppModule` imports the `HttpClientModule`, the next step is to inject the `HttpClient` service into your service so your app can fetch data and interact with external APIs and resources.
+[
+    {
+        "type": "Overnight",
+        "price": 25.99
+    },
+    {
+        "type": "2-Day",
+        "price": 9.99
+    },
+    {
+        "type": "Postal",
+        "price": 2.99
+    }
+]
+```
 
 
-1. Open `cart.service.ts`.
+### Sử dụng `HttpClient` trong `AppModule`
 
-2. Import `HttpClient` from the `@angular/common/http` package.
+Để có thể sử dụng `HttpClient`, bạn phải import `HttpClientModule` vào ứng dụng vì `HttpClient` được khai báo ở trong module này.
 
-    <code-example header="src/app/cart.service.ts" path="getting-started/src/app/cart.service.ts" region="import-http">
-    </code-example>
+1. Mở file `app.module.ts`.
 
-3. Inject `HttpClient` into the `CartService` constructor:
+2. Import `HttpClientModule` từ package `@angular/common/http`. Vì có nhiều import nên ở đây sẽ không hiển thị các import không liên quan. 
 
-    <code-example path="getting-started/src/app/cart.service.ts" header="src/app/cart.service.ts" region="inject-http">
-    </code-example>
+    ```typescript
+    // src/app/app.module.ts
+    // ...
+    import { HttpClientModule } from '@angular/common/http';
+    ```
+
+3. Thêm `HttpClientModule` vào array `imports` trong decorator `@NgModule()` của `AppModule` để có thể sử dụng `HttpClient` trên toàn ứng dụng.
+
+    ```typescript
+    // src/app/app.module.ts
+
+    @NgModule({
+        imports: [
+            BrowserModule,
+            HttpClientModule, // <<< HERE
+            ReactiveFormsModule,
+            RouterModule.forRoot([
+            { path: '', component: ProductListComponent },
+            { path: 'products/:productId', component: ProductDetailsComponent },
+            { path: 'cart', component: CartComponent },
+            ])
+        ],
+        declarations: [
+            AppComponent,
+            TopBarComponent,
+            ProductListComponent,
+            ProductAlertsComponent,
+            ProductDetailsComponent,
+            CartComponent,
+        ],
+        bootstrap: [
+            AppComponent
+        ]
+    })
+    export class AppModule { }
+    ```
+
+### Sử dụng `HttpClient` trong `CartService`
+
+Tiếp theo hãy inject `HttpClient` (đây cũng là một service) vào service `CartService`.
 
 
-### Define the `get()` method
+1. Mở file `cart.service.ts`.
 
-Multiple components can leverage the same service.
-Later in this tutorial, the shipping component uses the cart service to retrieve shipping data via HTTP from the `shipping.json` file.
-First, define a `get()` method.
+2. Import `HttpClient` từ package `@angular/common/http`.
 
-1. Continue working in `cart.service.ts`.
+    ```typescript
+    // src/app/cart.service.ts
 
-2. Below the `clearCart()` method, define a new `getShippingPrices()` method that uses the `HttpClient` `get()` method to retrieve the shipping data.
+    import { Injectable } from '@angular/core';
 
-    <code-example header="src/app/cart.service.ts" path="getting-started/src/app/cart.service.ts" region="get-shipping"></code-example>
+    import { HttpClient } from '@angular/common/http';
+    ```
+
+3. Inject `HttpClient` vào service `CartService` thông qua constructor:
+
+    ```typescript
+    // src/app/cart.service.ts
+
+    export class CartService {
+        items = [];
+
+        constructor(
+            private http: HttpClient
+        ) {}
+    }
+    ```
+
+
+### Khai báo method `getShippingPrices()`
+
+1. Mở file `cart.service.ts`.
+
+2. Bên dưới method `clearCart()`, khai báo một method mới tên là `getShippingPrices()`. Method này sử dụng method `get()` của `HttpClient` để truy xuất phí giao hàng.
+
+    ```typescript
+    // src/app/cart.service.ts
+
+    export class CartService {
+        items = [];
+
+        constructor(
+            private http: HttpClient
+        ) {}
+
+        addToCart(product) {
+            this.items.push(product);
+        }
+
+        getItems() {
+            return this.items;
+        }
+
+        clearCart() {
+            this.items = [];
+            return this.items;
+        }
+
+        getShippingPrices() {
+            return this.http.get('/assets/shipping.json');
+        }
+    }
+    ```
 
 
 <div class="alert is-helpful">
 
-For more information about Angular's `HttpClient`, see the [Client-Server Interaction](guide/http "Server interaction through HTTP") guide.
+Bạn có thể tìm hiểu thêm về `HttpClient` ở [đây](https://angular.io/guide/http "Server interaction through HTTP") guide.
 
 </div>
 
-## Define the shipping view
+## Khai báo màn hình thông tin giao hàng
 
-Now that your app can retrieve shipping data, create a shipping component and  template.
+Bây giờ bạn đã có thể truy suất phí giao hàng, hãy tạo một component để hiển thị thông tin giao hàng.
 
-1. Generate a new component named `shipping`.
+1. Tạo một component tên là `shipping`.
 
-    Reminder: In the file list, right-click the `app` folder, choose `Angular Generator` and `Component`.
+    Reminder: click chuột phải vào thư mục `app`, chọn `Angular Generator`, và chọn `Component`.
 
-    <code-example header="src/app/shipping/shipping.component.ts" path="getting-started/src/app/shipping/shipping.component.1.ts"></code-example>
+    ```typescript
+    // src/app/shipping/shipping.component.ts
 
-2. In `app.module.ts`, add a route for shipping. Specify a `path` of `shipping` and a component of `ShippingComponent`.
+    import { Component, OnInit } from '@angular/core';
 
-    <code-example header="src/app/app.module.ts" path="getting-started/src/app/app.module.ts" region="shipping-route"></code-example>
+    @Component({
+        selector: 'app-shipping',
+        templateUrl: './shipping.component.html',
+        styleUrls: ['./shipping.component.css']
+    })
+    export class ShippingComponent implements OnInit {
 
-    There's no link to the new shipping component yet, but you can see its template in the preview pane by entering the URL its route specifies. The URL has the pattern: `https://getting-started.stackblitz.io/shipping` where the `getting-started.stackblitz.io` part may be different for your StackBlitz project.
+        constructor() { }
 
-3. Modify the shipping component so that it uses the cart service to retrieve shipping data via HTTP from the `shipping.json` file.
+        ngOnInit() {
+        }
 
-    a. Import the cart service.
+    }
+    ```
 
-        <code-example header="src/app/shipping/shipping.component.ts" path="getting-started/src/app/shipping/shipping.component.ts" region="imports"></code-example>
+2. Trong file `app.module.ts`, thêm một route mới cho màn hình thông tin giao hàng với `path` là `shipping`.
 
-    b. Define a `shippingCosts` property.
+    ```typescript
+    // src/app/app.module.ts
 
-        <code-example path="getting-started/src/app/shipping/shipping.component.ts" header="src/app/shipping/shipping.component.ts" region="props"></code-example>
+    @NgModule({
+        imports: [
+            BrowserModule,
+            HttpClientModule,
+            ReactiveFormsModule,
+            RouterModule.forRoot([
+            { path: '', component: ProductListComponent },
+            { path: 'products/:productId', component: ProductDetailsComponent },
+            { path: 'cart', component: CartComponent },
+            { path: 'shipping', component: ShippingComponent },
+            ])
+        ],
+        declarations: [
+            AppComponent,
+            TopBarComponent,
+            ProductListComponent,
+            ProductAlertsComponent,
+            ProductDetailsComponent,
+            CartComponent,
+            ShippingComponent
+        ],
+        bootstrap: [
+            AppComponent
+        ]
+    })
+    export class AppModule { }
+    ```
 
-    c. Inject the cart service in the `ShippingComponent` constructor:
+    Hiện tại chưa có liên kết nào trên giao diện để đi đến màn hình thông tin giao hàng. Bạn có thể đi đến màn hình này bằng cách gõ vào trình duyệt url đã khai báo trước đó. URL sẽ có dạng như sau: `https://getting-started.stackblitz.io/shipping`, trong đó phần `getting-started.stackblitz.io` có thể khác nhau tùy vào project trên Stackblitz của bạn.
 
-        <code-example path="getting-started/src/app/shipping/shipping.component.ts" header="src/app/shipping/shipping.component.ts" region="inject-cart-service"></code-example>
+3. Sử dụng service `CartService` trong component `ShippingComponent` để truy xuất thông tin phí giao hàng trong file `shipping.json`.
 
-    d. Set the `shippingCosts` property using the `getShippingPrices()` method from the cart service.
+    a. Import `CartService`.
 
-        <code-example path="getting-started/src/app/shipping/shipping.component.ts" header="src/app/shipping/shipping.component.ts" region="ctor"></code-example>
+    ```typescript
+    // src/app/shipping/shipping.component.ts
+    
+    import { Component, OnInit } from '@angular/core';
 
-4. Update the shipping component's template to display the shipping types and prices using the `async` pipe:
+    import { CartService } from '../cart.service';
+    ```
 
-    <code-example header="src/app/shipping/shipping.component.html" path="getting-started/src/app/shipping/shipping.component.html"></code-example>
+    b. Khai báo một thuộc tính mới là `shippingCosts`.
 
-    The `async` pipe returns the latest value from a stream of data and continues to do so for the life of a given component. When Angular destroys that component, the `async` pipe automatically stops. For detailed information about the `async` pipe, see the [AsyncPipe API documentation](/api/common/AsyncPipe).
+    ```typescript
+    // src/app/shipping/shipping.component.ts
 
-5. Add a link from the cart view to the shipping view:
+    export class ShippingComponent implements OnInit {
+        shippingCosts;
+    }   
+    ```
 
-    <code-example header="src/app/cart/cart.component.html" path="getting-started/src/app/cart/cart.component.2.html"></code-example>
+    c. Inject `CartService` vào `ShippingComponent` thông qua constructor:
 
-6. Test your shipping prices feature:
+    ```typescript
+    // src/app/shipping/shipping.component.ts
 
-    Click the "Checkout" button to see the updated cart. Remember that changing the app causes the preview to refresh, which empties the cart.
+    constructor(
+        private cartService: CartService
+    ) {
+
+    }
+    ```
+
+    d. Gán thuộc tính `shippingCosts` bằng với kết quả trả về của method `getShippingPrices()` trong service `CartService`.
+
+    ```typescript
+    // src/app/shipping/shipping.component.ts
+
+    export class ShippingComponent implements OnInit {
+        shippingCosts;
+
+        constructor(
+            private cartService: CartService
+        ) {
+        }
+
+        ngOnInit() {
+            this.shippingCosts = this.cartService.getShippingPrices();
+        }
+    }
+    ```
+
+4. Hiển thị hình thức giao hàng và phí tương ứng bằng pipe `async` trong component `ShippingComponent`:
+
+    ```html
+    <!--src/app/shipping/shipping.component.html-->
+
+    <h3>Shipping Prices</h3>
+
+    <div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+        <span>{{ shipping.type }}</span>
+        <span>{{ shipping.price | currency }}</span>
+    </div>
+    ```
+
+    Pipe `async` trả về giá trị sau cùng xuất hiện trong stream, và tiếp tục cập nhật giá trị mới khi có dữ liệu mới được đưa vào stream cho đến khi nào component còn tồn tại. Pipe `async` sẽ tự hủy cùng với component. Bạn có thể tìm hiểu chi tiết về pipe `async` ở [đây](https://angular.io/api/common/AsyncPipe).
+
+5. Thêm liên kết tới màn hình thông tin giao hàng từ màn hình chi tiết giỏ hàng:
+
+    ```html
+    <!--src/app/cart/cart.component.html-->
+
+    <h3>Cart</h3>
+
+    <p>
+        <a routerLink="/shipping">Shipping Prices</a>
+    </p>
+
+    <div class="cart-item" *ngFor="let item of items">
+        <span>{{ item.name }}</span>
+        <span>{{ item.price | currency }}</span>
+    </div>
+    ```
+
+6. Kiểm tra tính năng hiển thị thông tin giao hàng:
+
+    Click vào nút "Checkout" để xem thông tin giỏ hàng. Lưu ý là khi bạn cập nhật code thì phần xem trước sẽ bị refresh lại làm rỗng giỏ hàng, khi đó bạn phải thêm sản phẩm vào lại giỏ hàng.
 
     <div class="lightbox">
       <img src='assets/images/angular/sgk/guide/start/cart-empty-with-shipping-prices.png' alt="Cart with link to shipping prices">
     </div>
 
-    Click on the link to navigate to the shipping prices.
+    Click vào liên kết bạn mới khai báo để đi đến màn hình thông tin phí giao hàng.
 
     <div class="lightbox">
       <img src='assets/images/angular/sgk/guide/start/shipping-prices.png' alt="Display shipping prices">
     </div>
 
 
-## Next steps
+## Tiếp theo
 
-Congratulations! You have an online store application with a product catalog and shopping cart. You can also look up and display shipping prices.
-
-To continue exploring Angular, choose either of the following options:
-* [Continue to the "Forms" section](start/start-forms "Try it: Forms for User Input") to finish the app by adding the shopping cart view and a checkout form.
-* [Skip ahead to the "Deployment" section](start/start-deployment "Try it: Deployment") to move to local development, or deploy your app to Firebase or your own server.
+Để tiếp tục khám phá Angular, bạn có thể chọn một trong các lựa chọn sau:
+* [Tiến tục đi đến phần "Forms"](start/start-forms "Try it: Forms for User Input") để thêm tính năng form thanh toán cho ứng dụng.
+* [Đi đến phần triển khai ứng dụng](https://angular.io/start/start-deployment "Try it: Deployment") để tìm hiểu các phát triển ứng dụng ở môi trường máy cá nhân, hoặc triển khai ứng dụng lên Firebase hay là server của bạn.

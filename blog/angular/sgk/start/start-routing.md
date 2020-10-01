@@ -129,7 +129,7 @@ Component `ProductDetailsComponent` xử lý việc hiển thị thông tin chi 
 
     `ActivatedRoute` chứa thông tin về route hiện tại, các tham số (như `:productId`, gọi là parameter), và các dữ liệu khác liên quan tới route.
 
-    Cách khai báo `ActivatedRoute` như trên là cách khai báo để *inject* một *service*. Ở [phần quản lý dữ liệu](https://angular.io/start/start-data "Try it: Managing Data") chúng ta sẽ tìm hiểu chi tiết hơn về service.
+    Cách khai báo `ActivatedRoute` như trên là cách khai báo để *inject* một *service*. Ở [phần quản lý dữ liệu](https://nhannguyendacoder.com/blog/angular/sgk/start/start-data "Try it: Managing Data") chúng ta sẽ tìm hiểu chi tiết hơn về service.
 
 
 3. Trong method `ngOnInit()`, lắng nghe (subscribe) các parameter của route để có `productId` và lấy ra sản phẩm cần hiển thị.
