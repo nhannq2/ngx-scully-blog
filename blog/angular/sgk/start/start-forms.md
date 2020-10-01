@@ -1,6 +1,6 @@
 ---
 title: 'Học Angular theo SGK - Phần 1.4: Khởi Động - Sử dụng form trong Angular'
-description: 'Học Angular theo SGK - Phần 1.4: Khởi Động - Sử dụng form trong Angular'
+description: 'Phần này chúng ta sẽ cùng nhau thêm tính năng thanh toán và lưu thông tin khách hàng vơi forms trong Angular.'
 published: true
 keywords: angular, angular sgk, hoc angular theo sach giao khoa, angular forms
 categories: angular
@@ -16,7 +16,7 @@ Bài viết gốc: https://angular.io/start/start-forms
 
 Trong phần [Quản lý dữ liệu](https://nhannguyendacoder.com/blog/angular/sgk/start/start-data "Try it: Managing Data"), ứng dụng của chúng ta đã có tính năng danh sách sản phẩm và giỏ hàng.
 
-Phần này sẽ chúng ta sẽ cùng nhau thêm tính năng thanh toán và lưu thông tin khách hàng vơi forms trong Angular.
+Phần này chúng ta sẽ cùng nhau thêm tính năng thanh toán và lưu thông tin khách hàng vơi forms trong Angular.
 
 ## Form trong Angular 
 
