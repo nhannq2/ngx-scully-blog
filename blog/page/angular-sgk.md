@@ -4,12 +4,12 @@ description: Đây là loạt bài viết hướng dẫn tự học lập trình
 published: true
 keywords: angular, tu hoc angular, lap trinh angular
 date: 2020-09-25
-image: assets/images/page/angular-sgk/page-image.jpg
+image: assets/images/page/angular-sgk/page-image1.jpg
 ---
 
 # Học Angular theo "Sách Giáo Khoa"
 
-![page-image](assets/images/page/angular-sgk/page-image.jpg)
+![page-image](assets/images/page/angular-sgk/page-image1.jpg)
 
 Đây là loạt bài viết hướng dẫn tự học lập trình Angular từ căn bản đến nâng cao. Các bài viết được dịch lại từ tài liệu hướng dẫn chính thức của Google trên https://angular.io.
 
