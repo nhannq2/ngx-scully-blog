@@ -39,6 +39,7 @@
     "bootstrap": "^4.5.0",
     "fast-xml-parser": "^3.17.4",
     "ngx-google-analytics": "^11.2.0",
+    "ng2-adsense": "^8.0.1",
     "ngx-loggly-logger": "^10.0.0",
     "ngx-seo": "^5.2.0",
     "rxjs": "~6.6.3",

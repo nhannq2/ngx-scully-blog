@@ -8,7 +8,7 @@
                 [category]="postService.category$ | async"
                 [searchTerm]="postService.searchTerm$ | async"
                 ></app-blog-filters-info>
-        
+
             <router-outlet></router-outlet>
 
             <!-- https://github.com/scullyio/scully/issues/920#issuecomment-693464927 -->
@@ -25,6 +25,8 @@
             <app-blog-categories 
                 *ngIf="!globalService.isReadingAPage && !globalService.isReadingAPost"
                 ></app-blog-categories>
+            <ng-adsense [adSlot]="9812384645"></ng-adsense>
+            <ng-adsense [adSlot]="9812384645"></ng-adsense>
         </div>
     </div>
 </div>

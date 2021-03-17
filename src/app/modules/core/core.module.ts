@@ -6,6 +6,7 @@ import {
   Optional,
   SkipSelf
 } from '@angular/core';
+import { AdsenseModule } from 'ng2-adsense';
 import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 import { NgxLogglyModule } from 'ngx-loggly-logger';
 import { ConsoleWriter, ErrorHandlingService, FacebookService, InitLoggingAndWriters, LoggingService, LogglyWriter } from 'src/app/services';
@@ -17,7 +18,10 @@ export const CORE_IMPORTS = [
   NgxGoogleAnalyticsModule.forRoot(
     GOOGLE_ANALYTICS_TRACKING_ID
   ),
-  NgxGoogleAnalyticsRouterModule
+  NgxGoogleAnalyticsRouterModule,
+  AdsenseModule.forRoot({
+    adClient: 'ca-pub-2911247795736893'
+  }),
 ]
 
 export const CORE_PROVIDERS = [
