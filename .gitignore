@@ -46,3 +46,4 @@ testem.log
 Thumbs.db
 scully.log
 scully.ngx-scully-blog.config.js
+.firebase
