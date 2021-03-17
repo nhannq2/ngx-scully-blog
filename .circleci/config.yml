@@ -20,6 +20,9 @@ jobs:
           paths:
             - ./node_modules
       - run:
+        name: Install browser
+        command: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && sudo apt update && sudo apt install ./google-chrome-stable_current_amd64.deb
+      - run:
           name: Build and deploy to Firebase
           command: npm run scully:build && ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
 workflows:
