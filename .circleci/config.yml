@@ -27,7 +27,7 @@ workflows:
   deploy-nhannguyendacoder:
     jobs:
       - build-and-deploy:
-          context: NGX-SCULLY-CONTEXT
+          context: NHANNGUYENDACODER
           filters:
             branches:
               only:
