@@ -20,9 +20,6 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Scan for new routes
-          command: npm run scully -- --scanRoutes
-      - run:
           name: Build and deploy to Firebase
           command: npm run scully:build && ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
 workflows:
