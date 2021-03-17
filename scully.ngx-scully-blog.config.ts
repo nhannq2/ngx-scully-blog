@@ -19,22 +19,22 @@ export const config: ScullyConfig = {
   projectRoot: "./src",
   projectName: "ngx-scully-blog",
   outDir: './dist/static',
-  puppeteerLaunchOptions: {
-    args: [
-      "--disable-gpu",
-      "--renderer",
-      "--no-sandbox",
-      "--no-service-autorun",
-      "--no-experiments",
-      "--no-default-browser-check",
-      "--disable-dev-shm-usage",
-      "--disable-setuid-sandbox",
-      "--no-first-run",
-      "--no-zygote",
-      "--single-process",
-      "--disable-extensions"
-    ]
-  },
+  // puppeteerLaunchOptions: {
+  //   args: [
+  //     "--disable-gpu",
+  //     "--renderer",
+  //     "--no-sandbox",
+  //     "--no-service-autorun",
+  //     "--no-experiments",
+  //     "--no-default-browser-check",
+  //     "--disable-dev-shm-usage",
+  //     "--disable-setuid-sandbox",
+  //     "--no-first-run",
+  //     "--no-zygote",
+  //     "--single-process",
+  //     "--disable-extensions"
+  //   ]
+  // },
   routes: {
     '/:slug': {
       type: 'contentFolder',
