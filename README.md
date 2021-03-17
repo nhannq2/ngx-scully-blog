@@ -1,6 +1,4 @@
-# Ngx-scully-blog: A simple blog for developers (Version 2.0.0)
-
-[English](./README.md) | [Tiếng Việt](./README-Vietnamese.md)
+# Ngx-scully-blog: A simple blog for developers (Version 3.0.0)
 
 If you want to create a blog to share your knowledge or to push you career, but you just want to focus on writing great articles and don't want to care about other stuff like search engine optimization (SEO), hosting, domain, etc. This project can help.
 
@@ -50,7 +48,7 @@ You need Angular CLI to run Angular commands. Run `npm install -g @angular/cli` 
 Open your terminal and run the following commands in sequence:
 - `git clone https://github.com/nhaancs/ngx-scully-blog.git`
 - `cd ngx-scully-blog`
-- `npm install`
+- `npm install` (*If you are using WSL on Windows, see more at https://scully.io/docs/learn/getting-started/installation#wsl-pre-requisites*)
 - `npm run scully:preview`
 
 This is the result when the last command done:

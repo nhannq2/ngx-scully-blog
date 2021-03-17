@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { SeoHelperService } from 'src/app/services';
 import { FIRST_NAME, LAST_NAME, PORTFOLIO_INFO } from '../../../../configuration/site-configs';
-import { SEOService } from '../../services';
 
 @Component({
   selector: 'app-portfolio',
@@ -9,12 +9,11 @@ import { SEOService } from '../../services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PortfolioComponent {
-  constructor(seoService: SEOService) { 
-    seoService.doSEO({
+  constructor(seo: SeoHelperService) { 
+    seo.setData({
       title: FIRST_NAME+' '+LAST_NAME+' - '+PORTFOLIO_INFO.JOB_TITLE,
       description: PORTFOLIO_INFO.INTRODUCTION,
-      image: PORTFOLIO_INFO.SHARE_IMAGE,
-      route: ''
+      image: PORTFOLIO_INFO.SHARE_IMAGE
     })
   }
 

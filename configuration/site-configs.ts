@@ -5,14 +5,6 @@
  * Normally, this url is: your-firebase-project-name.web.app
  */
 export const ROOT_SITE_URL = 'https://nhannguyendacoder.com'
-/**
- * Your blog url.
- * This url display your blog home page.
- * 
- * Normally, this url is: your-firebase-project-name.web.app/blog
- */
-export const ROOT_BLOG_URL = 'https://nhannguyendacoder.com/blog'
-/**
  * Your first name
  */
 export const FIRST_NAME = 'Nhan'

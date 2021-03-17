@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { GlobalService, PostService, SEOService } from 'src/app/services';
+import { GlobalService, PostService, SeoHelperService } from 'src/app/services';
 
 declare var ng: any;
 
@@ -19,12 +19,18 @@ export class BlogPageDetailComponent {
     private router: Router, 
     private route: ActivatedRoute, 
     public globalService: GlobalService,
-    seoService: SEOService, 
     postService: PostService,
+    seo: SeoHelperService
   ) { 
     globalService.isReadingAPage = true
     this.sub = postService.currentPost.subscribe(
-      currentPost => seoService.doSEO(currentPost)
+      post => seo.setData({
+        title: post?.title,
+        keywords: post?.keywords,
+        description: post?.shortDescription,
+        image: post?.image,
+        type: 'article'
+      })
     )
   }
 

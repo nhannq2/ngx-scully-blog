@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CATEGORIES } from '../../../../../configuration';
 import { ICategory } from 'src/app/models';
-import { PostService, SEOService } from 'src/app/services';
+import { PostService, SeoHelperService } from 'src/app/services';
+import { CATEGORIES } from '../../../../../configuration';
 
 @Component({
   selector: 'app-blog-home',
@@ -13,11 +13,9 @@ export class BlogHomeComponent {
   constructor(
     public postService: PostService,
     route: ActivatedRoute,
-    seoService: SEOService
+    seo: SeoHelperService
   ) { 
-    seoService.doSEO({
-      route: '/blog',
-    })
+    seo.setData()
 
     route.queryParamMap.subscribe(qM => {
       let cat = this.getCategory(qM.get('c'))

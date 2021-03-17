@@ -1,0 +1,39 @@
+version: 2.1
+jobs:
+  build-and-deploy:
+    docker: 
+      - image: circleci/node:lts-browsers
+    working_directory: ~/blog
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            # Find a cache corresponding to this specific package-lock.json
+            - v1-npm-deps-{{ checksum "package-lock.json" }}
+            # Fallback cache to be used
+            - v1-npm-deps-
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - save_cache:
+          key: v1-npm-deps-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Build and deploy to Firebase
+          command: npm run scully:build && ./node_modules/.bin/firebase deploy --token "$FIREBASE_TOKEN"
+workflows:
+  version: 2.1
+  deploy-nhannguyendacoder:
+    jobs:
+      - build-and-deploy:
+          context: NGX-SCULLY-CONTEXT
+          filters:
+            branches:
+              only:
+                - nhannguyendacoder
+
+
+
+
+

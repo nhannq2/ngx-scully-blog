@@ -82,8 +82,7 @@ export class PostService {
     let results = posts
       .filter(
         route => 
-          route.route.includes('/blog') && 
-          !route.route.includes('/blog/page/') &&
+          !route.route.includes('/page/') &&
           route.published && 
           route.title && 
           route.description

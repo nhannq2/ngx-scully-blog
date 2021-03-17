@@ -12,9 +12,8 @@ const routes: Routes = [
     component: BlogComponent,
     children: [
       { path: '', component: BlogHomeComponent },
-      { path: ':slug', component: BlogHomeComponent },
-      { path: 'page/:slug', component: BlogPageDetailComponent },
-      { path: '**', component: BlogPostComponent },
+      { path: ':slug', component: BlogPostComponent },
+      { path: 'page/:slug', component: BlogPageDetailComponent }
     ]
   },
 ];
