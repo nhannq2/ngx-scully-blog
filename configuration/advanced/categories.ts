@@ -12,6 +12,7 @@ import { ICategory } from '../../src/app/models'
  */
 export const CATEGORIES: ICategory[] = [
     {key: '', displayName: 'All'},
-    {key: 'tutorials', displayName: 'Tutorials'},
+    {key: 'self-learning', displayName: 'Hướng dẫn tự học lập trình'},
+    {key: 'angular', displayName: 'Angular'},
     {key: 'uncategorized', displayName: 'Uncategorized'},
 ]
