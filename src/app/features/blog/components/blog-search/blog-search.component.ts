@@ -22,6 +22,6 @@ export class BlogSearchComponent {
       ...this.route.snapshot.queryParams,
       s: searchTerm || null
     }
-    this.router.navigate(['blog'], {queryParams: query})
+    this.router.navigate(['/'], {queryParams: query})
   }
 }

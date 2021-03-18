@@ -8,7 +8,7 @@ export interface IMenu {
      */
     name: string
     /**
-     * Example: '/blog', ['/blog', 'about']
+     * Example: '/portfolio', ['/', 'about']
      */
     route: string|string[]
     /**

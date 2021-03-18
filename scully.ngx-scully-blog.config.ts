@@ -19,6 +19,7 @@ export const config: ScullyConfig = {
   projectRoot: "./src",
   projectName: "ngx-scully-blog",
   outDir: './dist/static',
+  // Only uncomment puppeteerLaunchOptions option in WSL. See more at https://scully.io/docs/learn/getting-started/installation#wsl-pre-requisites
   // puppeteerLaunchOptions: {
   //   args: [
   //     "--disable-gpu",

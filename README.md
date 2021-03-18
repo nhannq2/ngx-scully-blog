@@ -1,12 +1,10 @@
-# Ngx-scully-blog: A simple blog for developers (Version 3.0.0)
+# ngx-scully-blog
 
-If you want to create a blog to share your knowledge or to push you career, but you just want to focus on writing great articles and don't want to care about other stuff like search engine optimization (SEO), hosting, domain, etc. This project can help.
+If you want to create a blog to share your knowledge, but you just want to focus on writing great articles and don't want to care much about other stuff like search engine optimization (SEO), hosting, domain, etc. This project can help you.
 
-**Ngx-scully-blog** is a simple blog for developers that is easy to setup and SEO supported. After the inital setups, you only need to focus on writing your blog posts on markdown files.
+**Ngx-scully-blog** is a simple blog for developers that is easy to setup and SEO supported. After the inital setups, you only need to focus on writing your blog posts in Markdown.
 
-This project is written in Angular, but you don't need to know anything about Angular. I'll guide you step by step. If you are an Angular developer already, that's great because you can take advantages of your previous experience.
-
-My blog: [nhannguyendacoder.com](https://nhannguyendacoder.com)
+This project is written in Angular, but you don't need to know anything about Angular.
 
 ## Table of contents
 - [Prerequisites](#prerequisites)
@@ -37,116 +35,90 @@ You need to know Mardown in order to write your blog posts. It is quite simple, 
 ## Getting started
 
 ### Install Nodejs
-You need to install Nodejs to run the project. You can download and install the Nodejs version for your operation system at [nodejs.org/en/download](https://nodejs.org/en/download).
+Download and install the Nodejs version for your operation system at [nodejs.org/en/download](https://nodejs.org/en/download).
 
 ### Install Angular CLI
-You need Angular CLI to run Angular commands. Run `npm install -g @angular/cli` command in your terminal to install Angular CLI on your machine. 
+Run `npm install -g @angular/cli` command in your terminal to install Angular CLI on your machine. 
 
-*If errors happen, you may need to run `sudo npm install -g firebase-tools` instead, then you need to input your operation system password.*
+*If errors happen, try `sudo npm install -g @angular/cli` instead, then you need to input your operation system password.*
 
 ### Checkout the project
 Open your terminal and run the following commands in sequence:
 - `git clone https://github.com/nhaancs/ngx-scully-blog.git`
 - `cd ngx-scully-blog`
-- `npm install` (*If you are using WSL on Windows, see more at https://scully.io/docs/learn/getting-started/installation#wsl-pre-requisites*)
+- `npm install`
 - `npm run scully:preview`
 
-This is the result when the last command done:
+When the last command done, in browser, go to Scully static server at [http://localhost:1668](http://localhost:1668).
 
-![scully-serve-done](./src/assets/docs/scully-serve-done.png)
-
-In browser, go to Scully static server at [http://localhost:1668](http://localhost:1668). You will look something like this:
-
-![initial-portfolio](./src/assets/docs/initial-portfolio.png)
-
-**Note**: You will see some ugly texts like "FIRSTNAME LASTNAME", "YOUR JOB TITLE", etc. Don't worry, we will fix these text with your personal information later.
-
-Then, click on blog icon to go to blog home page at [http://localhost:1668/blog](http://localhost:1668/blog). You will look something like this:
-
-![initial-blog-home](./src/assets/docs/initial-blog-home.png)
+**Note**: You will see some ugly texts like "FirstName", "LastName", etc. Don't worry, I will guide you how to change these text to display your personal information later.
 
 Congrats, you have seen how your blog look like. Now you can stop your terminal and go to the next step to setup Firebase to host your blog!
 
 ### Setup Firebase to host your blog
 - Go to [https://console.firebase.google.com](https://console.firebase.google.com) and login as your google account.
-
 - After login, click on **Add project** button to create a new project.
-    ![firebase-start-page](./src/assets/docs/firebase-start-page.png)
-
 - Input your project name and click **Continue**. 
-    ![firebase-create-project-page](./src/assets/docs/firebase-create-project-page.png)
 
     **Note**: if your project name is `ngx-scully-blog`, your blog address will be `ngx-scully-blog.web.app`. You can buy a custom domain like `yourdomain.com` and add to your project later. 
-- Disable option **Enable Google analytics for this project** and click **Create project**
-    ![disable-analytics](./src/assets/docs/disable-analytics.png)
+
+- Disable option **Enable Google analytics for this project** and click **Create project** 
     
     *If you already have a Google anlytics acount, you can leave this option on and click Next to setup Google analytics*
 
 Ok, we have setup Firebase. Now we will go back to the source code to personalize your blog, make it ready to be deployed on Firebase.
 
 ### Personalize your blog
-- Open the source code directory (`ngx-scully-blog`) you have cloned on the last step on your code editor, I am using [vscode](https://code.visualstudio.com), you could use your editor as well.
+- Open the source code directory (`ngx-scully-blog`) you have cloned on the last step on your code editor.
 - Open [`ngx-scully-blog/configuration/site-configs.ts`](./configuration/site-configs.ts) file. This is the place you can personalize the site's configurations and the contents displayed on your blog (includes the portfolio page and the blog page).
-- Now lets customize all the configurations in [`site-configs.ts`](./configuration/site-configs.ts) file to make the blog your own. I have put useful comments for each configuration so you can read the comments if you need more infomation.
+- Now lets customize all the configurations in [`site-configs.ts`](./configuration/site-configs.ts) file to make the blog your own. I put useful comments for each configuration so you can read the comments if you need more infomation.
 - The final configuration your need to setup is for the sitemap plugin, which generate the `sitemap.xml` file for your blog.
     - Open [`ngx-scully-blog/scully.ngx-scully-blog.config.ts`](./scully.ngx-scully-blog.config.ts) file.
     - Update `urlPrefix` property value to your domain url. Normally, this url is: `your-firebase-project-name.web.app`
 
-All the configurations have been setup and you are good to go. Lets deploy your blog to Firebase!
+All the configurations have been setup and you are good to go. Let's deploy your blog to Firebase!
 
 ### Deploy your blog to Firebase
 
 #### Login to Firebase
-- Open your editor's terminal (in **vscode**, use **Ctrl** + **\`** keyboard shortcut). Now you should be inside the project root directory, `ngx-scully-blog` directory.
+- Open your terminal and go to the project root directory, `ngx-scully-blog` directory.
 - Lets install Firebase CLI globaly by enter following command: `npm install -g firebase-tools`. 
 
-    *If errors happen, you may need to run `sudo npm install -g firebase-tools` instead, then you need to input your operation system password.*
+    *If errors happen, try `sudo npm install -g firebase-tools` instead, then you need to input your operation system password.*
 
 - Run command `firebase login` to login to Firebase.
 - Input `y` to let Firebase collect CLI usage and error reporting information, if not, input `n`.
-    ![firebase-login](./src/assets/docs/firebase-login.png)
-- A new browser window will be opened and you can choose the right Firebase account to login (you may need to input email and password in some cases).
-    ![firebase-choose-account](./src/assets/docs/firebase-choose-account.png)
+- A new browser window will be opened and you can login to Firebase here.
 - Next, click on "Allow" button to give Firebase CLI permissions to access to your Firebase account.
-    ![firebase-allow-permissions](./src/assets/docs/firebase-allow-permissions.png)
 
-Then you would see a success page like below.
-    ![firebase-success-page](./src/assets/docs/firebase-success-page.png)
+Then you would see a success page notify that you are logged in successful.
 
-Go back to your editor's terminal. You should see a successful message like below.
-    ![firebase-login-ok](./src/assets/docs/firebase-login-ok.png)
+Go back to your editor's terminal. You should will see a successful message also.
 
 #### Init your project
-- In the editor's terminal, run the command `firebase init` to initiate your project.
+- In the previous terminal, run the command `firebase init` to initiate your project.
 - Firebase CLI will ask you that **Which Firebase CLI features do you want to set up for this directory? Press Space to select features, then Enter to confirm your choices**:
     - Use arrow down key to move the cursor to **Hosting: Configure and deploy Firebase Hosting sites** option.
     - Press Space to select this option.
-    ![firebase-select-features](./src/assets/docs/firebase-select-features.png)
     - Press Enter to continue.
 - Project setup, Firebase CLI will ask you some questions:
     - Please select an option: Select **Use an existing project** option to use the Firebase project your created earlier and hit enter. 
-    ![firebase-use-existing](./src/assets/docs/firebase-use-existing.png) 
     - Select a default Firebase project for this directory: Select the project name you created earlier and hit enter.
 - Hosting setup, Firebase CLI will ask you some questions:
     - What do you want to use as your public directory?: Input **dist/static** and hit enter.
-    - Configure as a single-page app (rewrite all urls to /index.html)?: Input **n** for No and hit enter
-    - File dist/static/404.html already exists. Overwrite?: Input **n** for No and hit enter.
-    ![firebase-hosting-setup](./src/assets/docs/firebase-hosting-setup.png) 
+    - Configure as a single-page app (rewrite all urls to /index.html)?: Input **n** for No and hit enter.
+    - Set up automatic builds and deploys with GitHub?: Input **n** for No and hit enter.
+    - File dist/static/404.html already exists. Overwrite?: Input **n** for No and hit enter. 
     - File dist/static/index.html already exists. Overwrite?: Input **n** for No and hit enter.
-    - Final result:
-    ![firebase-hosting-setup](./src/assets/docs/firebase-hosting-setup.png) 
 
 Ok, now you are ready to deploy your blog to Firebase.
 
 #### Deploy to Firebase hosting
-In the code editor's terminal, inside the project root directory, run the command `npm run scully:deploy`.
-
-The result will be like this:
-![firebase-deploy-success](./src/assets/docs/firebase-deploy-success.png) 
-
-**Note**: Your blog url is `your-firebase-project.web.app`. In my case, it is `ngx-scully-blog.web.app`
+In the previous terminal, inside the project root directory, run the command `npm run scully:build-and-deploy`.
 
 Congrats, your blog has been online, everyone can see it now.
+
+**Note**: Your blog url is `your-firebase-project.web.app`. In my case, it is `ngx-scully-blog.web.app`
 
 ## Write your first blog post
  
@@ -154,7 +126,7 @@ Congrats, your blog has been online, everyone can see it now.
 Your blog posts will be written in markdown format and stored in `ngx-scully-blog/blog` directory. 
 
 - First, open `ngx-scully-blog` in code editor and create `my-first-blog-post.md` inside `ngx-scully-blog/blog` directory.
-- Open `ngx-scully-blog/blog/my-first-blog-post.md` file.
+- Create `ngx-scully-blog/blog/my-first-blog-post.md` file.
 - At the very beginning of the file, add the content below 
     ```
     ---
@@ -162,9 +134,9 @@ Your blog posts will be written in markdown format and stored in `ngx-scully-blo
     description: This is my first blog post description
     published: true
     keywords: blog, blog post, my first blog post
-    image: assets/images/my-first-blog-post/hello-world.jpg
+    image: assets/images/my-first-blog-post/first-post-image.jpg
     categories: uncategorized
-    date: 2020-09-20
+    date: 2020-03-18
     ---
     ```
 
@@ -175,40 +147,37 @@ Your blog posts will be written in markdown format and stored in `ngx-scully-blo
     - **keywords** are phrases that discribe what are your post about, separated by comma. For example: "angular, frontend programming, javascript programming"
     - **image** is the image that is displayed in the preview section when you share your post on social networks. 
     - **categories** are categories that you post belong, seperated by comma. Each category is a category key in each category item defined in [`ngx-scully-blog/configuration/advanced/categories.ts`](./configuration/advanced/categories.ts). Uncategorized is the category created by default.
-    - **date** is the publish date of your post, in YYYY-MM-DD format, for example, 2020-09-20.
+    - **date** is the publish date of your post, in YYYY-MM-DD format, for example, 2021-03-18.
 - Next, lets write your post content. Add the content below to your markdown file.
     ```
     # My first blog post
 
-    ![hello-world-img](assets/images/my-first-blog-post/hello-world.jpg)
+    ![first-post-image](assets/images/my-first-blog-post/first-post-image.jpg)
 
     Welcome to my first blog post.
     ```
 
 ### Prepare post images
-I created `ngx-scully-blog/src/assets/images/my-first-blog-post` and added `hello-world.jpg` image. In your future posts, you have to add your own images.
+I created `ngx-scully-blog/src/assets/images/my-first-blog-post` directory and added `first-post-image.jpg` image. In your future posts, you have to add your own images.
 
 **Note**: 
 - All images of your blog are put under `ngx-scully-blog/src/assets/images` directory. 
-- You should group your images of a post into a directory has the same name as your mardown file, for example, `ngx-scully-blog/src/assets/images/my-first-blog-post` directory. 
+- You should group your images of a post into a directory that has the same name as your mardown file, for example, `ngx-scully-blog/src/assets/images/my-first-blog-post` directory. 
 - Example of using your images in markdown files:
-    - Image in the post's header: `image: assets/images/my-first-blog-post/hello-world.jpg`
-    - An image in the post's content: `![hello-world-img](assets/images/my-first-blog-post/hello-world.jpg)`.
-
-Final result includes the markdown file and images:
-![first-post](./src/assets/docs/first-post.png) 
+    - Image in the post's header: `image: assets/images/my-first-blog-post/first-post-image.jpg`
+    - An image in the post's content: `![first-post-image](assets/images/my-first-blog-post/first-post-image.jpg)`.
 
 ### Preview and deploy your post
 When you finish your post: 
-- Run `npm run scully:preview` to preview your new post. After this command run success, go to [localhost:1668/blog](http://localhost:1668/blog), you can see your new post is added.
-- Run `npm run scully:deploy` to deploy your new post to Firebase.
+- Run `npm run scully:preview` to preview your new post. After this command run success, go to [localhost:1668](http://localhost:1668), you can see your new post is added.
+- Run `npm run scully:build-and-deploy` to deploy your new post to Firebase.
 
 ## Useful tips
 
 ### Writing and publishing process
 - Write your post in markdown file, which put under `ngx-scully-blog/blog` directory.
 - Prepare your post's images, which put under `ngx-scully-blog/src/assets/images`.
-- Preview with `npm run scully:preview` command, then go to [localhost:1668/blog](http://localhost:1668/blog)
+- Preview with `npm run scully:preview` command, then go to [localhost:1668](http://localhost:1668)
 - Deploy to Firebase with `npm run scully:deploy` command.
 
 ### Code highlighting
