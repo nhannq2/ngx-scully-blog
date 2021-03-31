@@ -3,14 +3,14 @@ title: Real world fullstack application built with Nestjs, Angular, and Nx monor
 description: Exemplary real world fullstack application built with Nestjs, Angular, and Nx monorepo.
 published: true
 keywords: fullstack, fullstack application, nestjs, angular, nx, monorepo
-categories: uncategorized
+categories: angular
 date: 2021-03-31
-image: assets/images/uncategorized/realworld-fullstack-application-with-nestjs-angular-nx/post-image.jpg
+image: assets/images/angular/realworld-fullstack-application-with-nestjs-angular-nx/post-image.jpg
 ---
 
 # Real world fullstack application built with Nestjs, Angular, and Nx monorepo
 
-![post-image](assets/images/uncategorized/realworld-fullstack-application-with-nestjs-angular-nx/post-image.jpg)
+![post-image](assets/images/angular/realworld-fullstack-application-with-nestjs-angular-nx/post-image.jpg)
 
 > ### [Nx monorepo](https://nx.dev) with [Nestjs](https://nestjs.com) and [Angular](https://angular.io) codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 

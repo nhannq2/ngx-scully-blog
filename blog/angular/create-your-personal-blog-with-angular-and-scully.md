@@ -3,14 +3,14 @@ title: Ngx-scully-blog - Create your personal blog with angular and scully easil
 description: Let's create a simple blog for developers that is easy to setup and SEO supported.
 published: true
 keywords: angular, scully, blogging
-categories: uncategorized
+categories: angular
 date: 2021-03-30
-image: assets/images/uncategorized/create-your-personal-blog-with-angular-and-scully/post-image.jpg
+image: assets/images/angular/create-your-personal-blog-with-angular-and-scully/post-image.jpg
 ---
 
 # Ngx-scully-blog - Create your personal blog with angular and scully easily
 
-![post-image](assets/images/uncategorized/create-your-personal-blog-with-angular-and-scully/post-image.jpg)
+![post-image](assets/images/angular/create-your-personal-blog-with-angular-and-scully/post-image.jpg)
 
 If you want to create a blog to share your knowledge, but you just want to focus on writing great articles and don't want to care much about other stuff like search engine optimization (SEO), hosting, domain, etc. This project can help you.
 
