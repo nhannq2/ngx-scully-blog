@@ -2,7 +2,7 @@
 title: Series Tự học Golang
 description: Đây là loạt bài viết hướng dẫn tự học lập trình Golang một cách đơn giản và dễ hiểu.
 published: true
-keywords: golang, tu hoc golang, lap trinh angular
+keywords: golang, tu hoc golang, lap trinh golang
 date: 2021-04-01
 image: assets/images/page/tu-hoc-golang/page-image.jpg
 ---

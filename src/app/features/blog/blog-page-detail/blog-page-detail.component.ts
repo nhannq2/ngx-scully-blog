@@ -27,7 +27,7 @@ export class BlogPageDetailComponent {
       post => seo.setData({
         title: post?.title,
         keywords: post?.keywords,
-        description: post?.shortDescription,
+        description: post?.description,
         image: post?.image,
         type: 'article'
       })
