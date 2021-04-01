@@ -11,7 +11,7 @@ export const FIRST_NAME = 'Nhan'
 /**
  * Your last name
  */
-export const LAST_NAME = 'LastName'
+export const LAST_NAME = 'Nguyen'
 
 export const SOCIAL_LINKS = [
     { title: 'Linkedin', url: 'https://linkedin.com/in/nhaancs', icon: ['fab', 'linkedin-in'], size: '1x' },
