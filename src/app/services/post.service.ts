@@ -70,7 +70,7 @@ export class PostService {
 
     this._relatedPosts = this.posts.filter(p => {
       for (let i = 0; i < cats.length; i++) {
-        if (p?.categories.toLowerCase().includes(cats[i])) {
+        if (p?.categories.toLowerCase().includes(cats[i]) && p?.slug !== currentPost?.slug) {
           return true
         }
       }

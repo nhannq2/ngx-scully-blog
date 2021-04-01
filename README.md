@@ -1,8 +1,6 @@
 # ngx-scully-blog
 
-Todo: 
-- [ ] Add a preview image
-- [ ] Add link to theme repo
+![ngx-scully-blog-demo.png](./ngx-scully-blog-demo.png)
 
 If you want to create a blog to share your knowledge, but you just want to focus on writing great articles and don't want to care much about other stuff like search engine optimization (SEO), hosting, domain, etc. This project can help you.
 
@@ -227,3 +225,4 @@ For any futher questions, just creat a new issue. Thank you.
 - [Start Bootstrap Resume theme](https://startbootstrap.com/themes/resume)
 - [Start Bootstrap Blog Home template](https://startbootstrap.com/templates/blog-home)
 - [Start Bootstrap Blog Post template](http://startbootstrap.com/templates/blog-post)
+- [DevBlog - Free Bootstrap 4 Blog Template for Developers](https://themes.3rdwavemedia.com/bootstrap-templates/popular/devblog-free-bootstrap-4-blog-template-for-developers/)

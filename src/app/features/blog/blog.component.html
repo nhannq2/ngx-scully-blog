@@ -26,8 +26,8 @@
             <router-outlet></router-outlet>
             <!-- https://github.com/scullyio/scully/issues/920#issuecomment-693464927 -->
             <app-blog-related-posts 
-                *ngIf="globalService.isReadingAPost"
-                [relatedPosts]="postService.relatedPosts"
+                *ngIf="globalService?.isReadingAPost && postService?.relatedPosts?.length"
+                [relatedPosts]="postService?.relatedPosts"
                 ></app-blog-related-posts> 
             
             <!-- <nav class="blog-nav nav nav-justified my-5">
