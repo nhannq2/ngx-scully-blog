@@ -1,21 +1,20 @@
-<div class="card my-4">
-    <h5 class="card-header text-secondary">{{title}}</h5>
-    <div class="card-body">
-        <div class="input-group">
-            <input 
-                type="text" 
-                class="form-control" 
-                [(ngModel)]="lastSearch"
-                #searchInput
-                (keyup.enter)="doSearch(searchInput.value)"
-                >
-            <span class="input-group-append">
-                <button 
-                    class="btn btn-secondary" 
-                    type="button"
-                    (click)="doSearch(searchInput.value)"
-                    ><fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon></button>
-            </span>
-        </div>
+<form class="signup-form form-inline justify-content-center pt-3">          
+    <div class="form-group">
+        <label class="sr-only" for="search">{{title}}</label>
+        <input 
+            type="email" 
+            id="search" 
+            name="search" 
+            class="form-control mr-md-1 search" 
+            placeholder="Search..."
+            [(ngModel)]="lastSearch"
+            #searchInput
+            (keyup.enter)="doSearch(searchInput.value)"
+            >
     </div>
-</div> 
+    <button 
+        type="submit" 
+        class="btn btn-primary"
+        (click)="doSearch(searchInput.value)"
+        ><fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon></button>
+</form>

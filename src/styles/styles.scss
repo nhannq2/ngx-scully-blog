@@ -1,16 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "./override-bootstrap-variables.scss";
-@import '~bootstrap/scss/bootstrap';
 /* include CSS for prism toolbar */
 @import '~prismjs/plugins/toolbar/prism-toolbar.css';
 /* check node_modules/prismjs/themes/ for the available themes */
 @import '~prismjs/themes/prism-tomorrow.css';
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-size: 1.15rem;
-}
+@import './theme-2.css';

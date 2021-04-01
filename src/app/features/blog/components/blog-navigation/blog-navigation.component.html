@@ -1,29 +1,55 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container">
-        <a class="navbar-brand" routerLink="/">
-            <strong>{{fullName}}</strong>
-        </a>
+<header class="header text-center">	    
+    <h1 class="blog-name pt-lg-4 mb-0"><a  routerLink="/">{{fullName}}</a></h1>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark" >
+       
         <button 
+            (click)="isMenuCollapsed = !isMenuCollapsed" 
             class="navbar-toggler" 
             type="button" 
-            (click)="isMenuCollapsed = !isMenuCollapsed"
+            aria-controls="navigation" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation"
             >
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-            <ul class="navbar-nav ml-auto">
+
+        <div [ngbCollapse]="isMenuCollapsed" id="navigation" class="collapse navbar-collapse flex-column" >
+            <div class="profile-section pt-3 pt-lg-0">
+                <img class="profile-image mb-3 rounded-circle mx-auto" [src]="profileImage || 'assets/images/profile.jpg'" alt="profile image" >			
+                
+                <div class="bio mb-3">{{introduction}}</div>
+
+                <ul class="social-list list-inline py-3 mx-auto">
+                    <li 
+                        *ngFor="let item of socialLinks"
+                        class="list-inline-item"
+                        >
+                        <a target="_blank" [title]="item?.title" [href]="item?.url">
+                            <fa-icon [icon]="item?.icon" [size]="item?.size"></fa-icon>
+                        </a>
+                    </li>
+                </ul>
+                <hr> 
+            </div>
+            
+            <ul class="navbar-nav flex-column text-left">
                 <li *ngFor="let m of menus" class="nav-item">
                     <a 
                         routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}"
                         (click)="isMenuCollapsed = !isMenuCollapsed" 
                         class="nav-link" 
-                        routerLink="{{m.route}}"
+                        routerLink="{{m?.route}}"
                         >
-                        <fa-icon *ngIf="m.icon" [icon]="m.icon" size="1x"></fa-icon>
-                        {{m.name}}
+                        <fa-icon *ngIf="m.icon" [icon]="m?.icon" size="1x"></fa-icon>
+                        {{m?.name}}
                     </a>
                 </li>
             </ul>
+            
+            <div class="my-2 my-md-3">
+                <a *ngIf="email" class="btn btn-primary" href="mailto:{{email}}">Get in Touch</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>

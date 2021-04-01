@@ -1,6 +1,5 @@
 /**
  * Your root url.
- * This url display your portfolio page.
  * 
  * Normally, this url is: your-firebase-project-name.web.app
  */
@@ -12,23 +11,14 @@ export const FIRST_NAME = 'Nhan'
 /**
  * Your last name
  */
-export const LAST_NAME = 'Nguyen'
-/**
- * Your Facebook profile url. Leave it blank to hide on the site.
- */
-export const FACEBOOK_URL = 'https://www.facebook.com/nhaancs'
-/**
- * Your Linkedin profile url. Leave it blank to hide on the site.
- */
-export const LINKEDIN_URL = 'https://www.linkedin.com/in/nhaancs'
-/**
- * Your Github profile url. Leave it blank to hide on the site.
- */
-export const GITHUB_URL = 'https://github.com/nhaancs'
-/**
- * Your Twitter profile url. Leave it blank to hide on the site.
- */
-export const TWITTER_URL = 'https://twitter.com/nhaancs'
+export const LAST_NAME = 'LastName'
+
+export const SOCIAL_LINKS = [
+    { title: 'Linkedin', url: 'https://linkedin.com/in/nhaancs', icon: ['fab', 'linkedin-in'], size: '1x' },
+    { title: 'Github', url: 'https://github.com/nhaancs', icon: ['fab', 'github'], size: '1x' },
+    { title: 'Twitter', url: 'https://twitter.com/nhaancs', icon: ['fab', 'twitter'], size: '1x' },
+    { title: 'Facebook', url: 'https://facebook.com/nhaancs', icon: ['fab', 'facebook-f'], size: '1x' },
+]
 /**
  * Your email address.
  */
@@ -39,7 +29,7 @@ export const EMAIL = 'nhanpublic@gmail.com'
 export const COPYRIGHT_CONTENT = `Copyright &copy; ${new Date().getFullYear()} Nhan Nguyen Da Coder. All Rights Reserved.`
 
 /**
- * Information that are displayed on your portfolio page
+ * Your Information that are displayed on the blog
  */
 export const PORTFOLIO_INFO = {
     /**
@@ -57,19 +47,10 @@ export const PORTFOLIO_INFO = {
      * 
      * You can provide an image link here, or add an image to 
      * `ngx-scully-blog/src/assets/images` folder and provide a link as following format  
-     * `https://yourdomain.com/assets/images/your-image-name`. For example, 
+     * `https://yourdomain.com/assets/images/your-image-name.jpg`. For example, 
      * `https://yourdomain.com/assets/images/profile.jpg`
      */
     PROFILE_IMAGE: 'assets/images/profile.jpg',
-    /**
-     * An image that is displayed in the preview section when you post your portfolio url on social networks.
-     * 
-     * You can provide an image link here, or add an image to 
-     * `ngx-scully-blog/src/assets/images` folder and provide a link as following format
-     * `https://yourdomain.com/assets/images/your-image-name`. For example, 
-     * `https://yourdomain.com/assets/images/preview.jpg`
-     */
-    SHARE_IMAGE: 'assets/images/portfolio-thumb.png',
 }
 
 /**

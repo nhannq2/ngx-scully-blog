@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CATEGORIES, CATEGORIES_SECTION_TITLE } from '../../../../../../configuration';
+import { CATEGORIES } from '../../../../../../configuration';
 
 @Component({
   selector: 'app-blog-categories',
@@ -10,5 +10,4 @@ import { CATEGORIES, CATEGORIES_SECTION_TITLE } from '../../../../../../configur
 export class BlogCategoriesComponent {
   constructor() {}
   categories = CATEGORIES
-  title = CATEGORIES_SECTION_TITLE
 }

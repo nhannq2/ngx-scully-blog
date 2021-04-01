@@ -1,5 +1,9 @@
 # ngx-scully-blog
 
+Todo: 
+- [ ] Add a preview image
+- [ ] Add link to theme repo
+
 If you want to create a blog to share your knowledge, but you just want to focus on writing great articles and don't want to care much about other stuff like search engine optimization (SEO), hosting, domain, etc. This project can help you.
 
 **Ngx-scully-blog** is a simple blog for developers that is easy to setup and SEO supported. After the inital setups, you only need to focus on writing your blog posts in Markdown.
@@ -70,7 +74,7 @@ Ok, we have setup Firebase. Now we will go back to the source code to personaliz
 
 ### Personalize your blog
 - Open the source code directory (`ngx-scully-blog`) you have cloned on the last step on your code editor.
-- Open [`ngx-scully-blog/configuration/site-configs.ts`](./configuration/site-configs.ts) file. This is the place you can personalize the site's configurations and the contents displayed on your blog (includes the portfolio page and the blog page).
+- Open [`ngx-scully-blog/configuration/site-configs.ts`](./configuration/site-configs.ts) file. This is the place you can personalize the site's configurations and the contents displayed on your blog.
 - Now lets customize all the configurations in [`site-configs.ts`](./configuration/site-configs.ts) file to make the blog your own. I put useful comments for each configuration so you can read the comments if you need more infomation.
 - The final configuration your need to setup is for the sitemap plugin, which generate the `sitemap.xml` file for your blog.
     - Open [`ngx-scully-blog/scully.ngx-scully-blog.config.ts`](./scully.ngx-scully-blog.config.ts) file.

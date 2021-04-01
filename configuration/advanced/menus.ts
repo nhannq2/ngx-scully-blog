@@ -18,10 +18,6 @@ export const MENUS: IMenu[] = [
      */
     {name: 'Home', route: '/', icon: ['fas', 'home']},
     /**
-     * Special menu, link to your portfolio. The route must be '/portfolio'.
-     */
-    // {name: 'Portfolio', route: '/portfolio'},
-    /**
      * Navigate to about page
      * 
      * Content of this page is the content of `about.md` file in 

@@ -4,11 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { 
-    path: 'portfolio', 
-    loadChildren: () => import('./features/portfolio/portfolio.module').then(m => m.PortfolioModule),
-    pathMatch: 'full'
-  },
-  { 
     path: '', 
     loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule) 
   }

@@ -1,21 +1,13 @@
-<div class="card my-4">
-    <ng-container *ngIf="categories.length">
-        <h5 class="card-header text-secondary">{{title}}</h5>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-unstyled mb-0">
-                        <li *ngFor="let c of categories">
-                            <a 
-                                routerLinkActive="active"  
-                                [routerLinkActiveOptions]="{exact:c.KEY===''}"
-                                [routerLink]="['/']"
-                                [queryParams]="{c: c.key || null}"
-                                >{{c.displayName}}</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </ng-container>
-</div>
+
+<ng-container *ngIf="categories?.length">
+    <ul id="categories">
+        <li *ngFor="let c of categories; let i = index;" [class.ml-2]="i > 0">
+            <a 
+                routerLinkActive="active"  
+                [routerLinkActiveOptions]="{exact:!c?.KEY}"
+                [routerLink]="['/']"
+                [queryParams]="{c: c?.key || null}"
+                >{{c?.displayName}}</a>
+        </li>
+    </ul>
+</ng-container>
