@@ -17,7 +17,7 @@ export const SOCIAL_LINKS = [
     { title: 'Linkedin', url: 'https://linkedin.com/in/nhaancs', icon: ['fab', 'linkedin-in'], size: '1x' },
     { title: 'Github', url: 'https://github.com/nhaancs', icon: ['fab', 'github'], size: '1x' },
     { title: 'Twitter', url: 'https://twitter.com/nhaancs', icon: ['fab', 'twitter'], size: '1x' },
-    { title: 'Facebook', url: 'https://facebook.com/nhaancs', icon: ['fab', 'facebook-f'], size: '1x' },
+    // { title: 'Facebook', url: 'https://facebook.com/nhaancs', icon: ['fab', 'facebook-f'], size: '1x' },
 ]
 /**
  * Your email address.
@@ -36,12 +36,7 @@ export const PORTFOLIO_INFO = {
      * Tell your audience what do you do. 
      * For example, "I help companies develop high performance, scalable and maintainable Angular applications".
      */
-    INTRODUCTION: 'I help companies develop high performance, scalable and maintainable Angular applications.',
-    /**
-     * What is your job title. 
-     * For example, "Senior Angular Developer".
-     */
-    JOB_TITLE: 'Senior Angular Developer',
+    INTRODUCTION: 'Hi, my name is Nhan, I am a fullstack developer. I help companies and individuals develop high performance, scalable and maintainable applications.',
     /**
      * Your profile image url. Should be a square image.
      * 

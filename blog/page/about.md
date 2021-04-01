@@ -1,20 +1,22 @@
 ---
-title: About me
-description: Xin chào, mình là Nhân Nguyễn. Mình viết blog hướng dẫn lập trình web dành cho người tự học lập trình.
+title: Nhan Nguyen - About me
+description: Hi, My name is Nhan. I am a fullstack developer. I help companies and individuals develop high performance, scalable and maintainable applications. I use Golang, Nestjs, and Angular.
 published: true
-keywords: tu hoc lap trinh
+keywords: fullstack, developer, angular, nestjs, golang
 date: 2020-08-21
-image: assets/images/page/about/page-image.jpg
+image: assets/images/profile.jpg
 ---
-# Nhan Nguyen Da Coder
 
 ![page-image](assets/images/page/about/page-image.jpg)
 
-Xin chào, mình là Nhân Nguyễn. Mình viết blog hướng dẫn lập trình web dành cho người tự học lập trình.
+Hi, 
 
-Nội dung blog chủ yếu chia sẻ về **Cách tự học lập trình từ cơ bản** theo kinh nghiệm của chính bản thân mình, cũng như hướng dẫn các công nghệ lập trình web như HTML, CSS, Javascript, Bootstrap, Angular, Nodejs, Mongodb, Postgresql,...
+My name is Nhan, I am a fullstack developer. 
 
-**Liên hệ**
-- Trang cá nhân: [Nhan Nguyen](https://www.facebook.com/nhaancs)
-- Thông báo bài viết mới trên: [Nhan Nguyen Da Coder](https://www.facebook.com/NhanNguyenDaCoder)
-- Thảo luận, hỏi đáp trên group: [Tôi tự học lập trình](https://www.facebook.com/groups/toituhoclaptrinhgroup)
+I help companies and individuals develop high performance, scalable and maintainable applications. 
+
+I use Golang and Nestjs for backend development, and use Angular for frontend development.
+
+This blog is the place I share the things I've learned and created over the years.
+
+You can contact me via email [nhanpublic@gmail.com](mailto:nhanpublic@gmail.com).

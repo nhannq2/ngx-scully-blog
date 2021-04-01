@@ -3,7 +3,7 @@ title: Real world fullstack application built with Nestjs, Angular, and Nx monor
 description: Exemplary real world fullstack application built with Nestjs, Angular, and Nx monorepo.
 published: true
 keywords: fullstack, fullstack application, nestjs, angular, nx, monorepo
-categories: angular
+categories: angular, nestjs
 date: 2021-03-31
 image: assets/images/angular/realworld-fullstack-application-with-nestjs-angular-nx/post-image.jpg
 ---
