@@ -26,7 +26,7 @@
             <router-outlet></router-outlet>
             <!-- https://github.com/scullyio/scully/issues/920#issuecomment-693464927 -->
             <app-blog-related-posts 
-                *ngIf="globalService?.isReadingAPost && postService?.relatedPosts?.length"
+                *ngIf="globalService?.isReadingAPost"
                 [relatedPosts]="postService?.relatedPosts"
                 ></app-blog-related-posts> 
             
