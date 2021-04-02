@@ -47,7 +47,7 @@ Sau khi download source code và giải nén, cài đặt `Node.js` và chạy �
 
 Trước tiên, tải và cài đặt Nodejs ở [đây](https://nodejs.org/en/download/). Sau đó mở cửa sổ dòng lệnh (terminal), cài đặt Angular CLI với lệnh sau:
 
-```sh
+```bash
 npm install -g @angular/cli
 ```
 
@@ -55,7 +55,7 @@ Sau khi cài đặt xong thì hệ thống sẽ có thêm một lệnh mới là
 
 Tiếp theo, tạo một workspace với lệnh [`ng new`](https://angular.io/cli/new "CLI ng new command reference"):
 
-```sh
+```bash
 ng new my-project-name
 ```
 
@@ -65,13 +65,13 @@ Trong terminal, di chuyển vào thư mục gốc của workspace vừa mới đ
 
 Cài đặt các thư viện cần thiết bằng lệnh:
 
-```sh
+```bash
 npm install
 ```
 
 Bắt đầu build với lệnh sau:
 
-```sh
+```bash
 ng build --prod
 ```
 

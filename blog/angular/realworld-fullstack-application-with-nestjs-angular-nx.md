@@ -111,7 +111,7 @@ The example application is a social blogging site (i.e. a Medium.com clone) call
 
 **Workspace structure**
 
-```
+```markup
 apps
 |____api
 |____conduit

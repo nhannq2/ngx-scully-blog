@@ -130,7 +130,7 @@ Your blog posts will be written in markdown format and stored in `ngx-scully-blo
 - First, open `ngx-scully-blog` in code editor and create `my-first-blog-post.md` inside `ngx-scully-blog/blog` directory.
 - Create `ngx-scully-blog/blog/my-first-blog-post.md` file.
 - At the very beginning of the file, add the content below 
-    ```
+    ```markup
     ---
     title: My first blog post
     description: This is my first blog post description
@@ -151,7 +151,7 @@ Your blog posts will be written in markdown format and stored in `ngx-scully-blo
     - **categories** are categories that you post belong, seperated by comma. Each category is a category key in each category item defined in [`ngx-scully-blog/configuration/advanced/categories.ts`](./configuration/advanced/categories.ts). Uncategorized is the category created by default.
     - **date** is the publish date of your post, in YYYY-MM-DD format, for example, 2021-03-18.
 - Next, lets write your post content. Add the content below to your markdown file.
-    ```
+    ```markup
     # My first blog post
 
     ![first-post-image](assets/images/my-first-blog-post/first-post-image.jpg)

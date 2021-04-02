@@ -78,7 +78,7 @@ Thêm đường dẫn `/usr/local/go/bin` vào biến môi trường `PATH`. V�
 ## Xác nhận việc cài đặt
 Để xác nhận bạn đã cài đặt Go thành công, gõ lệnh `go version` trong cửa sổ dòng lệnh và nó sẽ in ra phiên bản Go đã được cài đặt. Ví dụ:
 
-```
+```bash
 $ go version
 go version go1.13.6 darwin/amd64  
 ```

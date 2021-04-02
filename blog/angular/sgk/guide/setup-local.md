@@ -67,7 +67,7 @@ Angular CLI được dùng để tạo các project, tạo ra code cho các ứn
 
 Để cài đặt Angular CLI, mở cửa sổ terminal và chạy lệnh sau:
 
-```sh
+```bash
 npm install -g @angular/cli
 ```
 
@@ -79,7 +79,7 @@ Một hay nhiều ứng dụng có thể được phát triển trong cùng mộ
 
 1. Chạy lệnh `ng new` với tên là `my-app`:
 
-  ```sh
+  ```bash
     ng new my-app
   ```
 
@@ -102,13 +102,13 @@ Tìm hiểu thêm về strict mode của Angular ở [đây](https://angular.io/
 Angular CLI có đi kèm một server để có thể build và chạy ứng dụng của bạn trên máy cá nhân (local).
 
 1. Trên terminal, di chuyển vào thư mục của workspace là `my-app`:
-  ```sh
+  ```bash
   cd my-app
   ```
 
 2. Chạy lệnh sau:
 
-  ```sh
+  ```bash
   ng serve --open
   ```
 

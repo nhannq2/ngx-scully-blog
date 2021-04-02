@@ -21,7 +21,7 @@ Cách tốt nhất để học một ngôn ngữ lập trình là bắt tay vào
 ## Cài đặt môi trường để lập trình Go
 Đầu tiên hãy tạo một thư mục để chứa mã nguồn của chương trình hello world. Mở terminal và gõ lệnh sau.
 
-```
+```bash
 mkdir ~/Documents/learngo
 ```
 
@@ -48,13 +48,13 @@ Có nhiều cách khác nhau để chạy một chương trình Go. Hãy tìm hi
 ### 1. go install 
 Cách đầu tiên để chạy một chương trình Go là dùng lệnh `go install`. Bây giờ hãy `cd` vào thư mục `learngo` mà chúng ta vừa tạo ra.
 
-```
+```bash
 cd ~/Documents/learngo
 ```
 
 Tiếp sau chạy lệnh sau.
 
-```
+```bash
 go install
 ```
 
@@ -62,7 +62,7 @@ Câu lệnh trên sẽ biên dịch chương trình và cài đặt (copy) file 
 
 Bạn có thể sẽ gặp lỗi sau khi dùng lệnh `go install` để cài đặt chương trình.
 
-```
+```markup
 go install: no install location for directory 
 /home/naveen/Documents/learngo outside GOPATH  
 For more details see: 'go help gopath'  
@@ -70,7 +70,7 @@ For more details see: 'go help gopath'
 
 Lỗi xuất hiện phía trên có nghĩa là `go install` không thể tìm thấy nơi để cài đặt file binary đã được biên dịch của chúng ta. Vì vậy hãy tiếp tục và cho nó biết vị trí đó. Vị trí này được thiết lập bởi biến môi trường tên là `GOBIN`.
 
-```
+```bash
 export GOBIN=~/go/bin/
 ```
 
@@ -80,7 +80,7 @@ Gõ `ls -al ~/go/bin/learngo` trong terminal và bạn có thể thấy đúng l
 
 Bây giờ hãy chạy file binary đã được biên dịch.
 
-```
+```bash
 ~/go/bin/learngo
 ```
 
@@ -90,7 +90,7 @@ Chúc mừng! Bạn đã chạy thành công chương trình Go đầu tiên.
 
 Nếu bạn muốn tránh việc phải gõ lại toàn bộ đường dẫn `~/go/bin/learngo` mỗi lần chạy chương trình, bạn có thể thêm `~/go/bin/` vào biến môi trường `PATH`.
 
-```
+```bash
 export PATH:$PATH:~/go/bin
 ```
 
@@ -103,13 +103,13 @@ Lựa chọn thứ 2 để chạy một chương trình Go là sử dụng `go b
 
 Gõ lệnh sau vào terminal để đi đến thư mục `learngo`.
 
-```
+```bash
 cd ~/Documents/learngo/  
 ```
 
 Sau đó tiếp tục gõ lệnh sau.
 
-```
+```bash
 go build
 ```
 
@@ -124,13 +124,13 @@ Cách thứ 3 để chạy chương trình là dùng lệnh `go run`,
 
 Gõ lệnh sau vào terminal để đi đến thư mục `learngo`.
 
-```
+```bash
 cd ~/Documents/learngo/  
 ```
 
 Sau đó tiếp tục gõ lệnh sau.
 
-```
+```bash
 go run main.go
 ```
 
@@ -140,13 +140,13 @@ Một sự khác biệt giữa `go run` và `go build`/`go install` là `go run`
 
 Ở bên dưới, `go run` cũng hoạt động tương tự như `go build`. Thay vì biên dịch và cài đặt chương trình vào thư mục hiện tại, nó sẽ biên dịch chương trình vào một vị trí tạm thời và chạy chương trình ở vị trí đó. Nếu bạn muốn biết `go run` sẽ biên dịch chương trình và đặt ở đâu, hãy chạy lệnh `go run` với tham số `--work`.
 
-```
+```bash
 go run --work main.go 
 ```
 
 Trong trường hợp này, kết quả sẽ hiện ra như sau.
 
-```
+```markup
 WORK=/var/folders/23/vdjz4kt972g5nzr86wzrj9740000gq/T/go-build698353814  
 Hello World
 ```
