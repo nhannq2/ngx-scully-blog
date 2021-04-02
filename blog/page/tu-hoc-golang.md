@@ -11,68 +11,68 @@ image: assets/images/page/tu-hoc-golang/page-image.jpg
 
 ![page-image](assets/images/page/tu-hoc-golang/page-image.jpg)
 
-## Introduction
-1. Introduction and Installation
-2. Hello World
+## Giới thiệu
+1. [Giới thiệu và cài đặt](https://nhannguyendacoder.com/golang/tu-hoc-golang/gioi-thieu-va-cai-dat)
+2. [Hello World](https://nhannguyendacoder.com/golang/tu-hoc-golang/hello-world)
 
-## Variables, Types and Constants
-3. Variables
-4. Types
-5. Constants
+## Biến, kiểu dữ liệu và hằng số
+3. [Biến](https://nhannguyendacoder.com/golang/tu-hoc-golang/bien)
+4. [Kiểu dữ liệu](https://nhannguyendacoder.com/golang/tu-hoc-golang/kieu-du-lieu)
+5. [Hằng số](https://nhannguyendacoder.com/golang/tu-hoc-golang/hang-so)
 
-## Functions and Packages
-6. Functions
-7. Packages
+## Function và Package
+6. [Function](https://nhannguyendacoder.com/golang/tu-hoc-golang/function)
+7. [Package](https://nhannguyendacoder.com/golang/tu-hoc-golang/package)
 
-## Conditional Statements and Loops
-8. if else statement
-9. Loops
-10. Switch Statement
+## Câu lệnh điều kiện và vòng lặp
+8. [Câu lệnh if else](https://nhannguyendacoder.com/golang/tu-hoc-golang/cau-lenh-if-else) 
+9. [Vòng lặp](https://nhannguyendacoder.com/golang/tu-hoc-golang/vong-lap)
+10. [Câu lệnh switch](https://nhannguyendacoder.com/golang/tu-hoc-golang/cau-lenh-switch) 
 
-## Arrays, Slices and Variadic Functions
-11. Arrays and Slices
-12. Variadic Functions
+## Array, Slice và Variadic Function
+11. [Array và Slice](https://nhannguyendacoder.com/golang/tu-hoc-golang/array-va-slice)
+12. [Variadic Function](https://nhannguyendacoder.com/golang/tu-hoc-golang/variadic-function)
 
-## More types
-13. Maps
-14. Strings
+## Các kiểu dữ liệu khác
+13. [Map](https://nhannguyendacoder.com/golang/tu-hoc-golang/map)
+14. [String](https://nhannguyendacoder.com/golang/tu-hoc-golang/string)
 
-## Pointers, Structs and Methods
-15. Pointers
-16. Structs
-17. Methods
+## Pointer, Struct và Method
+15. [Pointer](https://nhannguyendacoder.com/golang/tu-hoc-golang/pointer)
+16. [Struct](https://nhannguyendacoder.com/golang/tu-hoc-golang/struct)
+17. [Method](https://nhannguyendacoder.com/golang/tu-hoc-golang/method)
 
-## Interfaces
-18. Interfaces - I
-19. Interfaces - II
+## Interface
+18. [Interface - I](https://nhannguyendacoder.com/golang/tu-hoc-golang/interface-i)
+19. [Interface - II](https://nhannguyendacoder.com/golang/tu-hoc-golang/interface-ii)
 
 ## Concurrency
-20. Introduction to Concurrency
-21. Goroutines
-22. Channels
-23. Buffered Channels and Worker Pools
-24. Select
-25. Mutex
+20. [Giới thiệu về Concurrency](https://nhannguyendacoder.com/golang/tu-hoc-golang/gioi-thieu-ve-concurrency)
+21. [Goroutine](https://nhannguyendacoder.com/golang/tu-hoc-golang/goroutine)
+22. [Channel](https://nhannguyendacoder.com/golang/tu-hoc-golang/channel)
+23. [Buffered Channel và Worker Pool](https://nhannguyendacoder.com/golang/tu-hoc-golang/buffered-channel-va-worker-pool)
+24. [Select](https://nhannguyendacoder.com/golang/tu-hoc-golang/select)
+25. [Mutex](https://nhannguyendacoder.com/golang/tu-hoc-golang/mutex)
 
-## Object Oriented Programming
-26. Structs Instead of Classes
-27. Composition Instead of Inheritance
-28. Polymorphism
+## Lập trình hướng đối tượng
+26. [Structs thay thế cho class](https://nhannguyendacoder.com/golang/tu-hoc-golang/struct-thay-the-cho-class)
+27. [Composition thay thế cho kế thừa](https://nhannguyendacoder.com/golang/tu-hoc-golang/composition-thay-the-cho-ke-thua)
+28. [Tính đa hình](https://nhannguyendacoder.com/golang/tu-hoc-golang/tinh-da-hinh)
 
-## Defer and Error Handling
-29. Defer
-30. Error Handling
-31. Custom Errors
-32. Panic and Recover
+## Defer và Error Handling
+29. [Defer](https://nhannguyendacoder.com/golang/tu-hoc-golang/defer)
+30. [Error Handling](https://nhannguyendacoder.com/golang/tu-hoc-golang/error-handling)
+31. [Custom Error](https://nhannguyendacoder.com/golang/tu-hoc-golang/custom-error)
+32. [Panic và Recover](https://nhannguyendacoder.com/golang/tu-hoc-golang/panic-va-recover)
 
-## First Class Functions
-33. First Class Functions
+## First Class Function
+33. [First Class Function](https://nhannguyendacoder.com/golang/tu-hoc-golang/first-class-function)
 
 ## Reflection
-34. Reflection
+34. [Reflection](https://nhannguyendacoder.com/golang/tu-hoc-golang/reflection)
 
 ## File Handling
-35. Reading Files
-36. Writing Files
+35. [Đọc file](https://nhannguyendacoder.com/golang/tu-hoc-golang/doc-file)
+36. [Ghi file](https://nhannguyendacoder.com/golang/tu-hoc-golang/ghi-file)
 
 Nguồn: [https://golangbot.com/learn-golang-series](https://golangbot.com/learn-golang-series/)
