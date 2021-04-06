@@ -47,13 +47,13 @@ func main() {
 
 [Chạy trên Playground](https://play.golang.org/p/zC78_fc1Hn)
 
-`go hello()` tạo ra một goroutine. Bây giờ, hàm `hello()` sẽ chạy đồng thời với hàm `main()`. Hàm `main()` chạy trên `main goroutine`.
+`go hello()` tạo ra một goroutine. Bây giờ, hàm `hello()` sẽ chạy đồng thời với hàm `main()`. Hàm `main()` chạy trên goroutine `main`.
 
 Khi chạy chương trình này thì bạn sẽ thấy kết quả in ra là `main function`. Điều gì đã xảy ra với goroutine chúng ta vừa mới tạo ra? Chúng ta cần hiểu rõ các thuộc tính của goroutine để hiêu tại sao lại có kết quả như vậy.
 - Khi một goroutine mới được tạo ra, thì lời gọi goroutine đó sẽ return ngay lập tức. Không giống như lời gọi hàm, chương trình sẽ không đợi goroutine thực hiện xong mới return, mà nó sẽ ngay lập tức return về dòng tiếp theo sau dòng gọi goroutine, bất cứ giá trị trả về nào của goroutine đó sẽ bị bỏ qua.
-- `Main goroutine` nên tồn tại trong lúc các goroutine khác vẫn còn đang chạy. Nếu `main goroutine` kết thúc thì chương trình sẽ dừng lại và không còn goroutine nào chạy hết.
+- Goroutine `main` nên tồn tại trong lúc các goroutine khác vẫn còn đang chạy. Nếu goroutine `main` kết thúc thì chương trình sẽ dừng lại và không còn goroutine nào chạy hết.
 
-Bây giờ bạn đã hiểu vì sao goroutine của chúng ta không chạy. Sau khi chúng ta gọi `go hello()`, chương trình ngay lập tức return về dòng tiếp theo và in ra `main function` mà không đợi cho `hello goroutine` hoàn thành. Sau khi `main goroutine` kết thúc thì tất cả các goroutine đều dừng thực thi, `hello goroutine` của chúng ta không có cơ hội được thực thi.
+Bây giờ bạn đã hiểu vì sao goroutine của chúng ta không chạy. Sau khi chúng ta gọi `go hello()`, chương trình ngay lập tức return về dòng tiếp theo và in ra `main function` mà không đợi cho goroutine `hello` hoàn thành. Sau khi goroutine `main` kết thúc thì tất cả các goroutine đều dừng thực thi, goroutine `hello` của chúng ta không có cơ hội được thực thi.
 
 Hãy sửa một chút như sau.
 
@@ -77,9 +77,9 @@ func main() {
 
 [Chạy trên Playground](https://play.golang.org/p/U9ZZuSql8-)
 
-Ngay sau khi gọi `go hello()`, chúng ta gọi hàm [Sleep](https://golang.org/pkg/time/#Sleep) trong package `time` và `main goroutine` sẽ vào trạng thái sleep 1 giây. Bây giờ `hello goroutine` đã có đủ thời gian để thực thi trước khi `main goroutine` kết thúc. Chương trình sẽ in ra `Hello world goroutine`, sau đó dừng 1 giây và in ra `main function`.
+Ngay sau khi gọi `go hello()`, chúng ta gọi hàm [Sleep](https://golang.org/pkg/time/#Sleep) trong package `time` và goroutine `main` sẽ vào trạng thái sleep 1 giây. Bây giờ goroutine `hello` đã có đủ thời gian để thực thi trước khi goroutine `main` kết thúc. Chương trình sẽ in ra `Hello world goroutine`, sau đó dừng 1 giây và in ra `main function`.
 
-*Đây là cách tạm thời để minh họa cách goroutine hoạt động. Channel có thể được dùng để block `main goroutine` cho đến khi các goroutine chạy xong. Chúng ta sẽ thảo luận về channel trong bài tiếp theo*
+*Đây là cách tạm thời để minh họa cách goroutine hoạt động. Channel có thể được dùng để block goroutine `main` cho đến khi các goroutine chạy xong. Chúng ta sẽ thảo luận về channel trong bài tiếp theo*
 
 ## Tạo nhiều goroutine
 Hãy viết một chương trinh tạo ra nhiều goroutine để hiểu rõ hơn nhé.
@@ -114,7 +114,7 @@ func main() {
 
 [Chạy trên Playground](https://play.golang.org/p/oltn5nw0w3)
 
-Ở hai dòng `go numbers()` và `go alphabets()` của chương trình trên tạo ra 2 goroutine chạy đồng thời. `numbers goroutine` sleep 250 mili giây và sao đó in ra `1`, sau đó sleep nữa và in ra `2`, và tiếp tục như vậy cho đến khi `5` được in ra. Tương tự, `alphabets goroutine` sẽ in các ký tự từ `a` đến `e` với thời gian sleep mỗi lần là 400 mili giây. `Main goroutine` sau khi tạo ra hai goroutine `numbers` và `alphabets` thì sleep 3000 mili giây, sau đó kết thúc.
+Ở hai dòng `go numbers()` và `go alphabets()` của chương trình trên tạo ra 2 goroutine chạy đồng thời. Goroutine `numbers` sleep 250 mili giây và sao đó in ra `1`, sau đó sleep nữa và in ra `2`, và tiếp tục như vậy cho đến khi `5` được in ra. Tương tự, goroutine `alphabets` sẽ in các ký tự từ `a` đến `e` với thời gian sleep mỗi lần là 400 mili giây. Goroutine `main` sau khi tạo ra hai goroutine `numbers` và `alphabets` thì sleep 3000 mili giây, sau đó kết thúc.
 
 Chương trình trên in ra:
 
@@ -126,7 +126,7 @@ Bức ảnh sau miêu tả cách chương trình hoạt động.
 
 ![goroutines-explained.png](assets/images/golang/tu-hoc-golang/goroutine/goroutines-explained.png)
 
-Phần đầu tiên của hình ảnh có màu xanh lam đại diện cho `numbers goroutine`, phần thứ hai có màu hạt dẻ đại diện cho `alphabets goroutine`, phần thứ ba màu xanh lục đại diện cho `main goroutine`, và phần cuối cùng màu đen kết hợp tất cả ba phần trên và cho chúng ta thấy chương trình hoạt động như thế nào. Các chuỗi như `0 s`, `250 ms` ở trên mỗi box đại diện cho thời gian bằng mili giây và kết quả in ra được thể hiện ở dưới mỗi box, ví dụ `1`, `2`, `3`,... Box xanh dương cho chúng ta biết `1` được in ra sau 250 mili giây, `2` được in ra sau 500 mili giây,... Bên dưới box cuối cùng màu đen có các giá trị `1`, `a`, `2`, `3`, `b`, `4`, `c`, `5`, `d`, `e`, `main terminated`. Đây cũng là kết quả in ra của chương trình. Hình ảnh đã tự giải thích cho chính nó và bạn sẽ có thể hiểu cách hoạt động của chương trình.
+Phần đầu tiên của hình ảnh có màu xanh lam đại diện cho goroutine `numbers`, phần thứ hai có màu hạt dẻ đại diện cho goroutine `alphabets`, phần thứ ba màu xanh lục đại diện cho goroutine `main`, và phần cuối cùng màu đen kết hợp tất cả ba phần trên và cho chúng ta thấy chương trình hoạt động như thế nào. Các chuỗi như `0 s`, `250 ms` ở trên mỗi box đại diện cho thời gian bằng mili giây và kết quả in ra được thể hiện ở dưới mỗi box, ví dụ `1`, `2`, `3`,... Box xanh dương cho chúng ta biết `1` được in ra sau 250 mili giây, `2` được in ra sau 500 mili giây,... Bên dưới box cuối cùng màu đen có các giá trị `1`, `a`, `2`, `3`, `b`, `4`, `c`, `5`, `d`, `e`, `main terminated`. Đây cũng là kết quả in ra của chương trình. Hình ảnh đã tự giải thích cho chính nó và bạn sẽ có thể hiểu cách hoạt động của chương trình.
 
 Liên kết: 
 - Bài tiếp theo - [Channel](https://nhannguyendacoder.com/golang/tu-hoc-golang/channel)
