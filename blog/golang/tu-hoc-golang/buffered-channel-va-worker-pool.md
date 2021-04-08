@@ -306,7 +306,181 @@ func worker(wg *sync.WaitGroup) {
 }
 ```
 
-Hàm ở trên
+Hàm ở trên tạo ra một worker nhận dữ liệu từ channel `jobs`, tạo một struct `Ressult` với job hiện tại và kết quả của hàm `digits`, sau đó gửi struct này vào channel `results`. Hàm này nhận vào một tham số là một WaitGroup `wg` và chúng ta sẽ gọi `wg.Done()` khi hoàn thành job.
+
+Hàm `createWorkerPool` sẽ tạo ra số lượng goroutine `worker` cần thiết.
+
+```go
+func createWorkerPool(noOfWorkers int) {  
+    var wg sync.WaitGroup
+    for i := 0; i < noOfWorkers; i++ {
+        wg.Add(1)
+        go worker(&wg)
+    }
+    wg.Wait()
+    close(results)
+}
+```
+
+Hàm trên nhận vào một tham số là số lượng goroutine `worker` cần tạo ra, nó gọi method `wg.Add(1)` trước khi tạo goroutine để tăng counter của WaitGroup lên. Sau đó nó tạo ra các goroutine `worker`, lưu ý là con trỏ của WaitGroup `wg` được truyền vào hàm `worker`. Sau khi tạo xong các goroutine cần thiết, hàm này sẽ đợi cho đến khi tất cả các goroutine hoàn thành bằng cách gọi `wg.Wait()`. Sau khi tất cả các goroutine hoàn thành, hàm này cũng đóng channel `results` vì tất cả các goroutine đều hoàn thành hết job của mình rồi và không còn kết quả nào được gửi vào channel này nữa.
+
+
+Bây giờ chúng ta đã có một worker pool, hãy tiếp tục viết một hàm để cấp phát job cho các worker.
+
+```go
+func allocate(noOfJobs int) {  
+    for i := 0; i < noOfJobs; i++ {
+        randomno := rand.Intn(999)
+        job := Job{i, randomno}
+        jobs <- job
+    }
+    close(jobs)
+}
+```
+
+Hàm `allocate` nhận vào tham số là số lượng job `noOfJobs`, sau đó lặp qua `noOfJobs` lần. Mỗi lần lặp, nó sẽ tạo ra một số ngẫu nhiên cần tính tổng các chữ số với `rand.Intn(999)`, sau đó tạo mới một job với số vừa mới tạo ra và `id` là index `i` của vòng lặp rồi gửi job đó vào channel `jobs`. Sau khi tất cả các job được gửi vào channel thì hàm sẽ đóng channel `jobs` lại.
+
+Tiếp theo chúng ta sẽ viết hàm đọc kết quả từ channel `results` và in ra kết quả.
+
+```go
+func result(done chan bool) {  
+    for result := range results {
+        fmt.Printf("Job id %d, input random no %d , sum of digits %d\n", result.job.id, result.job.randomno, result.sumofdigits)
+    }
+    done <- true
+}
+```
+
+Hàm `result` đọc từ channel `results` và in ra id của job, số ngẫu nhiên cần tính toán và tổng các chữ số của số đó. Hàm này cũng nhận vào một channel `done`, channel này sẽ được gửi dữ liệu một lần khi tất cả kết quả được in ra hết.
+
+Chúng ta đã có mọi thứ cần thiết, bây giờ hãy gọi những hàm trên ở trong hàm `main`.
+
+```go
+func main() {  
+    startTime := time.Now()
+    noOfJobs := 100
+    go allocate(noOfJobs)
+    done := make(chan bool)
+    go result(done)
+    noOfWorkers := 10
+    createWorkerPool(noOfWorkers)
+    <-done
+    endTime := time.Now()
+    diff := endTime.Sub(startTime)
+    fmt.Println("total time taken ", diff.Seconds(), "seconds")
+}
+```
+
+Chúng ta lưu lại thời gian `startTime` lúc bắt đầu, và `endTime` lúc kết thúc chương trình để tính toán tổng thời gian mà chương trình đã chạy. Chúng ta sẽ xem thời gian thực thi thay đổi như thế nào khi số lượng gorouitne (`noOfWorkers`) thay đổi.
+
+Số lượng job `noOfJobs` là 100, sau đó hàm `allocate` được gọi và thêm job vào channel `jobs`.
+
+Channel `done` được tạo ra và được truyền vào goroutine `result`. Goroutine này in kết quả trả về từ channel `results`, sau khi in hết kết quả thì gửi vào một tín hiệu cho channel `done`.
+
+Cuối cùng một worker pool với 10 goroutine được tạo ra với hàm `createWorkerPool` và hàm `main` sẽ đợi channel `done` trả về dữ liệu báo hiệu tất  cả kết quả đã được in.
+
+Chương trình đầy đủ,
+
+```go
+package main
+
+import (  
+    "fmt"
+    "math/rand"
+    "sync"
+    "time"
+)
+
+type Job struct {  
+    id       int
+    randomno int
+}
+type Result struct {  
+    job         Job
+    sumofdigits int
+}
+
+var jobs = make(chan Job, 10)  
+var results = make(chan Result, 10)
+
+func digits(number int) int {  
+    sum := 0
+    no := number
+    for no != 0 {
+        digit := no % 10
+        sum += digit
+        no /= 10
+    }
+    time.Sleep(2 * time.Second)
+    return sum
+}
+func worker(wg *sync.WaitGroup) {  
+    for job := range jobs {
+        output := Result{job, digits(job.randomno)}
+        results <- output
+    }
+    wg.Done()
+}
+func createWorkerPool(noOfWorkers int) {  
+    var wg sync.WaitGroup
+    for i := 0; i < noOfWorkers; i++ {
+        wg.Add(1)
+        go worker(&wg)
+    }
+    wg.Wait()
+    close(results)
+}
+func allocate(noOfJobs int) {  
+    for i := 0; i < noOfJobs; i++ {
+        randomno := rand.Intn(999)
+        job := Job{i, randomno}
+        jobs <- job
+    }
+    close(jobs)
+}
+func result(done chan bool) {  
+    for result := range results {
+        fmt.Printf("Job id %d, input random no %d , sum of digits %d\n", result.job.id, result.job.randomno, result.sumofdigits)
+    }
+    done <- true
+}
+func main() {  
+    startTime := time.Now()
+    noOfJobs := 100
+    go allocate(noOfJobs)
+    done := make(chan bool)
+    go result(done)
+    noOfWorkers := 10
+    createWorkerPool(noOfWorkers)
+    <-done
+    endTime := time.Now()
+    diff := endTime.Sub(startTime)
+    fmt.Println("total time taken ", diff.Seconds(), "seconds")
+}
+```
+
+[Chạy trên playground](https://play.golang.org/p/au5islUIbx)
+
+Bạn nên chạy chương trình này trên máy của mình để có được tổng thời gian chính xác hơn.
+
+Kết quả in ra,
+
+```markup
+Job id 1, input random no 636, sum of digits 15  
+Job id 0, input random no 878, sum of digits 23  
+Job id 9, input random no 150, sum of digits 6  
+...
+total time taken  20.01081009 seconds  
+```
+
+Tổng cộng 100 dòng được in ra tương ứng với 100 job. Cuối cùng, tổng thời gian thực thi được in ra là gần 20 giây, kết quả của bạn có thể khác. Lưu ý ở đây là ở mỗi job chúng ta đều sleep 2 giây để mô phỏng đây là một công việc cần thời gian, nếu làm tuần tự thì 100 job sẽ mất 200 giây, nhưng với 10 goroutine làm cùng lúc, chúng ta chỉ mất 20 giây!
+
+Bây giờ hãy tăng `noOfWorkers` lên 20. Kết quả tổng thời gian chạy chỉ còn 10 giây!
+
+```markup
+...
+total time taken  10.004364685 seconds  
+```
 
 Liên kết: 
 - Bài tiếp theo - [Select](https://nhannguyendacoder.com/golang/tu-hoc-golang/select)
