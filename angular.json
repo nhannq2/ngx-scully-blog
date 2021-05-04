@@ -49,6 +49,7 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
+              "src/ads.txt",
               "src/assets"
             ],
             "styles": [
