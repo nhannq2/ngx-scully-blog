@@ -2,9 +2,8 @@
 <br>
 <ng-container *ngFor="let p of postService.posts; let i = index;">
     <app-blog-post-item [post]="p"></app-blog-post-item>
+    <ng-adsense *ngIf="(i+1)%5==0" [adSlot]="1798163256"></ng-adsense>
     <br>
-    <ng-adsense *ngIf="(i+1)%3==0" [adSlot]="1798163256"></ng-adsense>
 </ng-container>
-<br>
 <ng-adsense [adSlot]="1798163256"></ng-adsense>
 
