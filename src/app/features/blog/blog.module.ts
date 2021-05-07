@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faHome, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faSearch, faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import { faBloggerB, faFacebookF, faGithub, faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { ScullyLibModule } from '@scullyio/ng-lib';
@@ -48,6 +48,6 @@ import { AdsenseModule } from 'ng2-adsense';
 })
 export class BlogModule { 
   constructor(library: FaIconLibrary) {
-    library.addIcons(faHome, faSearch, faBloggerB, faFacebookF, faGithub, faLinkedinIn, faTwitter);
+    library.addIcons(faHome, faSearch, faBloggerB, faFacebookF, faGithub, faLinkedinIn, faTwitter, faUserAstronaut);
   }
 }

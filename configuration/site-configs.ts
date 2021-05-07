@@ -14,6 +14,7 @@ export const FIRST_NAME = 'Nhan'
 export const LAST_NAME = 'Nguyen'
 
 export const SOCIAL_LINKS = [
+    { title: 'Portfolio', url: 'https://nhaancs.github.io/', icon: ['fas', 'user-astronaut'], size: '1x' },
     { title: 'Linkedin', url: 'https://linkedin.com/in/nhaancs', icon: ['fab', 'linkedin-in'], size: '1x' },
     { title: 'Github', url: 'https://github.com/nhaancs', icon: ['fab', 'github'], size: '1x' },
     { title: 'Twitter', url: 'https://twitter.com/nhaancs', icon: ['fab', 'twitter'], size: '1x' },
