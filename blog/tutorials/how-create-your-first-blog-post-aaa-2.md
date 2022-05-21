@@ -1,10 +1,10 @@
 ---
-title: How to create your first blog post
+title: How to create your first blog post AAA 2
 description: How to create your first blog post tutorial.
 published: true
 keywords: blog, blog post, how to create blog post
 categories: tutorials
-date: 2020-09-19
+date: 2020-09-18
 image: assets/images/tutorials/how-create-your-first-blog-post/new-post.jpg
 ---
 
