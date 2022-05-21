@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ICategory } from '@models';
 import { PostService, SeoHelperService } from '@services';
-import { CATEGORIES } from '@configuration';
+import { AD_SLOT, CATEGORIES } from '@configuration';
 
 @Component({
   selector: 'app-blog-home',
@@ -10,6 +10,7 @@ import { CATEGORIES } from '@configuration';
   styleUrls: ['./blog-home.component.scss']
 })
 export class BlogHomeComponent {
+  AD_SLOT = AD_SLOT
   constructor(
     public postService: PostService,
     route: ActivatedRoute,

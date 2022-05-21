@@ -45,8 +45,10 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
 scully.log
 firebase.json
 .firebaserc
 /.firebase
 scully.ngx-scully-blog.config.js
+.scully
