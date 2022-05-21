@@ -1,6 +1,6 @@
 
 import { LOGGLY_TOKEN } from '@configuration';
-import { IEnvironment } from 'src/app/models';
+import { IEnvironment } from '@models';
 
 export const environment: IEnvironment = {
   production: true,

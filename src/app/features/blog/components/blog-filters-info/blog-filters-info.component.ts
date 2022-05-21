@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CATEGORY_FILTER_TEXT, SEARCH_FOR_TEXT } from '@configuration';
-import { ICategory } from 'src/app/models';
+import { ICategory } from '@models';
 
 @Component({
   selector: 'app-blog-filters-info',

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IPost } from 'src/app/models';
+import { IPost } from '@models';
 import { SEE_MORE_TEXT } from '@configuration';
 
 @Component({

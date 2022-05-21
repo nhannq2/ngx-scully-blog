@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { StringHelper } from '../helpers';
-import { ICategory, IPost } from '../models'; 
+import { StringHelper } from '@helpers'; 
+import { ICategory, IPost } from '@models'; 
 
 @Injectable({
   providedIn: 'root'

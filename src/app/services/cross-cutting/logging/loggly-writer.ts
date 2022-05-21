@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LogglyService } from 'ngx-loggly-logger';
-import { ILoggingFullData } from 'src/app/models';
-import { environment } from 'src/environments/environment';
+import { ILoggingFullData } from '@models';
+import { environment } from '@environments/environment';
 import { LogWriter } from './log-writer';
 import { LoggingService } from './logging.service';
 

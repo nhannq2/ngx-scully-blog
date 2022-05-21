@@ -1,5 +1,5 @@
-import { ILoggingConfiguration, ILoggingData, ILoggingFullData } from 'src/app/models';
-import { environment } from 'src/environments/environment';
+import { ILoggingConfiguration, ILoggingData, ILoggingFullData } from '@models';
+import { environment } from '@environments/environment';
 import { LoggingService } from './logging.service';
 
 export abstract class LogWriter {

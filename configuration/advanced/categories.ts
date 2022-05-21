@@ -1,4 +1,4 @@
-import { ICategory } from '../../src/app/models'
+import { ICategory } from '@models'
 
 /**
  * This array define all categories in your blog. You can manage your categories by update this array. 

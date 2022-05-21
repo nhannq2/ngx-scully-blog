@@ -1,4 +1,4 @@
-import { IMenu } from '../../src/app/models/i-menu';
+import { IMenu } from '@models';
 
 /**
  * Menu items on the top navigation bar. 

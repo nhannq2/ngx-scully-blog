@@ -21,6 +21,13 @@
       "@modules/*": ["src/app/modules/*"],
       "@services": ["src/app/services/index.ts"],
       "@service/*": ["src/app/service/*"],
+      "@models": ["src/app/models/index.ts"],
+      "@models/*": ["src/app/models/*"],
+      "@helpers": ["src/app/helpers/index.ts"],
+      "@helpers/*": ["src/app/helpers/*"],
+      "@features": ["src/app/features/index.ts"],
+      "@features/*": ["src/app/features/*"],
+      "@environments/*": ["src/environments/*"],
     }
   },
   "angularCompilerOptions": {

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ICategory } from 'src/app/models';
+import { ICategory } from '@models';
 import { PostService, SeoHelperService } from '@services';
 import { CATEGORIES } from '@configuration';
 

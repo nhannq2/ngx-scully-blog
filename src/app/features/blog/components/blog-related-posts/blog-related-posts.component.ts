@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IPost } from 'src/app/models';
+import { IPost } from '@models';
 import { RELATED_POSTS_SECTION_TITLE } from '@configuration';
 
 @Component({
