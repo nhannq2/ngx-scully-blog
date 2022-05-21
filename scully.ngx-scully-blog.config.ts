@@ -4,9 +4,8 @@ import '@scullyio/scully-plugin-puppeteer'
 
 const SitemapPlugin = getSitemapPlugin();
 setPluginConfig(SitemapPlugin, {
-  // TODO: Update this urlPrefix to your domain 
-  // Normally, this url is: your-firebase-project-name.web.app
-  urlPrefix: 'https://yourdomain.com',
+  // TODO: Update this urlPrefix to your domain
+  urlPrefix: 'https://nhannguyen.me/blog',
   sitemapFilename: 'sitemap.xml',
   changeFreq: 'monthly',
   priority: ['1.0', '0.9', '0.8', '0.7', '0.6', '0.5', '0.4', '0.3', '0.2', '0.1', '0.0'],
@@ -21,7 +20,7 @@ export const config: ScullyConfig = {
   projectName: "ngx-scully-blog",
   outDir: './dist/static',
   routes: {
-    '/:slug': {
+    '/blog/:slug': {
       type: 'contentFolder',
       slug: {
         folder: "./blog"

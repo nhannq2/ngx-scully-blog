@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Title } from "@angular/platform-browser";
 import { Router } from "@angular/router";
-import { BLOG_INFO, ROOT_SITE_URL } from "configuration";
+import { BLOG_INFO, ROOT_SITE_URL } from "@configuration";
 import { JsonLdService, SeoSocialShareData, SeoSocialShareService } from 'ngx-seo';
 
 export interface SeoData {

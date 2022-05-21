@@ -1,9 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { JsonLdModule } from 'ngx-seo';
-import { AppRoutingModule } from './app-routing.module';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CoreModule } from './modules/core/core.module';
+import { CoreModule } from '@modules/core/core.module';
+
+const routes: Routes = [
+  { 
+    path: 'blog', 
+    loadChildren: () => import('./features/blog/blog.module').then(m => m.BlogModule)
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'blog',
+  }
+];
 
 @NgModule({
   declarations: [
@@ -11,9 +22,14 @@ import { CoreModule } from './modules/core/core.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     CoreModule,
-    JsonLdModule
+    RouterModule.forRoot(
+      routes, 
+      { 
+        scrollPositionRestoration: 'enabled', 
+        relativeLinkResolution: 'legacy',
+      },
+    )
   ],
   bootstrap: [AppComponent]
 })

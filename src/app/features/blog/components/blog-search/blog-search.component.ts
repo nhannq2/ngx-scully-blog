@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SEARCH_SECTION_TITLE } from '../../../../../../configuration';
+import { SEARCH_SECTION_TITLE } from '@configuration';
 
 @Component({
   selector: 'app-blog-search',

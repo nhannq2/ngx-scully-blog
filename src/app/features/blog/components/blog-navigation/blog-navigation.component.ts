@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EMAIL, FIRST_NAME, LAST_NAME, MENUS, PORTFOLIO_INFO, SOCIAL_LINKS } from '../../../../../../configuration';
+import { EMAIL, FIRST_NAME, LAST_NAME, MENUS, PORTFOLIO_INFO, SOCIAL_LINKS } from '@configuration';
 
 @Component({
   selector: 'app-blog-navigation',

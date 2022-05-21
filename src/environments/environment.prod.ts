@@ -1,5 +1,5 @@
 
-import { LOGGLY_TOKEN } from '../../configuration';
+import { LOGGLY_TOKEN } from '@configuration';
 import { IEnvironment } from 'src/app/models';
 
 export const environment: IEnvironment = {

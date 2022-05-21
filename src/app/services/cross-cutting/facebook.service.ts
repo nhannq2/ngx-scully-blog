@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FACEBOOK_PIXEL_ID } from '../../../../configuration';
+import { FACEBOOK_PIXEL_ID } from '@configuration';
 
 @Injectable({
   providedIn: 'root'

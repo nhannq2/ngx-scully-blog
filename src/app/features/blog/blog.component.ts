@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BLOG_INFO } from 'configuration';
+import { BLOG_INFO } from '@configuration';
 import { GlobalService, PostService } from '../../services';
 
 @Component({

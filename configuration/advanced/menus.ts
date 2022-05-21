@@ -16,7 +16,7 @@ export const MENUS: IMenu[] = [
     /**
      * Navigate to blog home page
      */
-    {name: 'Home', route: '/', icon: ['fas', 'home']},
+    {name: 'Blogs', route: '/blog', icon: ['fas', 'home']},
     /**
      * Navigate to about page
      * 

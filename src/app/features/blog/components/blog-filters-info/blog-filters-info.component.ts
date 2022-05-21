@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CATEGORY_FILTER_TEXT, SEARCH_FOR_TEXT } from '../../../../../../configuration';
+import { CATEGORY_FILTER_TEXT, SEARCH_FOR_TEXT } from '@configuration';
 import { ICategory } from 'src/app/models';
 
 @Component({

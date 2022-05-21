@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { COPYRIGHT_CONTENT } from '../../../../../../configuration';
+import { COPYRIGHT_CONTENT } from '@configuration';
 
 @Component({
   selector: 'app-blog-footer',
