@@ -56,7 +56,7 @@ export const BLOG_ROOT_URL = "https://nhannguyendacoder.com/blog";
 export const BLOG_TITLE = "Nhan Nguyen Blog"
 // An description that is displayed in the preview section when home page is shared on social networks.
 export const BLOG_SHORT_DESCRIPTION =
-"Xin chào, mình là Nhân Nguyễn. Mình viết blog hướng dẫn lập trình web dành cho người tự học lập trình."
+"Hi, my name is Nhan (Nathan), I'm a fullstack developer."
 export const BLOG_KEYWORDS =
 "tu hoc lap trinh, lap trinh, programming, angular, golang, go, javascript, typescript"
 /**
