@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { LogglyService } from 'ngx-loggly-logger';
-import { ILoggingFullData } from '@models';
+import { LoggingFullData } from '@models';
 import { environment } from '@environments/environment';
 import { LogWriter } from './log-writer';
 import { LoggingService } from './logging.service';
@@ -57,7 +57,7 @@ export class LogglyWriter extends LogWriter {
      * writer.
      * @param logEntry
      */
-    private formatEntry(logEntry: ILoggingFullData): string {
+    private formatEntry(logEntry: LoggingFullData): string {
         return `
             timestamp: ${new Date(logEntry?.timestamp).toISOString()}; 
             application: ${logEntry?.application}; 

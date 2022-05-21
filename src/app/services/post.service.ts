@@ -3,43 +3,37 @@ import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { StringHelper } from '@helpers'; 
-import { ICategory, IPost } from '@models'; 
+import { Post } from '@models'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   private searchTerm = new BehaviorSubject<string>('')
-  private category = new BehaviorSubject<ICategory|null>(null)
-  private filters$ = combineLatest([this.searchTerm, this.category])
-  private _posts: IPost[] = []
-  private _relatedPosts: IPost[] = []
+  private filters$ = combineLatest([this.searchTerm])
+  private _posts: Post[] = []
+  private _relatedPosts: Post[] = []
 
-  get currentPost(): Observable<IPost> {
+  get currentPost(): Observable<Post> {
     return this.scullyRoutes.getCurrent().pipe(
       map(post => {
-        return post as IPost
+        return post as Post
       })
     )
   }
-  get relatedPosts(): IPost[] {
+  get relatedPosts(): Post[] {
     return this._relatedPosts
   }
-  get posts(): IPost[] {
+  get posts(): Post[] {
     return this._posts
   }
-  readonly category$ = this.category.asObservable()
   readonly searchTerm$ = this.searchTerm.asObservable()
 
   constructor(private scullyRoutes: ScullyRoutesService) { 
     this.scullyRoutes.getCurrent().subscribe(post => {
-      this.setRelatedPostsToCurrentPost(post as IPost)
+      this.setRelatedPostsToCurrentPost(post as Post)
     })
     this.fetchPosts()
-  }
-
-  filterByCategory(category: ICategory) {
-    this.category.next(category)
   }
 
   search(searchTerm: string) {
@@ -48,9 +42,9 @@ export class PostService {
 
   private fetchPosts() {
     this.filters$.pipe(
-      switchMap(([searchTerm, category]) => {
+      switchMap(([searchTerm]) => {
         return this.scullyRoutes.available$.pipe(
-          map((routes: IPost[]) => this.filterPosts(routes, category?.key || '', searchTerm))
+          map((routes: Post[]) => this.filterPosts(routes, searchTerm))
         )
       })
     )
@@ -59,7 +53,7 @@ export class PostService {
     })
   }
 
-  private setRelatedPostsToCurrentPost(currentPost: IPost) {
+  private setRelatedPostsToCurrentPost(currentPost: Post) {
     if (!currentPost || !currentPost.categories) {
       return
     }
@@ -78,7 +72,7 @@ export class PostService {
     })
   }
 
-  private filterPosts(posts: IPost[], categorykey?: string, searchTerm?: string): IPost[] {
+  private filterPosts(posts: Post[], searchTerm?: string): Post[] {
     let results = posts
       .filter(
         route => 
@@ -87,15 +81,6 @@ export class PostService {
           route.title && 
           route.description
       )
-
-    if (categorykey) {
-      results = results.filter(post => {
-        if (!post.categories) {
-          return false
-        }
-        return post.categories.toLowerCase().includes(categorykey.toLowerCase())
-      })
-    }
 
     if (searchTerm) {
       results = results.filter(post => {

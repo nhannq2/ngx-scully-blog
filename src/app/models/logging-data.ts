@@ -1,4 +1,4 @@
-export interface ILoggingData {
+export interface LoggingData {
     message?: string
     errorName?: string
     errorCode?: number
@@ -8,7 +8,7 @@ export interface ILoggingData {
 }
 
 // for internal use in logging service only
-export interface ILoggingFullData extends ILoggingData {
+export interface LoggingFullData extends LoggingData {
     applicationName: string
     timestamp: number
     level: LoggingLevel

@@ -22,7 +22,6 @@ import { BlogPostItemComponent } from "./blog-home/blog-post-item/blog-post-item
 import { BlogPageDetailComponent } from "./blog-page-detail/blog-page-detail.component";
 import { BlogPostComponent } from "./blog-post/blog-post.component";
 import { BlogComponent } from "./blog.component";
-import { BlogCategoriesComponent } from "./components/blog-categories/blog-categories.component";
 import { BlogFiltersInfoComponent } from "./components/blog-filters-info/blog-filters-info.component";
 import { BlogFooterComponent } from "./components/blog-footer/blog-footer.component";
 import { BlogNavigationComponent } from "./components/blog-navigation/blog-navigation.component";
@@ -47,7 +46,6 @@ const routes: Routes = [
     BlogNavigationComponent,
     BlogFooterComponent,
     BlogSearchComponent,
-    BlogCategoriesComponent,
     BlogPostComponent,
     BlogPostItemComponent,
     BlogFiltersInfoComponent,

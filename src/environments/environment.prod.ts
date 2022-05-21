@@ -1,8 +1,8 @@
 
 import { LOGGLY_TOKEN } from '@configuration';
-import { IEnvironment } from '@models';
+import { Environment } from '@models';
 
-export const environment: IEnvironment = {
+export const environment: Environment = {
   production: true,
   applicationName: 'Nhan Nguyen Da Coder',
   logging: {

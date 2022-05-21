@@ -1,4 +1,4 @@
-export interface ILoggingConfiguration {
+export interface LoggingConfiguration {
     sendToConsole: boolean,
     logglyToken: string,
 }
@@ -6,8 +6,8 @@ export interface ILoggingConfiguration {
 /**
  * Difine all necessary environment information.
  */
-export interface IEnvironment {
+export interface Environment {
     production: boolean
     applicationName: string
-    logging: ILoggingConfiguration
+    logging: LoggingConfiguration
 }

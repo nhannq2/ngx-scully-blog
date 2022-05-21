@@ -1,36 +1,36 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
-import { ILoggingData } from '@models';
+import { LoggingData } from '@models';
 
 @Injectable({
     providedIn: 'root'
 })
 export class LoggingService {
-    private logEntriesSubject = new ReplaySubject<ILoggingData>(1)
+    private logEntriesSubject = new ReplaySubject<LoggingData>(1)
     logEntries$ = this.logEntriesSubject.asObservable()
 
     constructor() {
         // console.info('Init LoggingService')
     }
 
-    info(data: ILoggingData) {
+    info(data: LoggingData) {
         this.log({level: 'info', ...data})
     }
 
-    warn(data: ILoggingData) {
+    warn(data: LoggingData) {
         this.log({level: 'warn', ...data})
     }
 
-    error(data: ILoggingData) {
+    error(data: LoggingData) {
         this.log({level: 'error', ...data})
     }
 
-    debug(data: ILoggingData) {
+    debug(data: LoggingData) {
         this.log({level: 'debug', ...data})
     }
 
     
-    private log(data: ILoggingData) {
+    private log(data: LoggingData) {
         this.logEntriesSubject.next(data)
     }
 }

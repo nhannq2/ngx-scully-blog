@@ -2,7 +2,7 @@
  * A menu item in your blog.
  * Example: Home, About
  */
-export interface IMenu {
+export interface Menu {
     /**
      * Display name
      */

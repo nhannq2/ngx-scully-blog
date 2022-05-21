@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ICategory } from '@models';
 import { PostService, SeoHelperService } from '@services';
-import { AD_SLOT, CATEGORIES } from '@configuration';
+import { AD_SLOT } from '@configuration';
 
 @Component({
   selector: 'app-blog-home',
@@ -19,21 +18,8 @@ export class BlogHomeComponent {
     seo.setData()
 
     route.queryParamMap.subscribe(qM => {
-      let cat = this.getCategory(qM.get('c'))
       let searchTerm = qM.get('s')
-
-      if (cat) {
-        postService.filterByCategory(cat)
-      }
-
       postService.search(searchTerm || '')
     })
-  }
-
-  private getCategory(key: string): ICategory|null {
-    let filteredCats = CATEGORIES.filter(
-      c => c.key.toLowerCase() == (key || '').toLowerCase()
-    )
-    return filteredCats.length ? filteredCats[0]:null
   }
 }

@@ -8,6 +8,7 @@
             class="form-control mr-md-1 search" 
             placeholder="Search..."
             [(ngModel)]="lastSearch"
+            autofocus
             #searchInput
             (keyup.enter)="doSearch(searchInput.value)"
             >

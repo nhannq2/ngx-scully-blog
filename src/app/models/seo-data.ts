@@ -1,4 +1,4 @@
-export interface ISEOData {
+export interface SEOData {
     title?: string
     description?: string
     image?: string

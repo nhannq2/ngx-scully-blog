@@ -1,10 +1,10 @@
-import { ILoggingConfiguration, ILoggingData, ILoggingFullData } from '@models';
+import { LoggingConfiguration, LoggingData, LoggingFullData } from '@models';
 import { environment } from '@environments/environment';
 import { LoggingService } from './logging.service';
 
 export abstract class LogWriter {
-    protected configs: ILoggingConfiguration
-    protected targetEntry: ILoggingFullData
+    protected configs: LoggingConfiguration
+    protected targetEntry: LoggingFullData
     private applicationName: string
 
     constructor(loggingService: LoggingService) {
@@ -55,12 +55,12 @@ export abstract class LogWriter {
      */
     finish() { }
 
-    private handleLogEntry(logEntry: ILoggingData) {
+    private handleLogEntry(logEntry: LoggingData) {
         this.targetEntry = this.getLoggingData(logEntry)
         this.execute();
     }
 
-    private getLoggingData(data: ILoggingData): ILoggingFullData {
+    private getLoggingData(data: LoggingData): LoggingFullData {
         return {
             timestamp: new Date().getTime(),
             applicationName: this.applicationName,
