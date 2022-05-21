@@ -16,9 +16,11 @@
       "dom"
     ],
     "paths": {
-      "@modules/*": ["src/app/modules/*"],
       "@configuration": ["configuration/index.ts"],
       "@configuration/*": ["configuration/*"],
+      "@modules/*": ["src/app/modules/*"],
+      "@services": ["src/app/services/index.ts"],
+      "@service/*": ["src/app/service/*"],
     }
   },
   "angularCompilerOptions": {

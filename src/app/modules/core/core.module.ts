@@ -21,8 +21,8 @@ import {
   InitLoggingAndWriters,
   LoggingService,
   LogglyWriter,
-} from "../../services";
-import { InitFacebookPixel } from "../../services/cross-cutting/init-facebook-pixel.factory";
+  InitFacebookPixel,
+} from "@services";
 
 @NgModule({
   imports: [

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ICategory } from 'src/app/models';
-import { PostService, SeoHelperService } from 'src/app/services';
+import { PostService, SeoHelperService } from '@services';
 import { CATEGORIES } from '@configuration';
 
 @Component({

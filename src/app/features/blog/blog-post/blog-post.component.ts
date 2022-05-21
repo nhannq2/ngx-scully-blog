@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { GlobalService, PostService, SeoHelperService } from 'src/app/services';
+import { GlobalService, PostService, SeoHelperService } from '@services';
 
 
 declare var ng: any;
