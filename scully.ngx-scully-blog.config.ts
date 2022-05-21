@@ -2,6 +2,7 @@ import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
 import { ScullyConfig, setPluginConfig } from '@scullyio/scully';
 import '@scullyio/scully-plugin-puppeteer'
 
+// sitemap
 const SitemapPlugin = getSitemapPlugin();
 setPluginConfig(SitemapPlugin, {
   // TODO: Update this urlPrefix to your domain
@@ -13,8 +14,11 @@ setPluginConfig(SitemapPlugin, {
   trailingSlash: true,
 });
 
+// code highlight
 setPluginConfig('md', { enableSyntaxHighlighting: true });
 
+
+// scully config
 export const config: ScullyConfig = {
   projectRoot: "./src",
   projectName: "ngx-scully-blog",
