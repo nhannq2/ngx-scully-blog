@@ -1,0 +1,20 @@
+<form class="signup-form form-inline justify-content-center pt-3">          
+    <div class="form-group">
+        <input 
+            type="text" 
+            id="search" 
+            name="search" 
+            class="form-control mr-md-1 search" 
+            placeholder="Search..."
+            [(ngModel)]="searchTerm"
+            autofocus
+            #searchInput
+            (keyup.enter)="doSearch(searchInput.value)"
+            >
+    </div>
+    <button 
+        type="submit" 
+        class="btn btn-primary"
+        (click)="doSearch(searchInput.value)"
+        ><fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon></button>
+</form>

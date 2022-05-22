@@ -1,37 +1,44 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2017",
+    "module": "es2020",
     "lib": [
-      "es2018",
+      "es2020",
       "dom"
     ],
     "paths": {
-      "@configuration": ["configuration/index.ts"],
-      "@configuration/*": ["configuration/*"],
-      "@modules/*": ["src/app/modules/*"],
-      "@services": ["src/app/services/index.ts"],
+      "@env/*": ["src/environments/*"],
+      "@config": ["src/app/config/index.ts"],
+      "@config/*": ["src/app/config/*"],
+      "@module/*": ["src/app/module/*"],
+      "@service": ["src/app/service/index.ts"],
       "@service/*": ["src/app/service/*"],
-      "@models": ["src/app/models/index.ts"],
-      "@models/*": ["src/app/models/*"],
-      "@helpers": ["src/app/helpers/index.ts"],
-      "@helpers/*": ["src/app/helpers/*"],
-      "@features": ["src/app/features/index.ts"],
-      "@features/*": ["src/app/features/*"],
-      "@environments/*": ["src/environments/*"],
+      "@model": ["src/app/model/index.ts"],
+      "@model/*": ["src/app/model/*"],
+      "@helper": ["src/app/helper/index.ts"],
+      "@helper/*": ["src/app/helper/*"],
     }
   },
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }

@@ -1,8 +1,0 @@
-<app-blog-post-item
-    *ngFor="let p of postService.posts; let i = index;"
-    [post]="p"
-    >
-    <ng-adsense *ngIf="(i+1)%5==0" [adSlot]="AD_SLOT"></ng-adsense>
-</app-blog-post-item>
-
-
