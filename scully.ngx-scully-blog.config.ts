@@ -1,5 +1,5 @@
 // import { getSitemapPlugin } from '@gammastream/scully-plugin-sitemap';
-// import { getHttp404Plugin } from "@gammastream/scully-plugin-http404";
+import { getHttp404Plugin } from "@gammastream/scully-plugin-http404";
 import {
   NotionDom,
   NotionDomPluginOptions,
@@ -9,7 +9,7 @@ import {
 import "@notiz/scully-plugin-lazy-images";
 import { ScullyConfig, setPluginConfig } from "@scullyio/scully";
 import "@scullyio/scully-plugin-puppeteer";
-// import { MinifyHtml } from "scully-plugin-minify-html";
+import { MinifyHtml } from "scully-plugin-minify-html";
 import { timeToRead, timeToReadOptions } from "scully-plugin-time-to-read";
 
 setPluginConfig(NotionDom, {
@@ -21,6 +21,26 @@ setPluginConfig(NotionDom, {
 setPluginConfig(timeToRead, {
   path: "/blog",
 } as timeToReadOptions);
+
+export const config: ScullyConfig = {
+  projectRoot: "./src",
+  projectName: "ngx-scully-blog",
+  outDir: "./dist/static",
+  defaultPostRenderers: [
+    MinifyHtml,
+    getHttp404Plugin(),
+    "seoHrefOptimise",
+    "lazyImages",
+  ],
+  routes: {
+    "/blog/:slug": {
+      type: NotionDomRouter,
+      postRenderers: [NotionDom],
+      databaseId: "1711090f063e401fa0840b3ce44a757b",
+      // notionApiKey: "secret_daYuK8nuNeFvxWrn0dIhDwZnGXyMN3fAdFG97gY5i3l"
+    } as NotionDomRouterPluginOptions,
+  },
+};
 
 // sitemap
 // const SitemapPlugin = getSitemapPlugin();
@@ -51,21 +71,3 @@ setPluginConfig(timeToRead, {
 //     },
 //   }
 // };
-export const config: ScullyConfig = {
-  projectRoot: "./src",
-  projectName: "ngx-scully-blog",
-  outDir: "./dist/static",
-  // defaultPostRenderers: [
-  //   MinifyHtml,
-  //   getHttp404Plugin(),
-  //   "seoHrefOptimise",
-  //   "lazyImages",
-  // ],
-  routes: {
-    "/blog/:slug": {
-      type: NotionDomRouter,
-      postRenderers: [NotionDom],
-      databaseId: "03771c044523415680552be9db67c777",
-    } as NotionDomRouterPluginOptions,
-  },
-};

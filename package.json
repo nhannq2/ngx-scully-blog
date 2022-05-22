@@ -12,7 +12,7 @@
     "scully": "npx scully",
     "scully:serve": "npx scully serve",
     "scully:preview": "npm run scully:build && npm run scully:serve",
-    "scully:build": "ng build --configuration production && npm run scully",
+    "scully:build": "ng build --configuration production && npm run scully -- --scanRoutes",
     "scully:build-and-deploy": "npm run scully:build && ./node_modules/.bin/firebase deploy",
     "postinstall": "ngcc"
   },
