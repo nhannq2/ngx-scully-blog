@@ -70,7 +70,7 @@ export const BLOG_KEYWORDS =
  * `https://yourdomain.com/assets/images/your-image-name`. For example,
  * `https://yourdomain.com/assets/images/preview.jpg`
  */
-export const BLOG_DEFAULT_COVER = 'assets/images/profile.jpg';
+export const BLOG_DEFAULT_COVER = 'assets/images/default_share_img.jpg';
 
 //Your copyright text, in HTML format
 export const BLOG_COPYRIGHT_CONTENT = `Copyright &copy; ${new Date().getFullYear()} ${BLOG_TITLE}. All Rights Reserved.`;

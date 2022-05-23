@@ -7,7 +7,7 @@ import { Menu } from '@model';
  * - An optional icon
  */
 export const MENUS: Menu[] = [
-    // Navigate to blog home page
     {name: 'Blogs', route: '/'},
     {name: 'About Me', route: '/blog/about-me'},
+    {name: 'RSS Feed', route: '/feed.xml'},
 ]

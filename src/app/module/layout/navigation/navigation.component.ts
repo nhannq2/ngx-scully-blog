@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BLOG_COPYRIGHT_CONTENT, EMAIL, FIRST_NAME, LAST_NAME, MENUS, PROFILE_IMAGE, SHORT_INTRODUCTION, SOCIAL_LINKS } from '@config';
 import { Menu, SocialLink } from '@model';
 
 @Component({
@@ -8,18 +9,11 @@ import { Menu, SocialLink } from '@model';
 })
 export class NavigationComponent {
   isMenuCollapsed = true
-  @Input()
-  menus?: Menu[]
-  @Input()
-  fullName?: string
-  @Input()
-  profileImage?: string
-  @Input()
-  introduction?: string
-  @Input()
-  socialLinks?: SocialLink[]
-  @Input()
-  email?: string
-  @Input()
-  copyrightText?: string
+  menus = MENUS
+  fullName = FIRST_NAME + ' ' + LAST_NAME
+  profileImage = PROFILE_IMAGE
+  introduction = SHORT_INTRODUCTION
+  socialLinks = SOCIAL_LINKS
+  email = EMAIL
+  copyrightText = BLOG_COPYRIGHT_CONTENT
 }

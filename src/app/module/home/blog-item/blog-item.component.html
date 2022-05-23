@@ -1,11 +1,9 @@
-<div class="item mb-5">
-    <div class="media">
-        <img class="mr-3 img-fluid post-thumb d-none d-md-flex" [src]="route?.cover || BLOG_DEFAULT_COVER" alt="post image">
-        <div class="media-body">
-            <h3 class="title mb-1"><a [routerLink]="route?.route">{{route?.title}}</a></h3>
-            <div class="meta mb-1" *ngIf="route?.createdAt"><span class="date">{{route?.createdAt | date}}</span></div>
-            <div class="intro">{{route?.description}}</div>
-            <a class="more-link" [routerLink]="route?.route">See more &rarr;</a>
-        </div>
+<div class="media">
+    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" [src]="route?.cover || BLOG_DEFAULT_COVER" alt="post image">
+    <div class="media-body">
+        <h3 class="title mb-1"><a [routerLink]="route?.route">{{route?.title}}</a></h3>
+        <div class="meta mb-1" *ngIf="route?.createdAt"><span class="date">{{route?.createdAt | date}}</span></div>
+        <div class="intro">{{route?.description}}</div>
+        <a class="more-link" [routerLink]="route?.route">See more &rarr;</a>
     </div>
 </div>

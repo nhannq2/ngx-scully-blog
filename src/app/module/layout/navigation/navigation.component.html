@@ -1,5 +1,5 @@
 <header class="header text-center" style="overflow-y: auto;">	    
-    <h1 class="blog-name pt-lg-4 mb-0"><a  routerLink="/">{{fullName}}</a></h1>
+    <h1 class="blog-name pt-lg-3 mb-0"><a  routerLink="/">{{fullName}}</a></h1>
     
     <nav class="navbar navbar-expand-lg navbar-dark" >
        
@@ -15,12 +15,12 @@
         </button>
 
         <div [ngbCollapse]="isMenuCollapsed" id="navigation" class="collapse navbar-collapse flex-column" >
-            <div class="profile-section pt-3 pt-lg-0">
-                <img class="profile-image mb-3 rounded-circle mx-auto" [src]="profileImage || 'assets/images/profile.jpg'" alt="profile image" >			
+            <div class="profile-section pt-1 pt-lg-0">
+                <img class="profile-image mb-2 rounded-circle mx-auto" [src]="profileImage || 'assets/images/profile.jpg'" alt="profile image" >			
                 
-                <div class="bio mb-3">{{introduction}}</div>
+                <div class="bio mb-2">{{introduction}}</div>
 
-                <ul class="social-list list-inline py-3 mx-auto">
+                <ul class="social-list list-inline py-1 mx-auto">
                     <li 
                         *ngFor="let item of socialLinks"
                         class="list-inline-item"
@@ -47,11 +47,11 @@
                 </li>
             </ul>
             
-            <div class="my-2 my-md-3">
+            <div class="my-2 my-md-2">
                 <a *ngIf="email" class="btn btn-primary" href="mailto:{{email}}">Get in Touch</a>
             </div>
             
-            <div class="my-2 my-md-3">
+            <div class="my-2 my-md-2">
                 <small [innerHTML]="copyrightText"></small>
                 <small class="copyright"> Designed by <a style="color: #fff;" href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a></small>
             </div>

@@ -5,7 +5,7 @@ TODO:
 - SEO
 - Comment
 - Tag, filter posts, display on post item, post detail page
-- Default sharing image with correct size
+<!-- - Default sharing image with correct size -->
 - Sitemap
 - Sharing button on post item and post detail page
 - Related posts based on tags

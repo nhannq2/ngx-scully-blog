@@ -1,6 +1,6 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {ActivatedRoute, Router, ROUTES} from '@angular/router';
-import { Route } from '@model';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AD_SLOT } from '@config';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
 import { SeoHelperService } from '@service';
 import { Subscription } from 'rxjs';
@@ -17,6 +17,7 @@ declare var ng: any;
 })
 export class BlogComponent implements OnInit {
   private sub?: Subscription
+  AD_SLOT = AD_SLOT
   ngOnInit() {}
 
   constructor(
