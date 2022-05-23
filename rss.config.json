@@ -1,0 +1,27 @@
+{
+    "title": "Nhan Nguyen Blog",
+    "description": "Personal blog of Nhan Nguyen",
+    "id": "https://nhannguyen.me",
+    "link": "https://nhannguyen.me",
+    "language": "en",
+    "image": "https://nhannguyen.me/assets/images/default_share_img.jpg",
+    "favicon": "https://nhannguyen.me/favicon.ico",
+    "copyright": "2022 nhannguyen.me",
+    "generator": "Personal blog of Nhan nguyen",
+    "filename": "feed",
+    "feedLinks": {
+      "atom": "https://nhannguyen.me/feed.atom",
+      "json": "https://nhannguyen.me/feed.json",
+      "xml": "https://nhannguyen.me/feed.xml"
+    },
+    "outDir": "./dist/static",
+    "categories": ["programming", "typescript", "angular", "golang", "scully"],
+    "blogPostRouteSlug": "/blog",
+    "newestPostsFirst": true,
+    "author":[{
+        "name": "Nhan Nguyen",
+        "email": "nhanpublic@gmail.com",
+        "link": "https://nhannguyen.me"
+    }]
+  }
+  

@@ -1,12 +1,21 @@
-<app-search [searchTerm]="searchTerm" (search)="search($event)"></app-search>
-<br>
+<section class="cta-section theme-bg-light pt-3 pt-md-5">
+  <div class="container text-center single-col-max-width">
+    <app-search [searchTerm]="searchTerm" (search)="search($event)"></app-search>
+  </div><!--//container-->
+</section>
 
-<ng-container *ngFor="let r of routes$ | async; let i = index">
-  <div class="item mb-3">
-    <app-blog-item [route]="r"></app-blog-item>
+<section class="blog-list px-3 py-3 p-md-5">
+  <div class="container">
+    <ng-container *ngFor="let r of routes$ | async; let i = index">
+      <div class="item mb-3">
+        <app-blog-item [route]="r"></app-blog-item>
+      </div>
+      <div class="item mb-3" *ngIf="(i+1)%2 == 0">
+        <ng-adsense [adSlot]="AD_SLOT"></ng-adsense>
+      </div>
+    </ng-container>
   </div>
-  <div class="item mb-3" *ngIf="(i+1)%2 == 0">
-    <ng-adsense [adSlot]="AD_SLOT"></ng-adsense>
-  </div>
-</ng-container>
+</section>
+
+
 

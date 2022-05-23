@@ -1,20 +1,26 @@
-<form class="signup-form form-inline justify-content-center pt-3">          
-    <div class="form-group">
-        <input 
-            type="text" 
-            id="search" 
-            name="search" 
-            class="form-control mr-md-1 search" 
-            placeholder="Search..."
-            [(ngModel)]="searchTerm"
-            autofocus
-            #searchInput
-            (keyup.enter)="doSearch(searchInput.value)"
-            >
+<div class="single-form-max-width pb-2 mx-auto">
+    <div class="single-form-max-width mx-auto">
+        <form class="signup-form row g-2 g-lg-2 align-items-center">          
+            <div class="col-12 col-md-9">
+                <input 
+                    type="text" 
+                    id="search" 
+                    name="search" 
+                    class="form-control me-md-1 semail" 
+                    placeholder="Search..."
+                    [(ngModel)]="searchTerm"
+                    autofocus
+                    #searchInput
+                    (keyup.enter)="doSearch(searchInput.value)"
+                    >
+            </div>
+            <div class="col-12 col-md-2 mt-1 mt-md-0">
+                <button 
+                    type="submit" 
+                    class="btn btn-primary"
+                    (click)="doSearch(searchInput.value)"
+                    ><fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon></button>
+            </div>
+        </form>
     </div>
-    <button 
-        type="submit" 
-        class="btn btn-primary"
-        (click)="doSearch(searchInput.value)"
-        ><fa-icon [icon]="['fas', 'search']" size="1x"></fa-icon></button>
-</form>
+</div>

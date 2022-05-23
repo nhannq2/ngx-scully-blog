@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.searchTermSubject,
   ]).pipe(
     map(([routes, searchTerm]) => {
+      console.log(routes)
       return ((routes as Route[]) || [])
         .filter(
           (r) => r.route.includes('/blog') && r.title && r.status == 'Published'

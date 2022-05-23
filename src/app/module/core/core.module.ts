@@ -7,6 +7,7 @@ import {
   SkipSelf,
 } from '@angular/core';
 import { AD_CLIENT, GOOGLE_ANALYTICS_TRACKING_ID } from '@config';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 import {
   ConsoleWriter,
   ErrorHandlingService,
@@ -34,6 +35,7 @@ import { JsonLdModule } from 'ngx-seo';
     AdsenseModule.forRoot({
       adClient: AD_CLIENT,
     }),
+    ScullyLibModule.forRoot()
   ],
   providers: [
     {

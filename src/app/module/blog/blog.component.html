@@ -1,3 +1,24 @@
-<scully-content></scully-content>
-<hr />
-<ng-adsense [adSlot]="AD_SLOT"></ng-adsense>
+<article class="blog-post px-3 py-5 p-md-5">
+    <div class="container single-col-max-width">
+        <ng-container *ngIf="currentRoute$|async as route">
+            <header class="blog-post-header">
+                <h2 class="title mb-2">{{route?.title}}</h2>
+                <div class="meta mb-3"><span class="date">{{route?.publishedAt | date}}</span></div>
+            </header>
+            
+            <div class="blog-post-body">
+                <figure class="blog-banner">
+                    <img class="img-fluid" [src]="route?.cover || BLOG_DEFAULT_COVER" alt="image">
+                </figure>
+                <p>{{route?.description}}</p>
+                <hr>
+            </div>
+        </ng-container>
+        
+        <div class="blog-post-body">
+            <scully-content></scully-content>
+            <hr />
+            <ng-adsense [adSlot]="AD_SLOT"></ng-adsense>
+        </div>
+    </div>
+</article>

@@ -47,3 +47,4 @@ scullyStats.json
 /scully/**/*.js
 /scully/**/*.js.map
 /scully/**/*.d.ts
+scully.ngx-scully-blog.config.js
