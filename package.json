@@ -1,6 +1,6 @@
 {
   "name": "ngx-scully-blog",
-  "version": "0.0.0",
+  "version": "5.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,7 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "scully": "npx scully --",
-    "scully:serve": "npx scully serve --"
+    "scully:build": "ng build --configuration production && npm run scully -- --scanRoutes",
+    "scully:serve": "npx scully serve --",
+    "scully:preview": "npm run scully:build && npm run scully:serve"
   },
   "private": true,
   "dependencies": {

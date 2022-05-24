@@ -36,10 +36,9 @@
             <ul class="navbar-nav flex-column text-left">
                 <li *ngFor="let m of menus" class="nav-item">
                     <a 
-                        routerLinkActive="active"  [routerLinkActiveOptions]="{exact:true}"
-                        (click)="isMenuCollapsed = !isMenuCollapsed" 
+                        routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
                         class="nav-link" 
-                        routerLink="{{m?.route}}"
+                        [routerLink]="m?.route"
                         >
                         <fa-icon *ngIf="m.icon" [icon]="m.icon" size="1x"></fa-icon>
                         {{m?.name}}

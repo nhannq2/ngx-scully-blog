@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BLOG_COPYRIGHT_CONTENT, EMAIL, FIRST_NAME, LAST_NAME, MENUS, PROFILE_IMAGE, SHORT_INTRODUCTION, SOCIAL_LINKS } from '@config';
 
 @Component({
