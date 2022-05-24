@@ -3,7 +3,15 @@
         <ng-container *ngIf="currentRoute$|async as route">
             <header class="blog-post-header">
                 <h2 class="title mb-2">{{route?.title}}</h2>
-                <div class="meta mb-3"><span class="date">{{route?.publishedAt | date}}</span></div>
+                <div class="meta mb-3">
+                    <span class="date">{{route?.publishedAt | date}}</span>
+                    <span class="date" *ngFor="let tag of route?.tags">
+                        <a
+                            [routerLink]="['/']"
+                            [queryParams]="{t: tag || null}"
+                        >{{tag}}</a>
+                    </span>
+                </div>
             </header>
             
             <div class="blog-post-body">

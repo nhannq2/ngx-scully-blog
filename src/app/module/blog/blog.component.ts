@@ -32,7 +32,6 @@ export class BlogComponent implements OnInit {
   ) {
     this.sub = this.currentRoute$.subscribe(
       (route) => {
-        console.log(route)
         seo.setData({
           // title: post?.title,
           // keywords: post?.keywords,

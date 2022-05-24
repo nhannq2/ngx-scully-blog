@@ -7,6 +7,6 @@ import { Menu } from '@model';
  * - An optional icon
  */
 export const MENUS: Menu[] = [
-    {name: 'Blogs', route: '/', icon: ['fas', 'home']},
+    {name: 'Home', route: '/', icon: ['fas', 'home']},
     {name: 'About Me', route: '/blog/about-me', icon: ['fas', 'user']},
 ]

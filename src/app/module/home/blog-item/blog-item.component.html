@@ -2,7 +2,13 @@
     <img class="mr-3 img-fluid post-thumb d-none d-md-flex" [src]="route?.cover || BLOG_DEFAULT_COVER" alt="post image">
     <div class="media-body">
         <h3 class="title mb-1"><a [routerLink]="route?.route">{{route?.title}}</a></h3>
-        <div class="meta mb-1" *ngIf="route?.publishedAt"><span class="date">{{route?.publishedAt | date}}</span></div>
+        <div class="meta mb-1">
+            <span class="date" *ngIf="route?.publishedAt">{{route?.publishedAt | date}}</span>
+            <span class="date" *ngFor="let tag of route?.tags">
+                <a role="button" (click)="filterTag.emit(tag)">{{tag}}</a>
+                
+            </span>
+        </div>
         <div class="intro">{{route?.description}}</div>
         <a class="more-link" [routerLink]="route?.route">See more &rarr;</a>
     </div>
