@@ -26,8 +26,8 @@
         <div class="blog-post-body">
             <scully-content></scully-content>
             <hr />
-            <ng-adsense [adSlot]="AD_SLOT"></ng-adsense>
-            <div [appGiscus]="isProd"></div>
+            <div [appGiscus]="!isProd"></div>
+            <ng-adsense *ngIf="AD_SLOT" [adSlot]="AD_SLOT"></ng-adsense>
         </div>
     </div>
 </article>

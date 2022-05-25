@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { AfterViewInit, Directive, ElementRef, Inject, Input } from '@angular/core';
+import { GISCUS_DATA_CATEGORY, GISCUS_DATA_CATEGORY_ID, GISCUS_DATA_REPO, GISCUS_DATA_REPO_ID } from '@config';
 
 @Directive({
   selector: '[appGiscus]',
@@ -15,14 +16,14 @@ export class GiscusDirective implements AfterViewInit {
         const scriptEl = this.document.createElement('script');
         scriptEl.async = true;
         scriptEl.src = 'https://giscus.app/client.js';
-        scriptEl.setAttribute('data-repo', 'nartc/tnc-scully');
-        scriptEl.setAttribute('data-repo-id', 'MDEwOlJlcG9zaXRvcnkyNjgzNzE2Mjc=');
-        scriptEl.setAttribute('data-category', 'Announcements');
-        scriptEl.setAttribute('data-category-id', 'DIC_kwDOD_8Gq84CAbUC');
+        scriptEl.setAttribute('data-repo', GISCUS_DATA_REPO);
+        scriptEl.setAttribute('data-repo-id', GISCUS_DATA_REPO_ID);
+        scriptEl.setAttribute('data-category', GISCUS_DATA_CATEGORY);
+        scriptEl.setAttribute('data-category-id', GISCUS_DATA_CATEGORY_ID);
         scriptEl.setAttribute('data-mapping', 'pathname');
         scriptEl.setAttribute('data-reactions-enabled', '1');
         scriptEl.setAttribute('data-emit-metadata', '0');
-        scriptEl.setAttribute('data-theme', 'preferred_color_scheme');
+        scriptEl.setAttribute('data-theme', 'light');
         scriptEl.setAttribute('data-lang', 'en');
         scriptEl.setAttribute('crossorigin', 'anonymous');
         this.el.nativeElement.appendChild(scriptEl);
