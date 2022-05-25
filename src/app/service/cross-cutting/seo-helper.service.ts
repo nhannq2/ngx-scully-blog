@@ -16,7 +16,7 @@ import {
   SeoSocialShareService,
 } from "ngx-seo";
 
-export interface SeoData {
+export interface SEOData {
   title: string;
   keywords: string;
   description: string;
@@ -37,8 +37,9 @@ export class SeoHelperService {
     private router: Router
   ) {}
 
-  async setData(data?: Partial<SeoData>) {
-    const convertedData = this.convertToSeoSocialShareData(data || {});
+  async setData(data?: Partial<SEOData>) {
+    const convertedData = this.convertToSEOSocialShareData(data || {});
+    
     this.title.setTitle(convertedData?.title as string);
     this.seoSocialShareService.setData(convertedData);
 
@@ -51,15 +52,13 @@ export class SeoHelperService {
     this.jsonLdService.setData(jsonLdObject);
   }
 
-  private convertToSeoSocialShareData(
-    data: Partial<SeoData>
-  ): SeoSocialShareData {
+  private convertToSEOSocialShareData(data: Partial<SEOData>): SeoSocialShareData {
     return {
       ...data,
       title: data.title ? BLOG_TITLE + " - " + data.title : BLOG_TITLE,
       image: data.image
-        ? BLOG_ROOT_URL + "/" + data.image
-        : BLOG_DEFAULT_COVER,
+        ? data.image
+        : BLOG_ROOT_URL + "/" + BLOG_DEFAULT_COVER,
       keywords: data.keywords || BLOG_KEYWORDS,
       description: data.description || BLOG_DESCRIPTION,
       url: BLOG_ROOT_URL + this.router.url,

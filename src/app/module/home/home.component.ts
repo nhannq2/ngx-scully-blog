@@ -47,12 +47,12 @@ export class HomeComponent implements OnInit {
   );
 
   constructor(
-    seo: SeoHelperService,
+    seoHelper: SeoHelperService,
     public scullyRoutes: ScullyRoutesService,
     public route: ActivatedRoute,
     private router: Router
   ) {
-    seo.setData();
+    seoHelper.setData();
 
     const tag = route.snapshot.queryParamMap.get("t") || ''
     this.filterByTag(tag)

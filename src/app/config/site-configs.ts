@@ -55,7 +55,7 @@ export const PROFILE_IMAGE = 'assets/images/profile.jpg';
 // Blog information
 
 // Your root url. Normally, this url is: your-firebase-project-name.web.app
-export const BLOG_ROOT_URL = 'https://nhannguyen.me';
+export const BLOG_ROOT_URL = 'https://ngx-scully-blog.web.app';
 export const BLOG_TITLE = 'Nhan Nguyen Blog';
 // An description that is displayed in the preview section when home page is shared on social networks.
 export const BLOG_DESCRIPTION =

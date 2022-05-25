@@ -29,17 +29,17 @@ export class BlogComponent implements OnInit {
   constructor(
     private router: Router, 
     private route: ActivatedRoute,
-    seo: SeoHelperService,
-    private scullyRoutes: ScullyRoutesService
+    private scullyRoutes: ScullyRoutesService,
+    seoHelper: SeoHelperService,
   ) {
     this.sub = this.currentRoute$.subscribe(
       (route) => {
-        seo.setData({
-          // title: post?.title,
-          // keywords: post?.keywords,
-          // description: post?.description,
-          // image: post?.image,
-          // type: 'article'
+        seoHelper.setData({
+          title: route?.title,
+          keywords: route?.tags?.join(','),
+          description: route?.description,
+          image: route?.cover,
+          type: 'article'
         })
       } 
     )
