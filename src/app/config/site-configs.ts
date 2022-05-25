@@ -39,7 +39,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 // Introduce who you are, what are you doing
 export const SHORT_INTRODUCTION =
-  "Hi, my name is Nhan (Nathan), I'm a fullstack developer.";
+  "I'm a full-stack developer with the main focus on Golang and Angular.";
 
 /**
  * Your profile image url. Should be a square image.
@@ -59,7 +59,7 @@ export const BLOG_ROOT_URL = 'https://nhannguyen.me';
 export const BLOG_TITLE = 'Nhan Nguyen Blog';
 // An description that is displayed in the preview section when home page is shared on social networks.
 export const BLOG_DESCRIPTION =
-  "Hi, my name is Nhan (Nathan), I'm a fullstack developer.";
+  "Hi, my name is Nhan Nguyen (Nathan). I'm a full-stack developer with the main focus on Golang and Angular.";
 export const BLOG_KEYWORDS =
   'programming, angular, golang, go, javascript, typescript';
 /**
