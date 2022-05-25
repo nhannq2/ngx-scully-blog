@@ -5,9 +5,10 @@ import { ScullyLibModule } from '@scullyio/ng-lib';
 import { AdsenseModule } from 'ng2-adsense';
 import { BlogRoutingModule } from './blog-routing.module';
 import { BlogComponent } from './blog.component';
+import { GiscusDirective } from './giscus.directive';
 
 @NgModule({
-  declarations: [BlogComponent],
+  declarations: [BlogComponent, GiscusDirective],
   imports: [
     CommonModule,
     BlogRoutingModule,
