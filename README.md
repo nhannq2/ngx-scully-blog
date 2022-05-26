@@ -1,52 +1,71 @@
 # ngx-scully-blog
 
-Blogging on Notion, generating a static site with Angular, Scully, and hosting on Firebase.
+**ngx-scully-blog** is a simple blog made for developers that is easy to setup, support SEO, and more advanced features like Google Adsense, Google Analytics, Facebook Pixel, and many more.
+
+> Blogging on Notion, generating a static site with Angular, Scully, and hosting on Firebase.
 
 ![ngx-scully-blog-demo.jpg](./ngx-scully-blog-demo.jpg)
 
-**Ngx-scully-blog** is a simple blog made for developers that is easy to setup, support SEO, and more advanced features like Google Adsense, Google Analytics, Facebook Pixel, and many more.
-
 ## Getting started
 
-Fork this project first. Then:
+Fork this project and then clone the forked project
 
 ```bash
+git clone https://github.com/<your_username>/ngx-scully-blog.git && cd ngx-scully-blog
+```
 
-git clone https://github.com/<your_username>/ngx-scully-blog.git
+Install dependencies
 
-cd ngx-scully-blog
-
+```bash
 npm install
+```
 
+Export the default Notion API key. This is the key I created for demo purpose, you will setup with your own Notion later.
+
+```bash
 export NOTION_API_KEY=secret_daYuK8nuNeFvxWrn0dIhDwZnGXyMN3fAdFG97gY5i3l
+```
 
+Run Scully
+
+```bash
 npm run scully:preview
 ```
 
-Your blog will be available at [http://localhost:1668](http://localhost:1668)
+The demo blog with default data will be available at [http://localhost:1668](http://localhost:1668)
+
+## Make it your own
 
 ### Setup Firebase
 
-- Go to [https://console.firebase.google.com](https://console.firebase.google.com) and login as your Google account.
+- Go to [https://console.firebase.google.com](https://console.firebase.google.com) and login with your Google account.
 - After login, click on **Add project** button to create a new project.
 - Input your project name and click **Continue**.
 
-    **Note**: if your project name is `ngx-scully-blog`, your blog address will be `ngx-scully-blog.web.app`. You can buy a custom domain like `yourdomain.com` and add to your project later.
+    **Note**: if your project name is `ngx-scully-blog`, your blog address will be `ngx-scully-blog.web.app`. You can setup your custom domain as well.
 
 - Disable option **Enable Google analytics for this project** and click **Create project**
 
-    *If you already have a Google anlytics acount, you can leave this option on and click Next to setup Google analytics*
+### Setup Notion
+
+- Register or login at [notion.so](https://notion.so)
+- Create an integration at [notion.so/my-integrations](https://notion.so/my-integrations). Remember to copy the secret token!
+- Create a Notion databse with the same properties with [this database](https://ngx-scully-blog.notion.site/1711090f063e401fa0840b3ce44a757b?v=111d7e3df3b942e7ac25185c39503811) (or you can choose duplicate this one)
+
+  > - Title: Type Text
+  > - Status: Type Select (Published, Unlisted, WIP, Deleted)
+  > - Slug: Type Text (have no spaces)
+  > - Description: Type Text
+  > - Tags: Type Multi-select (create your own tags)
+  > - Published At: Type Created time
+
+- Go to the created database, and share it with the integration (Share → Select the integration in the Invite dropdown). Don’t forget the database id in the URL. It’s a series of characters after the last slash and before the question mark.
+  > Here’s a reference: https://www.notion.so/{USER}/**{DATABASE_ID}**?{someotherirrelevantstuff} If you only have 1 ID before the question mark in the URL, then the first ID is the Database ID i.e. https://www.notion.so/**{DATABASE_ID}**?{OtherIdThatDoesNotMatter}
 
 ### Personalize your blog
 
-- Open the source code directory (`ngx-scully-blog`) you have cloned on the last step on your code editor.
-- Open [`ngx-scully-blog/configuration/site-configs.ts`](./configuration/site-configs.ts) file. This is the place you can personalize the site's configurations and the contents displayed on your blog.
-- Now lets customize all the configurations in [`site-configs.ts`](./configuration/site-configs.ts) file to make the blog your own. I put useful comments for each configuration so you can read the comments if you need more infomation.
-- The final configuration your need to setup is for the sitemap plugin, which generate the `sitemap.xml` file for your blog.
-  - Open [`ngx-scully-blog/scully.ngx-scully-blog.config.ts`](./scully.ngx-scully-blog.config.ts) file.
-  - Update `urlPrefix` property value to your domain url. Normally, this url is: `your-firebase-project-name.web.app`
-
-All the configurations have been setup and you are good to go. Let's deploy your blog to Firebase!
+- Update the config values in `ngx-scully-blog/src/app/config/site-configs.ts` file. I put comments for each config so you can read the comments if you need more infomation.
+- Update favicon at `ngx-scully-blog/src/`
 
 ### Deploy your blog to Firebase
 
