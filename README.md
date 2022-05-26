@@ -8,8 +8,11 @@ Blogging on Notion, generating a static site with Angular, Scully, and hosting o
 
 ## Getting started
 
+Fork this project first. Then:
+
 ```bash
-git clone https://github.com/nhaancs/ngx-scully-blog.git
+
+git clone https://github.com/<your_username>/ngx-scully-blog.git
 
 cd ngx-scully-blog
 
