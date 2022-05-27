@@ -26,7 +26,7 @@
         <div class="blog-post-body">
             <scully-content></scully-content>
             <hr />
-            <div [appGiscus]="!isProd"></div>
+            <div *ngIf="GISCUS_DATA_REPO_ID" [appGiscus]="!isProd"></div>
             <ng-adsense *ngIf="AD_SLOT" [adSlot]="AD_SLOT"></ng-adsense>
         </div>
     </div>

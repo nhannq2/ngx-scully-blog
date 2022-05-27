@@ -69,7 +69,7 @@ The demo blog with default data will be available at [http://localhost:1668](htt
 - Update profile image (`ngx-scully-blog/src/assets/profile.jpg`)
 - Update default cover image of the blog (`ngx-scully-blog/src/assets/default_share_img.jpg`)
 - Replace the default database id with the id of the database you created (line 49 in `ngx-scully-blog/scully.ngx-scully-blog.config.ts` file)
-- Export `NOTION_API_KEY` again with your intergration token (`export NOTION_API_KEY=your_integration_token`)
+- Export `NOTION_API_KEY` again with your intergration token (`export NOTION_API_KEY=your_integration_token` or update in your `.profile` file)
 
 ### Deploy your blog to Firebase
 
@@ -125,7 +125,7 @@ Congrats, your blog has been online, everyone can see it now.
 - Open your database and create a new record
 - Fill in all properties
 
-  > **Note**: 
+  > **Note**:
   > - You have to fill in all the properties
   > - Only posts have status `Published` will be listed on your blog home page
 
@@ -133,7 +133,7 @@ Congrats, your blog has been online, everyone can see it now.
 
 ### Important note on post images
 
-Image links on Notion have expire time of one hour, you need to rebuild the blog to get new links each one hour. To prevent that, you need to upload post images else where like [Firebase storage](https://firebase.google.com/products/storage) or [Dropbox](https://www.dropbox.com) and then provide the links to Notion instead of upload directly on Notion.
+Image links on Notion have expire time of one hour, you need to rebuild the blog to get new links each one hour. To prevent that, you need to upload post images else where like [Firebase storage](https://firebase.google.com/products/storage) or [Dropbox](https://www.dropbox.com) and then provide the links to Notion instead of upload directly on Notion app.
 
 ### Preview your blog on local
 

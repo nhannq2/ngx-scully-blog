@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AD_SLOT, BLOG_DEFAULT_COVER } from '@config';
+import { AD_SLOT, BLOG_DEFAULT_COVER, GISCUS_DATA_REPO_ID } from '@config';
 import { environment } from '@env/environment';
 import { Route } from '@model';
 import { ScullyRoutesService } from '@scullyio/ng-lib';
@@ -23,6 +23,7 @@ export class BlogComponent implements OnInit {
   private sub?: Subscription
   AD_SLOT = AD_SLOT
   BLOG_DEFAULT_COVER = BLOG_DEFAULT_COVER
+  GISCUS_DATA_REPO_ID = GISCUS_DATA_REPO_ID
   isProd = environment.production;
   ngOnInit() {}
 
