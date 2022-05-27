@@ -1,6 +1,6 @@
 # ngx-scully-blog
 
-**ngx-scully-blog** is a simple blog made for developers that is easy to setup, support SEO, and more advanced features like Google Adsense, Google Analytics, Facebook Pixel, and many more.
+**ngx-scully-blog** is a simple blog made for developers that is easy to setup, support SEO, Google Adsense, Google Analytics, Facebook Pixel, and many more.
 
 > Blogging on Notion, generating a static site with Angular, Scully, and hosting on Firebase.
 
@@ -116,7 +116,7 @@ In the previous terminal, inside the project root directory, run the command `np
 
 Congrats, your blog has been online, everyone can see it now.
 
-**Note**: Your blog url is `your-firebase-project.web.app`. For example: `ngx-scully-blog.web.app`.
+> **Note**: Your blog url is `your-firebase-project.web.app`. For example: `ngx-scully-blog.web.app`.
 
 ## How to write and publish a blog post
 
@@ -124,10 +124,10 @@ Congrats, your blog has been online, everyone can see it now.
 
 - Open your database and create a new record
 - Fill in all properties
-- Note: 
 
-  - You have to fill in all the properties
-  - Only posts have status `Published` will be listed on your blog home page
+  > **Note**: 
+  > - You have to fill in all the properties
+  > - Only posts have status `Published` will be listed on your blog home page
 
 - Open the record and start to write your post content
 
