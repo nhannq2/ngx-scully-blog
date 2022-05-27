@@ -8,5 +8,5 @@ import { Menu } from '@model';
  */
 export const MENUS: Menu[] = [
     {name: 'Home', route: '/', icon: ['fas', 'home']},
-    {name: 'About Me', route: '/blog/about-me', icon: ['fas', 'user']},
+    // {name: 'About Me', route: '/blog/about-me', icon: ['fas', 'user']},
 ]
