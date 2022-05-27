@@ -4,6 +4,8 @@
 
 > Blogging on Notion, generating a static site with Angular, Scully, and hosting on Firebase.
 
+Live demo: https://ngxscullyblog.web.app
+
 ![ngx-scully-blog-demo.jpg](./ngx-scully-blog-demo.jpg)
 
 ## Getting started
@@ -116,7 +118,7 @@ In the previous terminal, inside the project root directory, run the command `np
 
 Congrats, your blog has been online, everyone can see it now.
 
-> **Note**: Your blog url is `your-firebase-project.web.app`. For example: `ngx-scully-blog.web.app`.
+> **Note**: Your blog url is `https://your-firebase-project-id.web.app`. For example: `https://ngxscullyblog.web.app`.
 
 ## How to write and publish a blog post
 
