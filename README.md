@@ -93,7 +93,7 @@ Go back to your editor's terminal. You should will see a successful message also
 - In the previous terminal, run the command `firebase init` to initiate your project.
 - Firebase CLI will ask you that **Which Firebase CLI features do you want to set up for this directory? Press Space to select features, then Enter to confirm your choices**:
 
-  - Use arrow down key to move the cursor to **Hosting: Configure and deploy Firebase Hosting sites** option.
+  - Use arrow down key to move the cursor to **Hosting: Configure files for Firebase Hosting and (optionally) set up GitHub Action deploys** option.
   - Press Space to select this option.
   - Press Enter to continue.
 
@@ -115,10 +115,6 @@ Ok, now you are ready to deploy your blog to Firebase.
 #### Deploy to Firebase hosting
 
 In the previous terminal, inside the project root directory, run the command `npm run scully:deploy`.
-
-Congrats, your blog has been online, everyone can see it now.
-
-> **Note**: Your blog url is `https://your-firebase-project-id.web.app`. For example: `https://ngxscullyblog.web.app`.
 
 ## How to write and publish a blog post
 
