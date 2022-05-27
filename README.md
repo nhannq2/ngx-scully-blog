@@ -44,7 +44,7 @@ The demo blog with default data will be available at [http://localhost:1668](htt
 - After login, click on **Add project** button to create a new project.
 - Input your project name and click **Continue**.
 
-  > **Note**: if your project name is `ngx-scully-blog`, your blog address will be `ngx-scully-blog.web.app`. You can setup your custom domain as well.
+  > **Note**: if your project id is `ngxscullyblog`, your blog address will be `ngxscullyblog.web.app`. You can setup your custom domain as well.
 
 - Disable option **Enable Google analytics for this project** and click **Create project**
 
