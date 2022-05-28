@@ -4,7 +4,7 @@
 
 > Blogging on Notion, generating a static site with Angular, Scully, and hosting on Firebase.
 
-Live demo: https://ngxscullyblog.web.app
+Live demo: https://ngx-scully-blog-demo.web.app
 
 ![ngx-scully-blog-demo.jpg](./ngx-scully-blog-demo.jpg)
 
@@ -44,7 +44,7 @@ The demo blog with default data will be available at [http://localhost:1668](htt
 - After login, click on **Add project** button to create a new project.
 - Input your project name and click **Continue**.
 
-  > **Note**: if your project id is `ngxscullyblog`, your blog address will be `ngxscullyblog.web.app`. You can setup your custom domain as well.
+  > **Note**: if your project id is `ngx-scully-blog-dem`, your blog address will be `https://ngx-scully-blog-demo.web.app`. You can setup your custom domain as well.
 
 - Disable option **Enable Google analytics for this project** and click **Create project**
 
