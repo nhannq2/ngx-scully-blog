@@ -38,16 +38,6 @@ The demo blog with default data will be available at [http://localhost:1668](htt
 
 ## Make it your own
 
-### Setup Firebase
-
-- Go to [https://console.firebase.google.com](https://console.firebase.google.com) and login with your Google account.
-- After login, click on **Add project** button to create a new project.
-- Input your project name and click **Continue**.
-
-  > **Note**: if your project id is `ngx-scully-blog-dem`, your blog address will be `https://ngx-scully-blog-demo.web.app`. You can setup your custom domain as well.
-
-- Disable the option **Enable Google analytics for this project** and click **Create project**
-
 ### Setup Notion
 
 - Register or login at [notion.so](https://notion.so)
@@ -71,7 +61,17 @@ The demo blog with default data will be available at [http://localhost:1668](htt
 - Update profile image (`ngx-scully-blog/src/assets/profile.jpg`)
 - Update default cover image of the blog (`ngx-scully-blog/src/assets/default_share_img.jpg`)
 - Replace the default database id with the id of the database you created (line 49 in `ngx-scully-blog/scully.ngx-scully-blog.config.ts` file)
-- Export `NOTION_API_KEY` again with your intergration token (`export NOTION_API_KEY=your_integration_token` or update in your `.profile` file)
+- Export `NOTION_API_KEY` again with your intergration token (`export NOTION_API_KEY=your_integration_token` or update in your `.profile`, `.bashrc` or `.zshrc` file)
+
+### Setup Firebase
+
+- Go to [https://console.firebase.google.com](https://console.firebase.google.com) and login with your Google account.
+- After login, click on **Add project** button to create a new project.
+- Input your project name and click **Continue**.
+
+  > **Note**: if your project id is `ngx-scully-blog-dem`, your blog address will be `https://ngx-scully-blog-demo.web.app`. You can setup your custom domain as well.
+
+- Disable the option **Enable Google analytics for this project** and click **Create project**
 
 ### Deploy your blog to Firebase
 
